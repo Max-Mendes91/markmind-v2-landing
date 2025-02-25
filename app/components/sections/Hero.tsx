@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Github } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 
 const containerVariants = {
@@ -29,75 +29,72 @@ const itemVariants = {
 
 export function Hero() {
   return (
-    <section className="container relative flex min-h-[90vh] flex-col items-center justify-center px-4">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative flex flex-col items-center gap-8"
-      >
-        <motion.div variants={itemVariants} className="relative">
-          <motion.div
-            animate={{
-              scale: [1, 1.05, 1],
-              rotate: [0, 5, -5, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
-            className="absolute -inset-4 rounded-full bg-black/[0.02] dark:bg-white/[0.02]"
-          />
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/markmind-logo-0gYhL95PSC4a6yVacyEL995je8fB2h.png"
-            alt="MarkMind Logo"
-            width={80}
-            height={80}
-            className="relative h-20 w-20 dark:invert"
-          />
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="space-y-6 text-center">
+    <section className="relative overflow-hidden py-20 md:py-32">
+      <div className="container px-4">
+        <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
           <Reveal>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-              <span className="bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent dark:from-white dark:to-white/70">
-                Your Bookmarks,
-              </span>
-              <br />
-              <span className="bg-gradient-to-b from-black/80 to-black/50 bg-clip-text text-transparent dark:from-white/80 dark:to-white/50">
-                Powered by AI
-              </span>
+            <h1 className="mb-8 text-4xl font-bold tracking-tight text-black/90 dark:text-white/90 sm:text-5xl md:text-6xl">
+              Organize Your Bookmarks <br className="hidden sm:block" />
+              with AI
             </h1>
           </Reveal>
           <Reveal>
-            <p className="mx-auto max-w-[600px] text-lg text-gray-600 dark:text-gray-400 sm:text-xl">
-              Organize, discover, and access your bookmarks intelligently. Let AI transform your browsing
-              experience.
+            <p className="mb-12 max-w-2xl text-lg text-black/60 dark:text-white/60">
+              MarkMind is a Chrome extension that uses AI to automatically organize your bookmarks into smart folders, making them easier to find and manage.
             </p>
           </Reveal>
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="flex gap-4">
-          <Link
-            href="#install"
-            className="group relative inline-flex h-12 items-center justify-center gap-2 rounded-full bg-black px-8 text-base font-medium text-white transition-all hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
-          >
-            <motion.span initial={{ x: 0 }} whileHover={{ x: -4 }}>
-              Add to Chrome
-            </motion.span>
-            <motion.span initial={{ x: 0 }} whileHover={{ x: 4 }}>
-              <ArrowRight className="h-4 w-4" />
-            </motion.span>
-          </Link>
-          <Link
-            href="#features"
-            className="group relative inline-flex h-12 items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-8 text-base font-medium transition-all hover:bg-black/[0.02] dark:border-white/10 dark:bg-gray-900 dark:text-white dark:hover:bg-white/[0.02]"
-          >
-            Learn more
-          </Link>
-        </motion.div>
-      </motion.div>
+          <Reveal>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="#"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-black px-8 text-sm font-medium text-white transition-colors hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 dark:bg-white dark:text-black dark:hover:bg-white/90 dark:focus:ring-white"
+              >
+                Add to Chrome
+              </Link>
+              <Link
+                href="https://github.com/yourusername/markmind"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-8 text-sm font-medium text-black transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 dark:border-white/20 dark:bg-gray-950 dark:text-white dark:hover:bg-gray-900 dark:focus:ring-white"
+              >
+                <Github className="h-5 w-5 mr-2" />
+                Star on GitHub
+              </Link>
+            </div>
+          </Reveal>
+          
+          <div className="mt-20 w-full" style={{ maxWidth: "65vw" }}>
+            <motion.div 
+              className="relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xl dark:border-white/10 dark:bg-gray-900"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
+              style={{ width: "100%", maxWidth: "800px", margin: "0 auto" }}
+            >
+              <div className="flex items-center gap-1.5 bg-gray-100 px-4 py-3 dark:bg-gray-800">
+                <div className="h-4 w-4 rounded-full bg-red-500" />
+                <div className="h-4 w-4 rounded-full bg-yellow-500" />
+                <div className="h-4 w-4 rounded-full bg-green-500" />
+                <div className="ml-4 flex h-10 w-full max-w-xl items-center rounded-md bg-white px-3 dark:bg-gray-700">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">https://markmind.extension</span>
+                </div>
+              </div>
+              <div className="aspect-video w-full bg-gray-50 dark:bg-gray-800">
+                <video 
+                  className="h-full w-full object-cover"
+                  poster="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screenshot-1-NXPxQPVZPPPPPPPPPPPPPPPPPPPPPPPP.png"
+                  controls
+                >
+                  <source src="https://example.com/markmind-demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </motion.div>
+            <p className="mt-6 text-sm text-black/50 dark:text-white/50">
+              Watch how MarkMind transforms your bookmarking experience
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   )
 } 

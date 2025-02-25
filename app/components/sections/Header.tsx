@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { Moon, Sun, ArrowRight } from "lucide-react"
+import { Moon, Sun } from "lucide-react"
 
 interface HeaderProps {
   theme: "light" | "dark"
@@ -32,17 +32,10 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-4">
           <button
             onClick={toggleTheme}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/5 bg-white text-gray-600 transition-colors hover:bg-black/[0.02] dark:border-white/5 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-white/[0.02]"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-gray-600 transition-colors hover:bg-black/[0.02] dark:border-white/10 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-white/[0.02]"
           >
             {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
           </button>
-          <Link
-            href="#install"
-            className="group relative inline-flex h-10 items-center justify-center gap-2 rounded-full bg-black px-6 text-sm font-medium text-white transition-all hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
-          >
-            Install Now
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
         </motion.div>
       </div>
     </motion.header>

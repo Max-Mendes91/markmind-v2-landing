@@ -77,16 +77,22 @@ export function Features() {
         >
           {features.map((feature, index) => (
             <Reveal key={feature.title}>
-              <motion.div
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative flex h-full min-h-[240px] flex-col overflow-hidden rounded-3xl border border-black/[0.05] bg-gradient-to-b from-white to-black/[0.02] p-8 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.05)] backdrop-blur-sm transition-all hover:border-black/[0.08] dark:border-white/[0.05] dark:from-white/[0.02] dark:to-white/[0.01] dark:shadow-[0_4px_12px_-2px_rgba(0,0,0,0.2)] dark:hover:border-white/[0.08] dark:hover:bg-white/[0.02]"
-              >
-                <div className="mb-5 text-black/80 dark:text-white/80">
-                  {feature.icon}
-                </div>
-                <h3 className="mb-2 text-lg font-semibold tracking-tight text-black/90 dark:text-white/90">{feature.title}</h3>
-                <p className="text-sm leading-relaxed text-black/60 dark:text-white/60">{feature.description}</p>
-              </motion.div>
+              <div className="rounded-3xl overflow-hidden">
+                <motion.div
+                  whileHover={{ 
+                    y: -8,
+                    scale: 1.02,
+                    transition: { type: "spring", stiffness: 300, damping: 20 }
+                  }}
+                  className="group relative flex h-full min-h-[240px] flex-col border border-black/10 bg-black p-8 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.1)] backdrop-blur-sm transition-colors dark:border-white/10 dark:bg-white"
+                >
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-white text-black dark:bg-black dark:text-white">
+                    {feature.icon}
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold tracking-tight text-white dark:text-black">{feature.title}</h3>
+                  <p className="text-sm leading-relaxed text-white/70 dark:text-black/70">{feature.description}</p>
+                </motion.div>
+              </div>
             </Reveal>
           ))}
         </motion.div>

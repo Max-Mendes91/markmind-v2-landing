@@ -9,6 +9,7 @@ import { Features } from "./components/sections/Features"
 import { Screenshots } from "./components/sections/Screenshots"
 import { CTA } from "./components/sections/CTA"
 import { Footer } from "./components/sections/Footer"
+import { motion } from "framer-motion"
 
 export default function Page() {
   const [theme, setTheme] = useState<"light" | "dark">("light")
@@ -28,10 +29,49 @@ export default function Page() {
       <AnimatedBackground />
       <Header theme={theme} toggleTheme={toggleTheme} />
       <main className="flex-1 pt-10">
-        <Hero />
-        <Features />
-        <Screenshots />
-        <CTA />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ 
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1]
+          }}
+        >
+          <Hero />
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          >
+            <Features />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          >
+            <Screenshots />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          >
+            <CTA />
+          </motion.div>
+        </motion.div>
       </main>
       <Footer />
     </div>

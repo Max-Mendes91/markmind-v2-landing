@@ -7,6 +7,7 @@ import { Header } from "./components/sections/Header"
 import { Hero } from "./components/sections/Hero"
 import { Features } from "./components/sections/Features"
 import { Screenshots } from "./components/sections/Screenshots"
+import { Installation } from "./components/sections/Installation"
 import { CTA } from "./components/sections/CTA"
 import { Footer } from "./components/sections/Footer"
 import { motion } from "framer-motion"
@@ -59,6 +60,17 @@ export default function Page() {
             }}
           >
             <Screenshots />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          >
+            <Installation />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 40 }}

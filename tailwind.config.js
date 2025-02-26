@@ -53,11 +53,16 @@ module.exports = {
       },
       animation: {
         "pulse-slow": "pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "border-pulse": "border-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         pulse: {
           "0%, 100%": { opacity: 0.2 },
           "50%": { opacity: 0.4 },
+        },
+        "border-pulse": {
+          "0%, 100%": { transform: "scale(1)", opacity: 0.4, borderColor: "rgba(251, 191, 36, 0.6)" },
+          "50%": { transform: "scale(1.08)", opacity: 0.7, borderColor: "rgba(245, 158, 11, 0.8)" },
         },
       },
     },

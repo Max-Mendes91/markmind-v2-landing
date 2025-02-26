@@ -46,7 +46,7 @@ export function Hero() {
           <Reveal>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="#"
+                href="#install"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-black px-8 text-sm font-medium text-white transition-colors hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 dark:bg-white dark:text-black dark:hover:bg-white/90 dark:focus:ring-white"
               >
                 Add to Chrome
@@ -55,10 +55,14 @@ export function Hero() {
                 href="https://github.com/yourusername/markmind"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-8 text-sm font-medium text-black transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 dark:border-white/20 dark:bg-gray-950 dark:text-white dark:hover:bg-gray-900 dark:focus:ring-white"
+                className="group relative inline-flex h-12 items-center justify-center gap-2 rounded-full border border-amber-200 bg-gradient-to-r from-amber-50 to-white px-8 text-sm font-medium text-amber-900 transition-colors hover:from-amber-100 hover:to-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 dark:border-amber-800 dark:from-gray-900 dark:to-gray-950 dark:text-amber-200 dark:hover:from-gray-800 dark:hover:to-gray-900 dark:focus:ring-amber-500 overflow-hidden"
               >
-                <Github className="h-5 w-5 mr-2" />
-                Star on GitHub
+                <span className="relative z-10 flex items-center">
+                  <Github className="h-5 w-5 mr-2 text-amber-700 dark:text-amber-300" />
+                  Star on GitHub
+                </span>
+                <span className="absolute inset-0 rounded-full border-2 border-amber-400/70 dark:border-amber-300/70 animate-border-pulse shadow-[0_0_10px_rgba(251,191,36,0.3)] dark:shadow-[0_0_10px_rgba(252,211,77,0.3)]"></span>
+                <span className="absolute inset-0 rounded-full border border-amber-300/30 dark:border-amber-200/30"></span>
               </Link>
             </div>
           </Reveal>

@@ -5,7 +5,7 @@ import { ThemeProvider } from './components/theme-provider'
 export const metadata: Metadata = {
   title: 'MarkMind - AI-Powered Bookmark Organization',
   description: 'MarkMind is a Chrome extension that uses AI to organize your bookmarks automatically.',
-  generator: 'v0.dev',
+
 }
 
 export default function RootLayout({

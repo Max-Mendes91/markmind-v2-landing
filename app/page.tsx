@@ -13,22 +13,11 @@ import { Footer } from "./components/sections/Footer"
 import { motion } from "framer-motion"
 
 export default function Page() {
-  const [theme, setTheme] = useState<"light" | "dark">("light")
-
-  useEffect(() => {
-    const isDark = theme === "dark"
-    document.documentElement.classList.toggle("dark", isDark)
-  }, [theme])
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"))
-  }
-
   return (
     <div className="flex min-h-screen flex-col bg-white transition-colors duration-300 dark:bg-gray-950">
       <AnimatedGradient />
       <AnimatedBackground />
-      <Header theme={theme} toggleTheme={toggleTheme} />
+      <Header />
       <main className="flex-1 pt-10">
         <motion.div
           initial={{ opacity: 0 }}

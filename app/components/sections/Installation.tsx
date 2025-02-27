@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { useState } from "react"
 import { Reveal } from "@/components/reveal"
-import { ArrowRight, Key, Download, Settings, X } from "lucide-react"
+import { ArrowRight, Key, Download, Settings, X, Search, FolderCheck, CheckCircle, Cpu } from "lucide-react"
 
 export function Installation() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -28,15 +28,15 @@ export function Installation() {
 
         <div className="mx-auto">
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Step 1: Install Extension */}
+            {/* Step 1: Pick your bookmarks */}
             <Reveal>
               <div className="flex flex-col items-center text-center rounded-xl border border-black/10 bg-white/50 p-6 shadow-md backdrop-blur-sm transition-all hover:border-black/20 hover:bg-white/60 hover:shadow-lg dark:border-white/10 dark:bg-gray-900/50 dark:hover:border-white/20 dark:hover:bg-gray-900/60">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-black">
-                  <Download className="h-8 w-8" />
+                  <Search className="h-8 w-8" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">1. Install Extension</h3>
+                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">1. Pick your bookmarks</h3>
                 <p className="mb-6 text-black/70 dark:text-white/70">
-                  Add MarkMind to Chrome from the Chrome Web Store. Click the "Add to Chrome" button and confirm the installation.
+                  Select the messy ones you've been avoiding. MarkMind works with your existing folder structure, no judgment here!
                 </p>
                 <button 
                   onClick={() => setSelectedImage(mockImageUrl)}
@@ -44,7 +44,7 @@ export function Installation() {
                 >
                   <Image 
                     src={mockImageUrl}
-                    alt="Chrome Web Store installation example" 
+                    alt="Bookmark selection example" 
                     fill
                     className="object-cover"
                   />
@@ -55,15 +55,15 @@ export function Installation() {
               </div>
             </Reveal>
 
-            {/* Step 2: Get API Key */}
+            {/* Step 2: AI analyzes them */}
             <Reveal>
               <div className="flex flex-col items-center text-center rounded-xl border border-black/10 bg-white/50 p-6 shadow-md backdrop-blur-sm transition-all hover:border-black/20 hover:bg-white/60 hover:shadow-lg dark:border-white/10 dark:bg-gray-900/50 dark:hover:border-white/20 dark:hover:bg-gray-900/60">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-black">
-                  <Key className="h-8 w-8" />
+                  <Cpu className="h-8 w-8" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">2. Get API Key</h3>
+                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">2. AI analyzes them</h3>
                 <p className="mb-6 text-black/70 dark:text-white/70">
-                  Sign up for an OpenAI account and generate an API key from your dashboard. This key powers the AI features of MarkMind.
+                  Our AI examines your bookmarks without judgment and understands what they're actually about.
                 </p>
                 <button 
                   onClick={() => setSelectedImage(mockImageUrl)}
@@ -71,7 +71,7 @@ export function Installation() {
                 >
                   <Image 
                     src={mockImageUrl}
-                    alt="OpenAI API key generation example" 
+                    alt="AI analysis example" 
                     fill
                     className="object-cover"
                   />
@@ -82,15 +82,15 @@ export function Installation() {
               </div>
             </Reveal>
 
-            {/* Step 3: Configure Extension */}
+            {/* Step 3: Review and approve */}
             <Reveal>
               <div className="flex flex-col items-center text-center rounded-xl border border-black/10 bg-white/50 p-6 shadow-md backdrop-blur-sm transition-all hover:border-black/20 hover:bg-white/60 hover:shadow-lg dark:border-white/10 dark:bg-gray-900/50 dark:hover:border-white/20 dark:hover:bg-gray-900/60">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-black">
-                  <Settings className="h-8 w-8" />
+                  <CheckCircle className="h-8 w-8" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">3. Configure Extension</h3>
+                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">3. Review and approve</h3>
                 <p className="mb-6 text-black/70 dark:text-white/70">
-                  Open MarkMind, go to settings, and enter your API key. Your key is stored locally and never shared with our servers.
+                  You're in charge - review the smart folder suggestions and approve what works for you. Our AI works FOR you!
                 </p>
                 <button 
                   onClick={() => setSelectedImage(mockImageUrl)}
@@ -98,7 +98,7 @@ export function Installation() {
                 >
                   <Image 
                     src={mockImageUrl}
-                    alt="MarkMind extension settings example" 
+                    alt="Review and approve example" 
                     fill
                     className="object-cover"
                   />
@@ -109,15 +109,6 @@ export function Installation() {
               </div>
             </Reveal>
           </div>
-
-          <Reveal>
-            <div className="mt-16 rounded-3xl border border-black/15 bg-white/60 p-6 shadow-sm dark:border-white/15 dark:bg-black/60">
-              <h3 className="mb-3 text-lg font-semibold text-black/90 dark:text-white/90">Important Note</h3>
-              <p className="text-black/70 dark:text-white/70">
-                MarkMind processes all your bookmarks locally in your browser. Your API key is only used to communicate directly with OpenAI's servers. We never see your bookmarks or your API key.
-              </p>
-            </div>
-          </Reveal>
         </div>
       </div>
 

@@ -3,14 +3,12 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, Laptop } from "lucide-react"
+import { useTheme } from "../../components/theme-provider"
 
-interface HeaderProps {
-  theme: "light" | "dark"
-  toggleTheme: () => void
-}
+export function Header() {
+  const { theme, setTheme } = useTheme()
 
-export function Header({ theme, toggleTheme }: HeaderProps) {
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -30,12 +28,41 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
           <span className="text-lg font-medium tracking-tight dark:text-white">MarkMind</span>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-4">
-          <button
-            onClick={toggleTheme}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black text-white transition-colors hover:bg-black/90 dark:border-white/10 dark:bg-white dark:text-black dark:hover:bg-white/90"
-          >
-            {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setTheme("light")}
+              className={`inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${
+                theme === "light" 
+                  ? "border-black/10 bg-black text-white hover:bg-black/90" 
+                  : "border-black/10 bg-white/10 text-black hover:bg-white/20 dark:border-white/10 dark:text-white"
+              }`}
+              aria-label="Light mode"
+            >
+              <Sun className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => setTheme("dark")}
+              className={`inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${
+                theme === "dark" 
+                  ? "border-white/10 bg-white text-black hover:bg-white/90" 
+                  : "border-black/10 bg-black/10 text-black hover:bg-black/20 dark:border-white/10 dark:text-white"
+              }`}
+              aria-label="Dark mode"
+            >
+              <Moon className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => setTheme("system")}
+              className={`inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${
+                theme === "system" 
+                  ? "border-black/10 bg-gradient-to-br from-black to-gray-700 text-white dark:border-white/10 dark:from-white dark:to-gray-300 dark:text-black" 
+                  : "border-black/10 bg-gray-100 text-black hover:bg-gray-200 dark:border-white/10 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+              }`}
+              aria-label="System theme"
+            >
+              <Laptop className="h-4 w-4" />
+            </button>
+          </div>
         </motion.div>
       </div>
     </motion.header>

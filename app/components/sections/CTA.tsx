@@ -19,10 +19,10 @@ export function CTA() {
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-black/90 dark:text-white/90 sm:text-4xl">
-                Transform Your Browsing
+                Life's Too Short For Messy Bookmarks!
               </h2>
               <p className="mt-4 text-black/60 dark:text-white/60">
-                Join thousands of users experiencing the future of bookmark management
+                Install MarkMind and experience bookmark nirvana! ✨
               </p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export function CTA() {
                   className="group relative inline-flex h-12 items-center justify-center gap-2 rounded-full bg-black px-8 text-sm font-medium text-white transition-all hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
                 >
                   <motion.span initial={{ x: 0 }} whileHover={{ x: -4 }}>
-                    Get Started
+                    Add to Chrome
                   </motion.span>
                   <motion.span initial={{ x: 0 }} whileHover={{ x: 4 }}>
                     <ArrowRight className="h-4 w-4" />

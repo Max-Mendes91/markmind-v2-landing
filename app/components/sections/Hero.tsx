@@ -34,13 +34,13 @@ export function Hero() {
         <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
           <Reveal>
             <h1 className="mb-8 text-4xl font-bold tracking-tight text-black/90 dark:text-white/90 sm:text-5xl md:text-6xl">
-              Organize Your Bookmarks <br className="hidden sm:block" />
-              with AI
+              MarkMind: AI-Powered <br className="hidden sm:block" />
+              Bookmark Organization
             </h1>
           </Reveal>
           <Reveal>
             <p className="mb-12 max-w-2xl text-lg text-black/60 dark:text-white/60">
-              MarkMind is a Chrome extension that uses AI to automatically organize your bookmarks into smart folders, making them easier to find and manage.
+              MarkMind is a Chrome extension that uses AI superpowers to wrangle your wild bookmark collection into beautiful, organized bliss! 🧠✨
             </p>
           </Reveal>
           <Reveal>

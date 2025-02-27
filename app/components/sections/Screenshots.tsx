@@ -7,13 +7,13 @@ import { Reveal } from "@/components/reveal"
 const screenshots = [
   {
     url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screenshot-1-NXPxQPVZPPPPPPPPPPPPPPPPPPPPPPPP.png",
-    title: "Smart Organization View",
-    description: "AI-powered folders keep your bookmarks neatly organized by topic, making it easy to find what you need.",
+    title: "Add Current Page",
+    description: "Say goodbye to Chrome's boring bookmark button! One click and your new bookmark finds its perfect home - automatically organized on the fly!",
   },
   {
     url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screenshot-2-NXPxQPVZPPPPPPPPPPPPPPPPPPPPPPPP.png",
-    title: "Quick Search Interface",
-    description: "Find any bookmark instantly with our powerful AI search that understands context and natural language.",
+    title: "Organize Multiple",
+    description: "Organize hundreds of bookmarks while you grab coffee! Our AI examines your bookmarks without judgment and understands what they're actually about.",
   },
 ]
 

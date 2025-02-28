@@ -52,7 +52,7 @@ export function Hero() {
                 Add to Chrome
               </Link>
               <Link
-                href="https://github.com/yourusername/markmind"
+                href="https://github.com/migsilva89/markmind"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex h-12 items-center justify-center gap-2 rounded-full border border-amber-200 bg-gradient-to-r from-amber-50 to-white px-8 text-sm font-medium text-amber-900 transition-colors hover:from-amber-100 hover:to-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 dark:border-amber-800 dark:from-gray-900 dark:to-gray-950 dark:text-amber-200 dark:hover:from-gray-800 dark:hover:to-gray-900 dark:focus:ring-amber-500 overflow-hidden"
@@ -74,24 +74,18 @@ export function Hero() {
               transition={{ duration: 0.3 }}
               style={{ width: "100%", maxWidth: "800px", margin: "0 auto" }}
             >
-              <div className="flex items-center gap-1.5 bg-gray-100 px-4 py-3 dark:bg-gray-800">
-                <div className="h-4 w-4 rounded-full bg-red-500" />
-                <div className="h-4 w-4 rounded-full bg-yellow-500" />
-                <div className="h-4 w-4 rounded-full bg-green-500" />
-                <div className="ml-4 flex h-10 w-full max-w-xl items-center rounded-md bg-white px-3 dark:bg-gray-700">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">https://markmind.extension</span>
-                </div>
-              </div>
-              <div className="aspect-video w-full bg-gray-50 dark:bg-gray-800">
-                <video 
-                  className="h-full w-full object-cover"
-                  poster="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screenshot-1-NXPxQPVZPPPPPPPPPPPPPPPPPPPPPPPP.png"
-                  controls
-                >
-                  <source src="https://example.com/markmind-demo.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+              
+              <iframe 
+                width="100%" 
+                height="500" 
+                src="https://www.youtube.com/embed/aozK-pzU0JI?si=hjvLUs8gSUN5ij7j&amp;controls=1&amp;autoplay=1" 
+                title="YouTube video player" 
+            
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              />
+
             </motion.div>
             <p className="mt-6 text-sm text-black/50 dark:text-white/50">
               Watch how MarkMind transforms your bookmarking experience

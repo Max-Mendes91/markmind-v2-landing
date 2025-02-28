@@ -6,12 +6,12 @@ import { Reveal } from "@/components/reveal"
 
 const screenshots = [
   {
-    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screenshot-1-NXPxQPVZPPPPPPPPPPPPPPPPPPPPPPPP.png",
+    url: "/addcurrent.gif",
     title: "Add Current Page",
     description: "Say goodbye to Chrome's boring bookmark button! One click and your new bookmark finds its perfect home - automatically organized on the fly!",
   },
   {
-    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screenshot-2-NXPxQPVZPPPPPPPPPPPPPPPPPPPPPPPP.png",
+    url: "/multiple.gif",
     title: "Organize Multiple",
     description: "Organize hundreds of bookmarks while you grab coffee! Our AI examines your bookmarks without judgment and understands what they're actually about.",
   },

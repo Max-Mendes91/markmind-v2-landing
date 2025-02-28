@@ -9,16 +9,11 @@ export function Footer() {
         <p className="text-sm text-gray-500 dark:text-gray-400">© 2025 MarkMind</p>
         <div className="flex items-center gap-6">
           <Link
-            href="#"
+            href="https://gist.github.com/migsilva89/b249167d45b8ef1c31aa0f6f8621e0cb"
+            target="_blank"
             className="text-sm text-gray-500 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
           >
             Privacy
-          </Link>
-          <Link
-            href="#"
-            className="text-sm text-gray-500 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
-          >
-            Terms
           </Link>
         </div>
       </div>

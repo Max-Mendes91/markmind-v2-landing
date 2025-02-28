@@ -28,23 +28,23 @@ export function Installation() {
 
         <div className="mx-auto">
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Step 1: Pick your bookmarks */}
+            {/* Step 1: Installation Guide */}
             <Reveal>
               <div className="flex flex-col items-center text-center rounded-xl border border-black/10 bg-white/50 p-6 shadow-md backdrop-blur-sm transition-all hover:border-black/20 hover:bg-white/60 hover:shadow-lg dark:border-white/10 dark:bg-gray-900/50 dark:hover:border-white/20 dark:hover:bg-gray-900/60">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-black">
-                  <Search className="h-8 w-8" />
+                  <Download className="h-8 w-8" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">1. Pick your bookmarks</h3>
+                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">1. Installation Guide</h3>
                 <p className="mb-6 text-black/70 dark:text-white/70">
-                  Select the messy ones you've been avoiding. MarkMind works with your existing folder structure, no judgment here!
+                  Get started in seconds! Just click 'Add to Chrome' and follow the quick setup guide. No complex configuration needed.
                 </p>
                 <button 
-                  onClick={() => setSelectedImage(mockImageUrl)}
+                  onClick={() => setSelectedImage("/key.gif")}
                   className="group relative h-48 w-full overflow-hidden rounded-lg border border-black/15 bg-white shadow-sm transition-all hover:shadow-md dark:border-white/15 dark:bg-gray-800"
                 >
                   <Image 
-                    src={mockImageUrl}
-                    alt="Bookmark selection example" 
+                    src="/key.gif"
+                    alt="Installation guide" 
                     fill
                     className="object-cover"
                   />
@@ -55,22 +55,22 @@ export function Installation() {
               </div>
             </Reveal>
 
-            {/* Step 2: AI analyzes them */}
+            {/* Step 2: Pick bookmarks and AI analysis */}
             <Reveal>
               <div className="flex flex-col items-center text-center rounded-xl border border-black/10 bg-white/50 p-6 shadow-md backdrop-blur-sm transition-all hover:border-black/20 hover:bg-white/60 hover:shadow-lg dark:border-white/10 dark:bg-gray-900/50 dark:hover:border-white/20 dark:hover:bg-gray-900/60">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-black">
-                  <Cpu className="h-8 w-8" />
+                  <Search className="h-8 w-8" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">2. AI analyzes them</h3>
+                <h3 className="mb-3 text-xl font-semibold text-black/90 dark:text-white/90">2. Pick & Analyze</h3>
                 <p className="mb-6 text-black/70 dark:text-white/70">
-                  Our AI examines your bookmarks without judgment and understands what they're actually about.
+                  Select your bookmarks and let our AI analyze them. It understands their content and suggests smart organization patterns.
                 </p>
                 <button 
-                  onClick={() => setSelectedImage(mockImageUrl)}
+                  onClick={() => setSelectedImage("/organize.gif")}
                   className="group relative h-48 w-full overflow-hidden rounded-lg border border-black/15 bg-white shadow-sm transition-all hover:shadow-md dark:border-white/15 dark:bg-gray-800"
                 >
                   <Image 
-                    src={mockImageUrl}
+                    src="/organize.gif"
                     alt="AI analysis example" 
                     fill
                     className="object-cover"
@@ -93,11 +93,11 @@ export function Installation() {
                   You're in charge - review the smart folder suggestions and approve what works for you. Our AI works FOR you!
                 </p>
                 <button 
-                  onClick={() => setSelectedImage(mockImageUrl)}
+                  onClick={() => setSelectedImage("/approve.gif")}
                   className="group relative h-48 w-full overflow-hidden rounded-lg border border-black/15 bg-white shadow-sm transition-all hover:shadow-md dark:border-white/15 dark:bg-gray-800"
                 >
                   <Image 
-                    src={mockImageUrl}
+                    src="/approve.gif"
                     alt="Review and approve example" 
                     fill
                     className="object-cover"

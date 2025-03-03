@@ -30,8 +30,10 @@ export function CTA() {
                 viewport={{ once: true }}
                 className="mt-8"
               >
-                <Link
-                  href="#install"
+                <a
+                  href="https://chromewebstore.google.com/detail/markmind/bdobgdkpeffdbonfpokgkbncgnbnjnoo"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative inline-flex h-12 items-center justify-center gap-2 rounded-full bg-black px-8 text-sm font-medium text-white transition-all hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
                 >
                   <motion.span initial={{ x: 0 }} whileHover={{ x: -4 }}>
@@ -40,7 +42,7 @@ export function CTA() {
                   <motion.span initial={{ x: 0 }} whileHover={{ x: 4 }}>
                     <ArrowRight className="h-4 w-4" />
                   </motion.span>
-                </Link>
+                </a>
               </motion.div>
             </div>
           </Reveal>

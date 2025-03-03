@@ -45,12 +45,14 @@ export function Hero() {
           </Reveal>
           <Reveal>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="#install"
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://chromewebstore.google.com/detail/markmind/bdobgdkpeffdbonfpokgkbncgnbnjnoo"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-black px-8 text-sm font-medium text-white transition-colors hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 dark:bg-white dark:text-black dark:hover:bg-white/90 dark:focus:ring-white"
               >
                 Add to Chrome
-              </Link>
+              </a>
               <Link
                 href="https://github.com/migsilva89/markmind"
                 target="_blank"

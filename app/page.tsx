@@ -7,7 +7,7 @@ import { SocialProofSection } from "@/components/social-proof-section"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
+    <div className="min-h-screen bg-black overflow-x-clip">
       <Navbar />
       <HeroSection />
       <MarqueeSection />

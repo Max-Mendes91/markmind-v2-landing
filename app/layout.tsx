@@ -10,9 +10,24 @@ const _archivo = Archivo({
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'MarkMind — Think on the web without friction',
+  title: 'MarkMind — Capture Ideas While You Browse',
   description:
-    'The lightweight browser extension that expands your intent. Organize, capture, and retrieve thoughts instantly.',
+    'MarkMind is a browser extension that captures highlights, annotations, and ideas from any webpage — instantly, with zero friction.',
+  keywords: ['browser extension', 'reading tool', 'highlight', 'annotate', 'knowledge capture'],
+  openGraph: {
+    title:       'MarkMind — Capture Ideas While You Browse',
+    description: 'Zero-friction idea capture for every webpage you read.',
+    url:         'https://markmind.app',
+    siteName:    'MarkMind',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'MarkMind' }],
+    type: 'website',
+  },
+  twitter: {
+    card:        'summary_large_image',
+    title:       'MarkMind — Capture Ideas While You Browse',
+    description: 'Zero-friction idea capture for every webpage you read.',
+    images:      ['/og-image.png'],
+  },
 }
 
 export const viewport: Viewport = {

@@ -3,20 +3,7 @@
 import { useRef } from "react"
 import { Star, Quote } from "lucide-react"
 import { ORANGE, SLATE } from "@/lib/tokens"
-
-// ── Corner brackets ────────────────────────────────────────────────────────────
-function Corners({ color }: { color: string }) {
-  const s = { borderColor: color }
-  const b = "absolute w-3 h-3 opacity-25"
-  return (
-    <>
-      <span className={`${b} top-2 left-2 border-t border-l`} style={s} />
-      <span className={`${b} top-2 right-2 border-t border-r`} style={s} />
-      <span className={`${b} bottom-2 left-2 border-b border-l`} style={s} />
-      <span className={`${b} bottom-2 right-2 border-b border-r`} style={s} />
-    </>
-  )
-}
+import { Corners } from "@/components/ui/corners"
 
 // ── Stars ──────────────────────────────────────────────────────────────────────
 function Stars() {
@@ -142,17 +129,12 @@ function MiniCard({
 }) {
   const color = accent === "orange" ? ORANGE : accent === "slate" ? SLATE : "rgba(255,255,255,0.35)"
 
-  const s = { borderColor: color }
   return (
     <div
       className="relative rounded-2xl p-5 flex flex-col gap-3 w-[260px] h-[155px] shrink-0"
       style={{ background: "linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(5,5,5,0.95) 100%)" }}
     >
-      {/* Static corner brackets — no hover, no transitions */}
-      <span className="absolute top-2 left-2  w-3 h-3 border-t border-l opacity-25" style={s} />
-      <span className="absolute top-2 right-2 w-3 h-3 border-t border-r opacity-25" style={s} />
-      <span className="absolute bottom-2 left-2  w-3 h-3 border-b border-l opacity-25" style={s} />
-      <span className="absolute bottom-2 right-2 w-3 h-3 border-b border-r opacity-25" style={s} />
+      <Corners color={color} />
 
       <div className="flex items-center justify-between">
         <span className="text-label font-bold text-white/30 font-mono">{handle}</span>

@@ -1,19 +1,6 @@
 import { Bookmark, BrainCircuit, Layers2, Zap } from "lucide-react"
 import { ORANGE, SLATE } from "@/lib/tokens"
-
-// ── Corner brackets ────────────────────────────────────────────────────────────
-function Corners({ color }: { color: string }) {
-  const s = { borderColor: color }
-  const b = "absolute w-3 h-3 opacity-30"
-  return (
-    <>
-      <span className={`${b} top-3 left-3 border-t border-l`} style={s} />
-      <span className={`${b} top-3 right-3 border-t border-r`} style={s} />
-      <span className={`${b} bottom-3 left-3 border-b border-l`} style={s} />
-      <span className={`${b} bottom-3 right-3 border-b border-r`} style={s} />
-    </>
-  )
-}
+import { Corners } from "@/components/ui/corners"
 
 // ── Card 1 mock — pulsing highlight + popup ────────────────────────────────────
 function CaptureMock() {

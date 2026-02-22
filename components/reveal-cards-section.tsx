@@ -3,23 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { Sparkles, BrainCircuit, CheckCircle2, Link2, Bookmark } from "lucide-react"
 import { ORANGE, SLATE } from "@/lib/tokens"
+import { Corners } from "@/components/ui/corners"
 
 const TOTAL_CARDS = 5
 const PX_PER_CARD = 200  // px of scroll needed to reveal each card
-
-// ── Corner brackets ───────────────────────────────────────────────────────────
-function Corners({ color }: { color: string }) {
-  const s = { borderColor: color }
-  const b = "absolute w-3 h-3 opacity-30"
-  return (
-    <>
-      <span className={`${b} top-2 left-2   border-t border-l`} style={s} />
-      <span className={`${b} top-2 right-2  border-t border-r`} style={s} />
-      <span className={`${b} bottom-2 left-2  border-b border-l`} style={s} />
-      <span className={`${b} bottom-2 right-2 border-b border-r`} style={s} />
-    </>
-  )
-}
 
 // ── Card positions — radiating from center browser mock ───────────────────────
 const CARDS = [

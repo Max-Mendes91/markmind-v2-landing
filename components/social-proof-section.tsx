@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useCallback, useRef } from "react"
 import { Quote } from "lucide-react"
 import { ORANGE, SLATE } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
@@ -156,7 +156,7 @@ export const SocialProofSection = () => {
 
   // Web Animations API playbackRate — adjusts speed from current position,
   // no duration-recalc jump, no direction glitch.
-  const slowDown = () => {
+  const slowDown = useCallback(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current)
     const step = () => {
       const anim = trackRef.current?.getAnimations()[0]
@@ -166,9 +166,9 @@ export const SocialProofSection = () => {
       if (next > 0.26) rafRef.current = requestAnimationFrame(step)
     }
     rafRef.current = requestAnimationFrame(step)
-  }
+  }, [])
 
-  const speedUp = () => {
+  const speedUp = useCallback(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current)
     const step = () => {
       const anim = trackRef.current?.getAnimations()[0]
@@ -179,7 +179,7 @@ export const SocialProofSection = () => {
       else anim.playbackRate = 1
     }
     rafRef.current = requestAnimationFrame(step)
-  }
+  }, [])
 
   return (
     <section className="relative px-4 md:px-8 lg:px-16 py-28 bg-black overflow-hidden">

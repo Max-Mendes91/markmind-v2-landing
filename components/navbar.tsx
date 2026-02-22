@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Menu, X } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
 import type { NavLink } from "@/types"
@@ -14,6 +14,9 @@ const NAV_LINKS: NavLink[] = [
 
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const toggleMobile  = useCallback(() => setMobileOpen(prev => !prev), [])
+  const closeMobile   = useCallback(() => setMobileOpen(false), [])
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
@@ -54,7 +57,7 @@ export const Navbar = () => {
           </CtaButton>
           <button
             className="md:hidden flex items-center justify-center w-8 h-8 text-white ml-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={toggleMobile}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -69,7 +72,7 @@ export const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobile}
               className="text-sm font-bold text-muted-foreground hover:text-white transition-all uppercase tracking-[0.15em]"
             >
               {link.label}

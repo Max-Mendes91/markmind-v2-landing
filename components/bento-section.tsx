@@ -1,9 +1,10 @@
-import { Bookmark, BrainCircuit, Layers2, Zap, ArrowUpRight } from "lucide-react"
+import { Bookmark, BrainCircuit, Layers2, Zap } from "lucide-react"
+import { ORANGE, SLATE } from "@/lib/tokens"
 
 // ── Corner brackets ────────────────────────────────────────────────────────────
 function Corners({ color }: { color: string }) {
   const s = { borderColor: color }
-  const b = "absolute w-3 h-3 opacity-30 group-hover:opacity-70 transition-opacity duration-500"
+  const b = "absolute w-3 h-3 opacity-30"
   return (
     <>
       <span className={`${b} top-3 left-3 border-t border-l`} style={s} />
@@ -20,8 +21,8 @@ function CaptureMock() {
     <div className="relative w-full h-full flex flex-col gap-2.5 p-2 pt-10">
       {/* Section label */}
       <div className="absolute top-2 left-2 flex items-center gap-1.5">
-        <div className="w-1.5 h-1.5 rounded-full bg-[#fcd34d]/60 animate-pulse" />
-        <span className="text-[8px] font-bold uppercase tracking-widest text-white/25">Reading mode</span>
+        <div className="w-1.5 h-1.5 rounded-full bg-brand-orange/60 animate-pulse" />
+        <span className="text-note font-bold uppercase tracking-widest text-white/25">Reading mode</span>
       </div>
 
       {/* Text lines */}
@@ -31,13 +32,13 @@ function CaptureMock() {
 
       {/* Highlighted line */}
       <div className="relative my-0.5">
-        <div className="w-4/6 h-2.5 rounded-full animate-pulse-highlight border border-[#fcd34d]/20" />
+        <div className="w-4/6 h-2.5 rounded-full animate-pulse-highlight border border-brand-orange/20" />
         {/* Popup card */}
-        <div className="animate-popup-cycle absolute -top-11 left-0 glass-card px-3 py-2 rounded-xl flex items-center gap-2 border border-[#fcd34d]/30 shadow-[0_4px_20px_rgba(252,211,77,0.15)] whitespace-nowrap z-10">
-          <div className="w-4 h-4 rounded-full bg-[#fcd34d] flex items-center justify-center shrink-0">
+        <div className="animate-popup-cycle absolute -top-11 left-0 glass-card px-3 py-2 rounded-xl flex items-center gap-2 border border-brand-orange/30 shadow-[0_4px_20px_rgba(255,155,81,0.15)] whitespace-nowrap z-10">
+          <div className="w-4 h-4 rounded-full bg-brand-orange flex items-center justify-center shrink-0">
             <Bookmark className="w-2.5 h-2.5 text-black" />
           </div>
-          <span className="text-[10px] font-bold text-[#fcd34d]">Save to MarkMind</span>
+          <span className="text-badge font-bold text-brand-orange">Save to MarkMind</span>
         </div>
       </div>
 
@@ -50,13 +51,13 @@ function CaptureMock() {
       <div className="w-full h-px bg-white/5 my-2" />
 
       {/* Saved note appears */}
-      <div className="animate-note-appear glass-card rounded-xl p-3 border border-[#fcd34d]/15">
-        <div className="text-[8px] text-white/30 font-bold uppercase tracking-widest mb-1.5">Saved note</div>
-        <div className="w-full h-1.5 rounded-full bg-[#fcd34d]/20 mb-1.5" />
-        <div className="w-4/5 h-1.5 rounded-full bg-[#fcd34d]/15" />
+      <div className="animate-note-appear glass-card rounded-xl p-3 border border-brand-orange/15">
+        <div className="text-note text-white/30 font-bold uppercase tracking-widest mb-1.5">Saved note</div>
+        <div className="w-full h-1.5 rounded-full bg-brand-orange/20 mb-1.5" />
+        <div className="w-4/5 h-1.5 rounded-full bg-brand-orange/15" />
         <div className="flex gap-1 mt-2">
           {["#research", "#brain"].map(t => (
-            <span key={t} className="px-1.5 py-0.5 rounded-full bg-[#fcd34d]/8 border border-[#fcd34d]/15 text-[7px] text-[#fcd34d] font-bold">{t}</span>
+            <span key={t} className="px-1.5 py-0.5 rounded-full bg-brand-orange/8 border border-brand-orange/15 text-micro text-brand-orange font-bold">{t}</span>
           ))}
         </div>
       </div>
@@ -70,36 +71,36 @@ function AIMock() {
     <div className="relative w-full h-full min-h-[130px]">
       {/* AI indicator */}
       <div className="absolute top-1 right-1 flex items-center gap-1">
-        <div className="w-1.5 h-1.5 rounded-full bg-[#bfdbfe] animate-pulse" />
-        <span className="text-[7px] text-white/25 font-bold uppercase tracking-wider">Sorting</span>
+        <div className="w-1.5 h-1.5 rounded-full bg-brand-slate animate-pulse" />
+        <span className="text-micro text-white/25 font-bold uppercase tracking-wider">Sorting</span>
       </div>
 
       {/* Drifting chips */}
       <div className="animate-drift-a absolute top-3 left-2">
         <div className="glass-card px-2.5 py-1.5 rounded-xl border border-white/10">
-          <div className="text-[8px] text-white/55 font-semibold">Neural plasticity</div>
+          <div className="text-note text-white/55 font-semibold">Neural plasticity</div>
         </div>
       </div>
       <div className="animate-drift-b absolute top-5 right-3" style={{ animationDelay: "1.5s" }}>
         <div className="glass-card px-2.5 py-1.5 rounded-xl border border-white/10">
-          <div className="text-[8px] text-white/55 font-semibold">Figma shadows</div>
+          <div className="text-note text-white/55 font-semibold">Figma shadows</div>
         </div>
       </div>
       <div className="animate-drift-c absolute bottom-10 left-6" style={{ animationDelay: "2.8s" }}>
         <div className="glass-card px-2.5 py-1.5 rounded-xl border border-white/10">
-          <div className="text-[8px] text-white/55 font-semibold">SaaS pricing</div>
+          <div className="text-note text-white/55 font-semibold">SaaS pricing</div>
         </div>
       </div>
 
       {/* Categories row at bottom */}
       <div className="absolute bottom-1 left-0 right-0 flex gap-1.5 justify-center">
         {[
-          { label: "Research", color: "#fcd34d" },
-          { label: "Design",   color: "#bfdbfe" },
-          { label: "Ideas",    color: "#fcd34d" },
+          { label: "Research", color: ORANGE },
+          { label: "Design",   color: SLATE  },
+          { label: "Ideas",    color: ORANGE },
         ].map(({ label, color }) => (
           <div key={label} className="px-2 py-0.5 rounded-full" style={{ background: `${color}12`, border: `1px solid ${color}25` }}>
-            <span className="text-[7px] font-bold" style={{ color }}>{label}</span>
+            <span className="text-micro font-bold" style={{ color }}>{label}</span>
           </div>
         ))}
       </div>
@@ -110,8 +111,8 @@ function AIMock() {
 // ── Card 3 mock — floating tag cloud ──────────────────────────────────────────
 function CollectionsMock() {
   const groups = [
-    { name: "Research", color: "#fcd34d", tags: ["#brain", "#papers", "#notes"], delay: "0s" },
-    { name: "Design",   color: "#bfdbfe", tags: ["#ux", "#figma"],               delay: "0.8s" },
+    { name: "Research", color: ORANGE, tags: ["#brain", "#papers", "#notes"], delay: "0s" },
+    { name: "Design",   color: SLATE,  tags: ["#ux", "#figma"],               delay: "0.8s" },
   ]
   return (
     <div className="w-full flex flex-col gap-3 p-1">
@@ -121,14 +122,14 @@ function CollectionsMock() {
           className="animate-float"
           style={{ animationDelay: delay, animationDuration: "6s" }}
         >
-          <div className="text-[8px] font-black uppercase tracking-widest mb-1.5" style={{ color, opacity: 0.5 }}>
+          <div className="text-note font-black uppercase tracking-widest mb-1.5" style={{ color, opacity: 0.5 }}>
             {name}
           </div>
           <div className="flex gap-1.5 flex-wrap">
             {tags.map(tag => (
               <span
                 key={tag}
-                className="px-2 py-0.5 rounded-full text-[8px] font-bold"
+                className="px-2 py-0.5 rounded-full text-note font-bold"
                 style={{ background: `${color}10`, border: `1px solid ${color}22`, color }}
               >
                 {tag}
@@ -137,7 +138,7 @@ function CollectionsMock() {
           </div>
         </div>
       ))}
-      <div className="text-[7px] text-white/20 font-bold uppercase tracking-widest mt-1">
+      <div className="text-micro text-white/20 font-bold uppercase tracking-widest mt-1">
         14 notes auto-grouped
       </div>
     </div>
@@ -168,13 +169,13 @@ function FlowMock() {
         </div>
 
         {/* Sliding MarkMind panel */}
-        <div className="animate-panel-slide absolute top-0 right-0 bottom-0 w-[42%] glass-card rounded-xl border border-[#bfdbfe]/20 p-3 flex flex-col gap-2">
+        <div className="animate-panel-slide absolute top-0 right-0 bottom-0 w-[42%] glass-card rounded-xl border border-brand-slate/20 p-3 flex flex-col gap-2">
           <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-[#bfdbfe] animate-pulse" />
-            <span className="text-[8px] font-black text-[#bfdbfe] uppercase tracking-wider">MarkMind</span>
+            <div className="w-2 h-2 rounded-full bg-brand-slate animate-pulse" />
+            <span className="text-note font-black text-brand-slate uppercase tracking-wider">MarkMind</span>
           </div>
-          <div className="text-[8px] text-white/50 leading-tight">
-            Saved to <span className="text-[#fcd34d] font-bold">Research</span>
+          <div className="text-note text-white/50 leading-tight">
+            Saved to <span className="text-brand-orange font-bold">Research</span>
           </div>
           <div className="w-full h-1.5 rounded bg-white/8" />
           <div className="w-3/4 h-1.5 rounded bg-white/8" />
@@ -194,7 +195,7 @@ function Chip({ icon: Icon, label, color }: { icon: typeof Bookmark; label: stri
       <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{ background: `${color}18`, border: `1px solid ${color}30` }}>
         <Icon className="w-3 h-3" style={{ color }} />
       </div>
-      <span className="text-[9px] font-black uppercase tracking-[0.2em]" style={{ color }}>{label}</span>
+      <span className="text-label font-black uppercase tracking-[0.2em]" style={{ color }}>{label}</span>
     </div>
   )
 }
@@ -209,7 +210,7 @@ export function BentoSection() {
       <div className="relative z-10 flex flex-col items-center text-center mb-14">
         <div className="mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/3">
           <span className="w-1 h-1 rounded-full bg-white/40" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">Features</span>
+          <span className="text-badge font-bold uppercase tracking-[0.25em] text-white/40">Features</span>
         </div>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
           Built for how you{" "}
@@ -224,61 +225,58 @@ export function BentoSection() {
       <div className="relative z-10 grid grid-cols-12 gap-4 max-w-5xl mx-auto">
 
         {/* ── Card 1 — TALL featured left (spans 2 rows) ── */}
-        <div className="group col-span-12 md:col-span-7 md:row-span-2 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[420px]">
-          <Corners color="#fcd34d" />
-          <Chip icon={Bookmark} label="Capture" color="#fcd34d" />
+        <div className="col-span-12 md:col-span-7 md:row-span-2 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[420px]">
+          <Corners color={ORANGE} />
+          <Chip icon={Bookmark} label="Capture" color={ORANGE} />
           <div className="flex-1 rounded-2xl bg-white/2 border border-white/5 p-4 overflow-hidden mb-4">
             <CaptureMock />
           </div>
           <div>
-            <h3 className="text-[18px] font-black text-white mb-1">Instant Capture</h3>
-            <p className="text-[13px] text-white/40 leading-relaxed">
+            <h3 className="text-card-title font-black text-white mb-1">Instant Capture</h3>
+            <p className="text-body-sm text-white/40 leading-relaxed">
               Highlight any text and save it in one click — without leaving the page.
             </p>
-          </div>
-          <div className="absolute bottom-5 right-5 w-7 h-7 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all group-hover:border-white/30">
-            <ArrowUpRight className="w-3.5 h-3.5 text-white/50" />
           </div>
         </div>
 
         {/* ── Card 2 — Top right ── */}
-        <div className="group col-span-12 md:col-span-5 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[200px]">
-          <Corners color="#bfdbfe" />
-          <Chip icon={BrainCircuit} label="AI" color="#bfdbfe" />
+        <div className="col-span-12 md:col-span-5 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[200px]">
+          <Corners color={SLATE} />
+          <Chip icon={BrainCircuit} label="AI" color={SLATE} />
           <div className="flex-1 rounded-2xl bg-white/2 border border-white/5 p-4 overflow-hidden mb-4">
             <AIMock />
           </div>
           <div>
-            <h3 className="text-[16px] font-black text-white mb-1">AI Organization</h3>
-            <p className="text-[12px] text-white/40 leading-relaxed">
+            <h3 className="text-body-md font-black text-white mb-1">AI Organization</h3>
+            <p className="text-body-xs text-white/40 leading-relaxed">
               Notes auto-categorize the moment you capture them.
             </p>
           </div>
         </div>
 
         {/* ── Card 3 — Bottom right ── */}
-        <div className="group col-span-12 md:col-span-5 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[200px]">
-          <Corners color="#fcd34d" />
-          <Chip icon={Layers2} label="Collections" color="#fcd34d" />
+        <div className="col-span-12 md:col-span-5 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[200px]">
+          <Corners color={ORANGE} />
+          <Chip icon={Layers2} label="Collections" color={ORANGE} />
           <div className="flex-1 rounded-2xl bg-white/2 border border-white/5 p-4 overflow-hidden mb-4">
             <CollectionsMock />
           </div>
           <div>
-            <h3 className="text-[16px] font-black text-white mb-1">Smart Collections</h3>
-            <p className="text-[12px] text-white/40 leading-relaxed">
+            <h3 className="text-body-md font-black text-white mb-1">Smart Collections</h3>
+            <p className="text-body-xs text-white/40 leading-relaxed">
               Related ideas cluster automatically. Find anything in seconds.
             </p>
           </div>
         </div>
 
         {/* ── Card 4 — WIDE full-width banner ── */}
-        <div className="group col-span-12 bento-card relative rounded-3xl p-5 flex flex-col md:flex-row gap-6 overflow-hidden min-h-[200px]">
-          <Corners color="#bfdbfe" />
+        <div className="col-span-12 bento-card relative rounded-3xl p-5 flex flex-col md:flex-row gap-6 overflow-hidden min-h-[200px]">
+          <Corners color={SLATE} />
           {/* Left: text */}
           <div className="md:w-2/5 flex flex-col justify-center">
-            <Chip icon={Zap} label="Native" color="#bfdbfe" />
-            <h3 className="text-[20px] font-black text-white mb-2">Browser-Native Flow</h3>
-            <p className="text-[13px] text-white/40 leading-relaxed">
+            <Chip icon={Zap} label="Native" color={SLATE} />
+            <h3 className="text-card-title-lg font-black text-white mb-2">Browser-Native Flow</h3>
+            <p className="text-body-sm text-white/40 leading-relaxed">
               The extension lives in your browser. No new tabs, no logins, no context switching — ever.
             </p>
           </div>
@@ -289,7 +287,7 @@ export function BentoSection() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-14 text-center text-white/15 text-[10px] tracking-[0.4em] uppercase font-bold">
+      <div className="relative z-10 mt-14 text-center text-white/15 text-badge tracking-[0.4em] uppercase font-bold">
         Trusted by 10,000+ deep thinkers worldwide
       </div>
     </section>

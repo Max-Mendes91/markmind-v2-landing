@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased selection:bg-[#fcd34d] selection:text-black">
+      <body className="font-sans antialiased selection:bg-brand-orange selection:text-black">
         {children}
         <Analytics />
       </body>

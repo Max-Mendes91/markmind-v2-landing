@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react"
 import { Sparkles, BrainCircuit, CheckCircle2, Link2, Bookmark } from "lucide-react"
+import { ORANGE, SLATE } from "@/lib/tokens"
 
 const TOTAL_CARDS = 5
 const PX_PER_CARD = 200  // px of scroll needed to reveal each card
@@ -22,11 +23,11 @@ function Corners({ color }: { color: string }) {
 
 // ── Card positions — radiating from center browser mock ───────────────────────
 const CARDS = [
-  { id: "highlight",  pos: "top-[6%] right-[4%]",    accent: "#bfdbfe", w: "w-[280px]" },
-  { id: "annotation", pos: "top-[16%] right-[22%]",   accent: "#fcd34d", w: "w-[260px]" },
-  { id: "capture",    pos: "top-[62%] left-[26%]",    accent: "#bfdbfe", w: "w-[270px]" },
-  { id: "synced",     pos: "top-[40%] right-[4%]",    accent: "#fcd34d", w: "w-[300px]" },
-  { id: "saved",      pos: "top-[68%] right-[16%]",   accent: "#fcd34d", w: "w-[280px]" },
+  { id: "highlight",  pos: "top-[6%] right-[4%]",    accent: SLATE,  w: "w-[280px]" },
+  { id: "annotation", pos: "top-[16%] right-[22%]",   accent: ORANGE, w: "w-[260px]" },
+  { id: "capture",    pos: "top-[62%] left-[26%]",    accent: SLATE,  w: "w-[270px]" },
+  { id: "synced",     pos: "top-[40%] right-[4%]",    accent: ORANGE, w: "w-[300px]" },
+  { id: "saved",      pos: "top-[68%] right-[16%]",   accent: ORANGE, w: "w-[280px]" },
 ] as const
 
 // ── Card content ──────────────────────────────────────────────────────────────
@@ -39,12 +40,12 @@ function CardContent({ id, accent }: { id: string; accent: string }) {
             <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{ background: `${accent}18`, border: `1px solid ${accent}30` }}>
               <Link2 className="w-3 h-3" style={{ color: accent }} />
             </div>
-            <span className="text-[9px] font-black text-white/50 tracking-[0.2em] uppercase">Browser Highlight</span>
+            <span className="text-label font-black text-white/50 tracking-[0.2em] uppercase">Browser Highlight</span>
           </div>
           <div className="rounded-xl bg-white/3 border border-white/6 p-3 flex flex-col gap-1.5">
             <div className="w-full h-1.5 rounded-full bg-white/8" />
             <div className="rounded-md px-2 py-2" style={{ background: `${accent}18`, border: `1px solid ${accent}25` }}>
-              <p className="text-[11px] leading-snug" style={{ color: accent }}>
+              <p className="text-caption leading-snug" style={{ color: accent }}>
                 &ldquo;Intelligence is the ability to adapt to change&hellip;&rdquo;
               </p>
             </div>
@@ -57,19 +58,19 @@ function CardContent({ id, accent }: { id: string; accent: string }) {
       return (
         <>
           <div className="flex items-center gap-2 mb-3">
-            <Sparkles className="w-4 h-4 text-[#fcd34d] animate-pulse" />
-            <span className="text-[9px] font-black text-white/50 tracking-[0.2em] uppercase">AI Annotation</span>
+            <Sparkles className="w-4 h-4 text-brand-orange animate-pulse" />
+            <span className="text-label font-black text-white/50 tracking-[0.2em] uppercase">AI Annotation</span>
           </div>
           <div className="rounded-xl bg-white/3 border border-white/6 p-3">
-            <p className="text-[12px] text-white/60 italic leading-relaxed">
+            <p className="text-body-xs text-white/60 italic leading-relaxed">
               &ldquo;Intelligence is the ability to{" "}
-              <span className="text-white border-b border-[#fcd34d] not-italic font-semibold">adapt</span>
+              <span className="text-white border-b border-brand-orange not-italic font-semibold">adapt</span>
               {" "}to change.&rdquo;
             </p>
           </div>
           <div className="mt-2.5 flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#fcd34d] animate-pulse" />
-            <span className="text-[9px] text-white/30 font-bold uppercase tracking-wider">AI enriching context</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+            <span className="text-label text-white/30 font-bold uppercase tracking-wider">AI enriching context</span>
           </div>
         </>
       )
@@ -81,14 +82,14 @@ function CardContent({ id, accent }: { id: string; accent: string }) {
             <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{ background: `${accent}18`, border: `1px solid ${accent}30` }}>
               <BrainCircuit className="w-3 h-3" style={{ color: accent }} />
             </div>
-            <span className="text-[9px] font-black text-white/50 tracking-[0.2em] uppercase">Capture UI</span>
+            <span className="text-label font-black text-white/50 tracking-[0.2em] uppercase">Capture UI</span>
           </div>
           <div className="rounded-xl bg-white/3 border border-white/6 p-3 mb-3">
-            <p className="text-[10px] italic text-white/50 leading-relaxed">
+            <p className="text-badge italic text-white/50 leading-relaxed">
               &ldquo;Intelligence is the ability to adapt&hellip;&rdquo;
             </p>
           </div>
-          <div className="w-full py-2.5 rounded-xl flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest text-black" style={{ background: accent }}>
+          <div className="w-full py-2.5 rounded-xl flex items-center justify-center gap-2 font-black text-badge uppercase tracking-widest text-black" style={{ background: accent }}>
             <Bookmark className="w-3.5 h-3.5" />
             Save to MarkMind
           </div>
@@ -100,11 +101,11 @@ function CardContent({ id, accent }: { id: string; accent: string }) {
         <>
           <div className="flex items-start justify-between gap-4 mb-4">
             <div>
-              <div className="text-[9px] uppercase tracking-[0.2em] font-black mb-1.5" style={{ color: accent }}>
+              <div className="text-label uppercase tracking-[0.2em] font-black mb-1.5" style={{ color: accent }}>
                 Synced
               </div>
-              <h3 className="text-[17px] font-black text-white leading-tight mb-1">Adaptability in AI</h3>
-              <p className="text-[11px] text-white/40">Captured from Hawking&rsquo;s Archive.</p>
+              <h3 className="text-body-lg font-black text-white leading-tight mb-1">Adaptability in AI</h3>
+              <p className="text-caption text-white/40">Captured from Hawking&rsquo;s Archive.</p>
             </div>
             <div className="w-9 h-9 rounded-full flex items-center justify-center text-black shrink-0" style={{ background: accent }}>
               <CheckCircle2 className="w-4 h-4" />
@@ -112,7 +113,7 @@ function CardContent({ id, accent }: { id: string; accent: string }) {
           </div>
           <div className="pt-3 border-t border-white/6 flex items-center gap-2">
             <Link2 className="w-3 h-3 text-white/25" />
-            <span className="text-[9px] text-white/30 font-mono">source: hawking.edu/lectures/ai</span>
+            <span className="text-label text-white/30 font-mono">source: hawking.edu/lectures/ai</span>
           </div>
         </>
       )
@@ -124,16 +125,16 @@ function CardContent({ id, accent }: { id: string; accent: string }) {
             <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{ background: `${accent}18`, border: `1px solid ${accent}30` }}>
               <CheckCircle2 className="w-3 h-3" style={{ color: accent }} />
             </div>
-            <span className="text-[9px] font-black text-white/50 tracking-[0.2em] uppercase">Knowledge Saved</span>
+            <span className="text-label font-black text-white/50 tracking-[0.2em] uppercase">Knowledge Saved</span>
           </div>
           <div className="rounded-xl bg-white/3 border border-white/6 p-3 mb-3">
-            <p className="text-[11px] text-white/55 leading-relaxed">
+            <p className="text-caption text-white/55 leading-relaxed">
               Bookmark enriched with context, tags auto-applied, and linked to 3 related captures.
             </p>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: accent }} />
-            <span className="text-[9px] font-black uppercase tracking-[0.2em]" style={{ color: accent }}>Auto-organized</span>
+            <span className="text-label font-black uppercase tracking-[0.2em]" style={{ color: accent }}>Auto-organized</span>
           </div>
         </>
       )
@@ -146,7 +147,7 @@ function CardContent({ id, accent }: { id: string; accent: string }) {
 // ── Browser mock — center hub ─────────────────────────────────────────────────
 function BrowserMock() {
   return (
-    <div className="w-[175px] glass-card rounded-2xl overflow-hidden border border-white/12 shadow-[0_0_60px_-10px_rgba(252,211,77,0.18)]">
+    <div className="w-[175px] glass-card rounded-2xl overflow-hidden border border-white/12 shadow-[0_0_60px_-10px_rgba(255,155,81,0.18)]">
       {/* Chrome bar */}
       <div className="bg-white/4 border-b border-white/6 px-2.5 py-2 flex items-center gap-1.5">
         <div className="flex gap-1">
@@ -163,8 +164,8 @@ function BrowserMock() {
         <div className="w-5/6 h-1.5 rounded-full bg-white/8" />
         <div className="w-full h-1.5 rounded-full bg-white/6" />
         {/* Active highlight — the thought being captured */}
-        <div className="rounded-md px-2 py-1.5 animate-pulse-highlight border border-[#fcd34d]/15">
-          <div className="w-4/5 h-1.5 rounded-full bg-[#fcd34d]/35" />
+        <div className="rounded-md px-2 py-1.5 animate-pulse-highlight border border-brand-orange/15">
+          <div className="w-4/5 h-1.5 rounded-full bg-brand-orange/35" />
         </div>
         <div className="w-3/4 h-1.5 rounded-full bg-white/8" />
         <div className="w-full h-1.5 rounded-full bg-white/6" />
@@ -173,8 +174,8 @@ function BrowserMock() {
 
       {/* MarkMind active indicator */}
       <div className="px-3 pb-3 pt-1 border-t border-white/5 flex items-center gap-1.5">
-        <div className="w-1.5 h-1.5 rounded-full bg-[#fcd34d] animate-pulse" />
-        <span className="text-[7px] font-bold text-[#fcd34d]/60 uppercase tracking-wider">MarkMind Active</span>
+        <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+        <span className="text-micro font-bold text-brand-orange/60 uppercase tracking-wider">MarkMind Active</span>
       </div>
     </div>
   )
@@ -252,8 +253,8 @@ export function RevealCardsSection() {
 
         {/* Background glows */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[#bfdbfe]/4 blur-[120px] rounded-full" />
-          <div className="absolute bottom-1/3 left-0 w-[300px] h-[300px] bg-[#fcd34d]/4 blur-[100px] rounded-full" />
+          <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-brand-slate/4 blur-[120px] rounded-full" />
+          <div className="absolute bottom-1/3 left-0 w-[300px] h-[300px] bg-brand-orange/4 blur-[100px] rounded-full" />
           <div className="absolute inset-0 geometric-bg opacity-20" />
         </div>
 
@@ -269,7 +270,7 @@ export function RevealCardsSection() {
                 cx={lineData[0].x1} cy={lineData[0].y1}
                 r="18"
                 fill="none"
-                stroke="#fcd34d"
+                stroke={ORANGE}
                 strokeWidth="0.5"
                 opacity={revealedCount > 0 ? 0.12 : 0.06}
                 style={{ transition: "opacity 0.6s ease" }}
@@ -277,7 +278,7 @@ export function RevealCardsSection() {
               <circle
                 cx={lineData[0].x1} cy={lineData[0].y1}
                 r="4"
-                fill="#fcd34d"
+                fill={ORANGE}
                 opacity="0.55"
               />
             </>
@@ -330,13 +331,13 @@ export function RevealCardsSection() {
         <div className="absolute top-1/2 -translate-y-1/2 left-8 md:left-16 lg:left-24 z-40 max-w-[300px] md:max-w-[360px]">
           <div className="mb-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/3">
             <span className="w-1 h-1 rounded-full bg-white/40" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">How it works</span>
+            <span className="text-badge font-bold uppercase tracking-[0.25em] text-white/40">How it works</span>
           </div>
-          <p className="text-2xl md:text-[28px] lg:text-[30px] leading-[1.2] text-white/85 font-light tracking-tight">
+          <p className="text-2xl md:text-hero-sm lg:text-hero-md leading-[1.2] text-white/85 font-light tracking-tight">
             While you&rsquo;re reading,{" "}
-            <span className="text-[#fcd34d] italic font-semibold">ideas surface.</span>
+            <span className="text-brand-orange italic font-semibold">ideas surface.</span>
             <br />
-            <span className="text-white/45 text-xl md:text-[22px]">
+            <span className="text-white/45 text-xl md:text-hero-sub">
               MarkMind captures them instantly — without breaking your flow.
             </span>
           </p>
@@ -351,9 +352,9 @@ export function RevealCardsSection() {
               style={{
                 width:      i < revealedCount ? "6px" : "5px",
                 height:     i < revealedCount ? "6px" : "5px",
-                background: i < revealedCount ? "#fcd34d" : "rgba(255,255,255,0.15)",
+                background: i < revealedCount ? ORANGE : "rgba(255,255,255,0.15)",
                 transform:  i < revealedCount ? "scale(1.3)" : "scale(1)",
-                boxShadow:  i < revealedCount ? "0 0 8px rgba(252,211,77,0.5)" : "none",
+                boxShadow:  i < revealedCount ? "0 0 8px rgba(255,155,81,0.5)" : "none",
               }}
             />
           ))}
@@ -362,7 +363,7 @@ export function RevealCardsSection() {
         {/* Progress bar */}
         <div className="absolute bottom-0 left-0 w-full h-px bg-white/5 z-50">
           <div
-            className="h-full bg-[#fcd34d] transition-all duration-300 ease-out"
+            className="h-full bg-brand-orange transition-all duration-300 ease-out"
             style={{ width: `${progress * 100}%` }}
           />
         </div>
@@ -396,7 +397,7 @@ export function RevealCardsSection() {
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 transition-opacity duration-500"
           style={{ opacity: revealedCount >= TOTAL_CARDS ? 0 : 0.5 }}
         >
-          <span className="text-[9px] uppercase tracking-[0.35em] font-bold text-white/50">
+          <span className="text-label uppercase tracking-[0.35em] font-bold text-white/50">
             {revealedCount === 0 ? "Scroll to reveal" : `${TOTAL_CARDS - revealedCount} more`}
           </span>
           <svg className="w-3.5 h-3.5 text-white/40 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -405,7 +406,7 @@ export function RevealCardsSection() {
         </div>
 
         {/* Footer meta */}
-        <div className="absolute bottom-6 left-0 right-0 flex items-center justify-between px-10 pointer-events-none opacity-[0.07] text-[8px] uppercase tracking-[0.4em] text-white">
+        <div className="absolute bottom-6 left-0 right-0 flex items-center justify-between px-10 pointer-events-none opacity-[0.07] text-note uppercase tracking-[0.4em] text-white">
           <span>Capture Sequence</span>
           <span>{revealedCount} / {TOTAL_CARDS} steps</span>
           <span>MarkMind</span>

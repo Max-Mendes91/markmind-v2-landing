@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import { CtaButton } from "@/components/ui/cta-button"
 
 const NAV_LINKS = [
   { label: "Home", href: "#" },
@@ -15,7 +16,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
-      <div className="bg-black/40 backdrop-blur-[20px] border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_rgba(252,211,77,0.15)] ring-1 ring-[#fcd34d]/20">
+      <div className="bg-black/40 backdrop-blur-[20px] border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_rgba(255,155,81,0.15)] ring-1 ring-brand-orange/20">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 pl-1 shrink-0">
           <img
@@ -34,7 +35,7 @@ export function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-[10px] font-bold text-[#a3a3a3] hover:text-white transition-all uppercase tracking-[0.25em]"
+              className="text-badge font-bold text-muted-foreground hover:text-white transition-all uppercase tracking-[0.25em]"
             >
               {link.label}
             </a>
@@ -43,12 +44,13 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="flex items-center gap-2 pr-1">
-          <a
+          <CtaButton
             href="#"
-            className="bg-gradient-to-r from-[#bfdbfe] to-[#fcd34d] text-black px-5 py-2.5 rounded-full text-[12px] font-black hover:brightness-110 hover:shadow-lg transition-all transform hover:scale-[1.03] active:scale-95 whitespace-nowrap"
+            size="sm"
+            className="bg-gradient-to-r from-brand-slate to-brand-orange"
           >
             Install Extension
-          </a>
+          </CtaButton>
           <button
             className="md:hidden flex items-center justify-center w-8 h-8 text-white ml-2"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -67,7 +69,7 @@ export function Navbar() {
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-sm font-bold text-[#a3a3a3] hover:text-white transition-all uppercase tracking-[0.15em]"
+              className="text-sm font-bold text-muted-foreground hover:text-white transition-all uppercase tracking-[0.15em]"
             >
               {link.label}
             </a>

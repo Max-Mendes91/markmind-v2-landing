@@ -37,13 +37,13 @@ export function MarqueeSection() {
             className="relative flex items-center gap-2.5 mx-6 px-4 py-2 shrink-0"
           >
             {/* Corner brackets */}
-            <span className="absolute top-0.5 left-0.5 w-2 h-2 border-t border-l border-[#fcd34d]/25" />
-            <span className="absolute top-0.5 right-0.5 w-2 h-2 border-t border-r border-[#fcd34d]/25" />
-            <span className="absolute bottom-0.5 left-0.5 w-2 h-2 border-b border-l border-[#fcd34d]/25" />
-            <span className="absolute bottom-0.5 right-0.5 w-2 h-2 border-b border-r border-[#fcd34d]/25" />
+            <span className="absolute top-0.5 left-0.5 w-2 h-2 border-t border-l border-brand-orange/25" />
+            <span className="absolute top-0.5 right-0.5 w-2 h-2 border-t border-r border-brand-orange/25" />
+            <span className="absolute bottom-0.5 left-0.5 w-2 h-2 border-b border-l border-brand-orange/25" />
+            <span className="absolute bottom-0.5 right-0.5 w-2 h-2 border-b border-r border-brand-orange/25" />
 
-            <Icon className="w-3.5 h-3.5 text-[#fcd34d]/70 shrink-0" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 whitespace-nowrap">
+            <Icon className="w-3.5 h-3.5 text-brand-orange/70 shrink-0" />
+            <span className="text-caption font-bold uppercase tracking-[0.2em] text-white/40 whitespace-nowrap">
               {label}
             </span>
           </div>

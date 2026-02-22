@@ -236,7 +236,7 @@ export const RevealCardsSection = () => {
       {/* Sticky panel — stays pinned at top:0 while outer div scrolls */}
       <div
         ref={sectionRef}
-        className="sticky top-0 h-screen bg-black overflow-hidden"
+        className="sticky top-0 h-screen short:h-[600px] bg-black overflow-hidden"
       >
 
         {/* Background glows */}

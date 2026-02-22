@@ -1,7 +1,9 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark  (&:is(.dark *));
+@custom-variant short (@media (max-height: 700px));
+@custom-variant tall  (@media (min-height: 800px));
 
 :root {
   --background: #000000;

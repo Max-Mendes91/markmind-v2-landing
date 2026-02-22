@@ -2,7 +2,7 @@
 
 import { useCallback, useRef } from "react"
 import { Quote } from "lucide-react"
-import { ORANGE, SLATE } from "@/lib/tokens"
+import { ORANGE, SLATE, BLACK, ORANGE_DARK, SLATE_DARK } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
 import { Stars } from "@/components/ui/stars"
 import { SectionBadge } from "@/components/ui/section-badge"
@@ -12,14 +12,14 @@ import type { MiniTestimonial } from "@/types"
 const AtmoCard = ({ accent }: { accent: "orange" | "slate" }) => {
   const isOrange = accent === "orange"
   const color  = isOrange ? ORANGE : SLATE
-  const from   = isOrange ? "#0f0800"  : "#00091a"
-  const glow1  = isOrange ? "rgba(255,155,81,0.10)"  : "rgba(191,201,209,0.08)"
-  const glow2  = isOrange ? "rgba(255,155,81,0.05)"  : "rgba(191,201,209,0.04)"
+  const from   = isOrange ? ORANGE_DARK : SLATE_DARK
+  const glow1  = isOrange ? `${ORANGE}1a` : `${SLATE}14`
+  const glow2  = isOrange ? `${ORANGE}0d` : `${SLATE}0a`
 
   return (
     <div
       className="relative w-full h-full rounded-3xl overflow-hidden flex flex-col justify-end p-7"
-      style={{ background: `linear-gradient(145deg, ${from} 0%, #000000 100%)` }}
+      style={{ background: `linear-gradient(145deg, ${from} 0%, ${BLACK} 100%)` }}
     >
       <Corners color={color} />
 

@@ -9,7 +9,7 @@ import { SectionBadge } from "@/components/ui/section-badge"
 import type { MiniTestimonial } from "@/types"
 
 // ── Atmospheric visual card (replaces photos) ──────────────────────────────────
-function AtmoCard({ accent }: { accent: "orange" | "slate" }) {
+const AtmoCard = ({ accent }: { accent: "orange" | "slate" }) => {
   const isOrange = accent === "orange"
   const color  = isOrange ? ORANGE : SLATE
   const from   = isOrange ? "#0f0800"  : "#00091a"
@@ -60,7 +60,7 @@ function AtmoCard({ accent }: { accent: "orange" | "slate" }) {
 }
 
 // ── Main quote card ────────────────────────────────────────────────────────────
-function QuoteCard({
+const QuoteCard = ({
   badge, quote, handle, role, accent = "orange",
 }: {
   badge: string
@@ -68,7 +68,7 @@ function QuoteCard({
   handle: string
   role: string
   accent?: "orange" | "slate"
-}) {
+}) => {
   const color    = accent === "orange" ? ORANGE : SLATE
   const initials = handle.replace("@", "").slice(0, 2).toUpperCase()
 
@@ -111,14 +111,14 @@ function QuoteCard({
 }
 
 // ── Mini testimonial card ─────────────────────────────────────────────────────
-function MiniCard({
+const MiniCard = ({
   handle, role, snippet, accent = "orange",
 }: {
   handle: string
   role: string
   snippet: React.ReactNode
   accent?: "orange" | "slate" | "neutral"
-}) {
+}) => {
   const color = accent === "orange" ? ORANGE : accent === "slate" ? SLATE : "rgba(255,255,255,0.35)"
 
   return (
@@ -150,7 +150,7 @@ const MINI_ITEMS: MiniTestimonial[] = [
 const MINI_TRACK = [...MINI_ITEMS, ...MINI_ITEMS]
 
 // ── Section ────────────────────────────────────────────────────────────────────
-export function SocialProofSection() {
+export const SocialProofSection = () => {
   const trackRef = useRef<HTMLDivElement>(null)
   const rafRef   = useRef<number | null>(null)
 

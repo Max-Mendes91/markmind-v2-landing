@@ -12,7 +12,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "About", href: "#about" },
 ]
 
-export function Navbar() {
+export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (

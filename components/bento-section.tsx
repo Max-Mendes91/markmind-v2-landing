@@ -4,7 +4,7 @@ import { Corners } from "@/components/ui/corners"
 import { SectionBadge } from "@/components/ui/section-badge"
 
 // ── Card 1 mock — pulsing highlight + popup ────────────────────────────────────
-function CaptureMock() {
+const CaptureMock = () => {
   return (
     <div className="relative w-full h-full flex flex-col gap-2.5 p-2 pt-10">
       {/* Section label */}
@@ -54,7 +54,7 @@ function CaptureMock() {
 }
 
 // ── Card 2 mock — floating thought chips being sorted ──────────────────────────
-function AIMock() {
+const AIMock = () => {
   return (
     <div className="relative w-full h-full min-h-[130px]">
       {/* AI indicator */}
@@ -97,7 +97,7 @@ function AIMock() {
 }
 
 // ── Card 3 mock — floating tag cloud ──────────────────────────────────────────
-function CollectionsMock() {
+const CollectionsMock = () => {
   const groups = [
     { name: "Research", color: ORANGE, tags: ["#brain", "#papers", "#notes"], delay: "0s" },
     { name: "Design",   color: SLATE,  tags: ["#ux", "#figma"],               delay: "0.8s" },
@@ -134,7 +134,7 @@ function CollectionsMock() {
 }
 
 // ── Card 4 mock (wide) — browser + slide-in panel ─────────────────────────────
-function FlowMock() {
+const FlowMock = () => {
   return (
     <div className="relative w-full h-full overflow-hidden flex flex-col gap-2">
       {/* Address bar */}
@@ -177,7 +177,7 @@ function FlowMock() {
 }
 
 // ── Label chip ────────────────────────────────────────────────────────────────
-function Chip({ icon: Icon, label, color }: { icon: typeof Bookmark; label: string; color: string }) {
+const Chip = ({ icon: Icon, label, color }: { icon: typeof Bookmark; label: string; color: string }) => {
   return (
     <div className="inline-flex items-center gap-1.5 mb-3">
       <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{ background: `${color}18`, border: `1px solid ${color}30` }}>
@@ -189,7 +189,7 @@ function Chip({ icon: Icon, label, color }: { icon: typeof Bookmark; label: stri
 }
 
 // ── Section ───────────────────────────────────────────────────────────────────
-export function BentoSection() {
+export const BentoSection = () => {
   return (
     <section className="relative px-4 md:px-8 lg:px-16 py-28 bg-black overflow-hidden">
       <div className="absolute inset-0 geometric-bg opacity-30 pointer-events-none" />

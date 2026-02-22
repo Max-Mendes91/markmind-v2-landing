@@ -19,7 +19,7 @@ const CARDS = [
 ] as const
 
 // ── Card content ──────────────────────────────────────────────────────────────
-function CardContent({ id, accent }: { id: string; accent: string }) {
+const CardContent = ({ id, accent }: { id: string; accent: string }) => {
   switch (id) {
     case "highlight":
       return (
@@ -133,7 +133,7 @@ function CardContent({ id, accent }: { id: string; accent: string }) {
 }
 
 // ── Browser mock — center hub ─────────────────────────────────────────────────
-function BrowserMock() {
+const BrowserMock = () => {
   return (
     <div className="w-[175px] glass-card rounded-2xl overflow-hidden border border-white/12 shadow-[0_0_60px_-10px_rgba(255,155,81,0.18)]">
       {/* Chrome bar */}
@@ -170,7 +170,7 @@ function BrowserMock() {
 }
 
 // ── Section ───────────────────────────────────────────────────────────────────
-export function RevealCardsSection() {
+export const RevealCardsSection = () => {
   // scrollRef  → outer div that creates the scrollable height
   // sectionRef → inner sticky panel (always viewport-sized when in range)
   const scrollRef  = useRef<HTMLDivElement>(null)

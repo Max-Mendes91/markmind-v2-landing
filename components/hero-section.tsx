@@ -14,7 +14,7 @@ const CYCLING_WORDS = [
 const STRIP_WORDS = [...CYCLING_WORDS, CYCLING_WORDS[0]]
 const WORD_H = "1.15em"
 
-function CyclingWord() {
+const CyclingWord = () => {
   const [index, setIndex] = useState(0)
   const stripRef = useRef<HTMLSpanElement>(null)
 
@@ -70,7 +70,7 @@ function CyclingWord() {
 }
 
 // Corner bracket frame around the logo mark
-function CornerFrame({ children }: { children: React.ReactNode }) {
+const CornerFrame = ({ children }: { children: React.ReactNode }) => {
   const corner = "absolute w-4 h-4 border-brand-orange/60"
   return (
     <div className="relative inline-flex items-center justify-center p-3">
@@ -83,7 +83,7 @@ function CornerFrame({ children }: { children: React.ReactNode }) {
   )
 }
 
-export function HeroSection() {
+export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black geometric-bg pt-20">
 

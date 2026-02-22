@@ -24,7 +24,7 @@ const ITEMS: MarqueeItem[] = [
 // Duplicate for seamless loop
 const TRACK = [...ITEMS, ...ITEMS]
 
-export function MarqueeSection() {
+export const MarqueeSection = () => {
   return (
     <div className="relative w-full overflow-hidden border-y border-white/5 py-5 bg-black">
       {/* Fade masks on edges */}

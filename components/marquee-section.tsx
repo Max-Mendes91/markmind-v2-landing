@@ -8,8 +8,9 @@ import {
   Search,
   CheckCircle2,
 } from "lucide-react"
+import type { MarqueeItem } from "@/types"
 
-const ITEMS = [
+const ITEMS: MarqueeItem[] = [
   { label: "Instant Capture",         Icon: Bookmark       },
   { label: "AI Organization",         Icon: BrainCircuit   },
   { label: "Smart Collections",       Icon: Layers2        },

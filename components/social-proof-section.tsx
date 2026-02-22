@@ -6,6 +6,7 @@ import { ORANGE, SLATE } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
 import { Stars } from "@/components/ui/stars"
 import { SectionBadge } from "@/components/ui/section-badge"
+import type { MiniTestimonial } from "@/types"
 
 // ── Atmospheric visual card (replaces photos) ──────────────────────────────────
 function AtmoCard({ accent }: { accent: "orange" | "slate" }) {
@@ -138,7 +139,7 @@ function MiniCard({
 }
 
 // ── Mini card data (duplicated for seamless marquee loop) ─────────────────────
-const MINI_ITEMS = [
+const MINI_ITEMS: MiniTestimonial[] = [
   { handle: "@mkkumar",    role: "Writer",           accent: "orange"  as const, snippet: <>Finally an extension that respects my <strong className="text-white/65 font-semibold">reading flow</strong>.</> },
   { handle: "@techbrief",  role: "Engineer",         accent: "slate"   as const, snippet: <><strong className="text-white/65 font-semibold">Zero friction</strong> capture. This is what I&rsquo;ve been waiting for.</> },
   { handle: "@curator22",  role: "Content Curator",  accent: "neutral" as const, snippet: <>Everything I learn, <strong className="text-white/65 font-semibold">in one place</strong>. No effort.</> },

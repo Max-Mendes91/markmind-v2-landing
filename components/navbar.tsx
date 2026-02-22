@@ -3,8 +3,9 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
+import type { NavLink } from "@/types"
 
-const NAV_LINKS = [
+const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#" },
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },

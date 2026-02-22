@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { Sparkles, BrainCircuit, CheckCircle2, Link2, Bookmark } from "lucide-react"
 import { ORANGE, SLATE } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
+import { SectionBadge } from "@/components/ui/section-badge"
 
 const TOTAL_CARDS = 5
 const PX_PER_CARD = 200  // px of scroll needed to reveal each card
@@ -316,10 +317,7 @@ export function RevealCardsSection() {
 
         {/* Left text */}
         <div className="absolute top-1/2 -translate-y-1/2 left-8 md:left-16 lg:left-24 z-40 max-w-[300px] md:max-w-[360px]">
-          <div className="mb-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/3">
-            <span className="w-1 h-1 rounded-full bg-white/40" />
-            <span className="text-badge font-bold uppercase tracking-[0.25em] text-white/40">How it works</span>
-          </div>
+          <SectionBadge label="How it works" />
           <p className="text-2xl md:text-hero-sm lg:text-hero-md leading-[1.2] text-white/85 font-light tracking-tight">
             While you&rsquo;re reading,{" "}
             <span className="text-brand-orange italic font-semibold">ideas surface.</span>

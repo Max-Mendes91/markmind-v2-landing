@@ -1,6 +1,7 @@
 import { Bookmark, BrainCircuit, Layers2, Zap } from "lucide-react"
 import { ORANGE, SLATE } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
+import { SectionBadge } from "@/components/ui/section-badge"
 
 // ── Card 1 mock — pulsing highlight + popup ────────────────────────────────────
 function CaptureMock() {
@@ -195,10 +196,7 @@ export function BentoSection() {
 
       {/* Section header */}
       <div className="relative z-10 flex flex-col items-center text-center mb-14">
-        <div className="mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/3">
-          <span className="w-1 h-1 rounded-full bg-white/40" />
-          <span className="text-badge font-bold uppercase tracking-[0.25em] text-white/40">Features</span>
-        </div>
+        <SectionBadge label="Features" />
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
           Built for how you{" "}
           <span className="text-gradient-gold-metallic italic">actually think.</span>

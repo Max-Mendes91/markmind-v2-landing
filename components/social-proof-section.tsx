@@ -1,20 +1,11 @@
 "use client"
 
 import { useRef } from "react"
-import { Star, Quote } from "lucide-react"
+import { Quote } from "lucide-react"
 import { ORANGE, SLATE } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
-
-// ── Stars ──────────────────────────────────────────────────────────────────────
-function Stars() {
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className="w-2.5 h-2.5 fill-brand-orange/55 text-brand-orange/55" />
-      ))}
-    </div>
-  )
-}
+import { Stars } from "@/components/ui/stars"
+import { SectionBadge } from "@/components/ui/section-badge"
 
 // ── Atmospheric visual card (replaces photos) ──────────────────────────────────
 function AtmoCard({ accent }: { accent: "orange" | "slate" }) {
@@ -195,10 +186,7 @@ export function SocialProofSection() {
 
       {/* Section header */}
       <div className="relative z-10 flex flex-col items-center text-center mb-14">
-        <div className="mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/3">
-          <span className="w-1 h-1 rounded-full bg-white/40" />
-          <span className="text-badge font-bold uppercase tracking-[0.25em] text-white/40">Users</span>
-        </div>
+        <SectionBadge label="Users" />
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
           Used by people who{" "}
           <span className="text-gradient-gold-metallic italic">think on the web.</span>

@@ -2,11 +2,12 @@
 
 import { useRef } from "react"
 import { Star, Quote } from "lucide-react"
+import { ORANGE, SLATE } from "@/lib/tokens"
 
 // ── Corner brackets ────────────────────────────────────────────────────────────
 function Corners({ color }: { color: string }) {
   const s = { borderColor: color }
-  const b = "absolute w-3 h-3 opacity-25 group-hover:opacity-60 transition-opacity duration-500"
+  const b = "absolute w-3 h-3 opacity-25"
   return (
     <>
       <span className={`${b} top-2 left-2 border-t border-l`} style={s} />
@@ -22,23 +23,23 @@ function Stars() {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className="w-2.5 h-2.5 fill-[#fcd34d]/55 text-[#fcd34d]/55" />
+        <Star key={i} className="w-2.5 h-2.5 fill-brand-orange/55 text-brand-orange/55" />
       ))}
     </div>
   )
 }
 
 // ── Atmospheric visual card (replaces photos) ──────────────────────────────────
-function AtmoCard({ accent }: { accent: "gold" | "blue" }) {
-  const isGold = accent === "gold"
-  const color  = isGold ? "#fcd34d" : "#bfdbfe"
-  const from   = isGold ? "#0f0800"  : "#00091a"
-  const glow1  = isGold ? "rgba(252,211,77,0.10)"  : "rgba(191,219,254,0.08)"
-  const glow2  = isGold ? "rgba(252,211,77,0.05)"  : "rgba(191,219,254,0.04)"
+function AtmoCard({ accent }: { accent: "orange" | "slate" }) {
+  const isOrange = accent === "orange"
+  const color  = isOrange ? ORANGE : SLATE
+  const from   = isOrange ? "#0f0800"  : "#00091a"
+  const glow1  = isOrange ? "rgba(255,155,81,0.10)"  : "rgba(191,201,209,0.08)"
+  const glow2  = isOrange ? "rgba(255,155,81,0.05)"  : "rgba(191,201,209,0.04)"
 
   return (
     <div
-      className="group relative w-full h-full rounded-3xl overflow-hidden flex flex-col justify-end p-7"
+      className="relative w-full h-full rounded-3xl overflow-hidden flex flex-col justify-end p-7"
       style={{ background: `linear-gradient(145deg, ${from} 0%, #000000 100%)` }}
     >
       <Corners color={color} />
@@ -71,7 +72,7 @@ function AtmoCard({ accent }: { accent: "gold" | "blue" }) {
       {/* Bottom label */}
       <div className="relative z-10 flex items-center gap-2">
         <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: color }} />
-        <span className="text-[8px] font-bold uppercase tracking-[0.3em] opacity-30" style={{ color }}>
+        <span className="text-note font-bold uppercase tracking-[0.3em] opacity-30" style={{ color }}>
           MarkMind User
         </span>
       </div>
@@ -81,19 +82,19 @@ function AtmoCard({ accent }: { accent: "gold" | "blue" }) {
 
 // ── Main quote card ────────────────────────────────────────────────────────────
 function QuoteCard({
-  badge, quote, handle, role, accent = "gold",
+  badge, quote, handle, role, accent = "orange",
 }: {
   badge: string
   quote: React.ReactNode
   handle: string
   role: string
-  accent?: "gold" | "blue"
+  accent?: "orange" | "slate"
 }) {
-  const color    = accent === "gold" ? "#fcd34d" : "#bfdbfe"
+  const color    = accent === "orange" ? ORANGE : SLATE
   const initials = handle.replace("@", "").slice(0, 2).toUpperCase()
 
   return (
-    <div className="group relative bento-card rounded-3xl p-7 h-full flex flex-col">
+    <div className="relative bento-card rounded-3xl p-7 h-full flex flex-col">
       <Corners color={color} />
 
       {/* Badge */}
@@ -102,27 +103,27 @@ function QuoteCard({
         style={{ background: `${color}08`, borderColor: `${color}22` }}
       >
         <div className="w-1 h-1 rounded-full" style={{ background: `${color}70` }} />
-        <span className="text-[8px] font-bold uppercase tracking-[0.25em]" style={{ color: `${color}80` }}>
+        <span className="text-note font-bold uppercase tracking-[0.25em]" style={{ color: `${color}80` }}>
           {badge}
         </span>
       </div>
 
       {/* Quote body */}
-      <p className="text-[15px] md:text-[16px] text-white/58 leading-[1.75] flex-1">
+      <p className="text-body md:text-body-md text-white/58 leading-[1.75] flex-1">
         &ldquo;{quote}&rdquo;
       </p>
 
       {/* Attribution */}
       <div className="mt-7 pt-5 border-t border-white/6 flex items-center gap-3">
         <div
-          className="w-8 h-8 rounded-xl flex items-center justify-center text-[10px] font-black shrink-0"
+          className="w-8 h-8 rounded-xl flex items-center justify-center text-badge font-black shrink-0"
           style={{ background: `${color}10`, border: `1px solid ${color}20`, color: `${color}90` }}
         >
           {initials}
         </div>
         <div className="min-w-0">
-          <div className="text-[11px] font-bold text-white/50">{handle}</div>
-          <div className="text-[9px] text-white/25 uppercase tracking-wider font-bold">{role}</div>
+          <div className="text-caption font-bold text-white/50">{handle}</div>
+          <div className="text-label text-white/25 uppercase tracking-wider font-bold">{role}</div>
         </div>
         <div className="ml-auto shrink-0"><Stars /></div>
       </div>
@@ -132,14 +133,14 @@ function QuoteCard({
 
 // ── Mini testimonial card ─────────────────────────────────────────────────────
 function MiniCard({
-  handle, role, snippet, accent = "gold",
+  handle, role, snippet, accent = "orange",
 }: {
   handle: string
   role: string
   snippet: React.ReactNode
-  accent?: "gold" | "blue" | "neutral"
+  accent?: "orange" | "slate" | "neutral"
 }) {
-  const color = accent === "gold" ? "#fcd34d" : accent === "blue" ? "#bfdbfe" : "rgba(255,255,255,0.35)"
+  const color = accent === "orange" ? ORANGE : accent === "slate" ? SLATE : "rgba(255,255,255,0.35)"
 
   const s = { borderColor: color }
   return (
@@ -154,22 +155,22 @@ function MiniCard({
       <span className="absolute bottom-2 right-2 w-3 h-3 border-b border-r opacity-25" style={s} />
 
       <div className="flex items-center justify-between">
-        <span className="text-[9px] font-bold text-white/30 font-mono">{handle}</span>
+        <span className="text-label font-bold text-white/30 font-mono">{handle}</span>
         <Stars />
       </div>
-      <p className="text-[12px] text-white/50 leading-relaxed flex-1">&ldquo;{snippet}&rdquo;</p>
-      <div className="text-[9px] text-white/20 uppercase tracking-[0.2em] font-bold">{role}</div>
+      <p className="text-body-xs text-white/50 leading-relaxed flex-1">&ldquo;{snippet}&rdquo;</p>
+      <div className="text-label text-white/20 uppercase tracking-[0.2em] font-bold">{role}</div>
     </div>
   )
 }
 
 // ── Mini card data (duplicated for seamless marquee loop) ─────────────────────
 const MINI_ITEMS = [
-  { handle: "@mkkumar",    role: "Writer",           accent: "gold"    as const, snippet: <>Finally an extension that respects my <strong className="text-white/65 font-semibold">reading flow</strong>.</> },
-  { handle: "@techbrief",  role: "Engineer",         accent: "blue"    as const, snippet: <><strong className="text-white/65 font-semibold">Zero friction</strong> capture. This is what I&rsquo;ve been waiting for.</> },
+  { handle: "@mkkumar",    role: "Writer",           accent: "orange"  as const, snippet: <>Finally an extension that respects my <strong className="text-white/65 font-semibold">reading flow</strong>.</> },
+  { handle: "@techbrief",  role: "Engineer",         accent: "slate"   as const, snippet: <><strong className="text-white/65 font-semibold">Zero friction</strong> capture. This is what I&rsquo;ve been waiting for.</> },
   { handle: "@curator22",  role: "Content Curator",  accent: "neutral" as const, snippet: <>Everything I learn, <strong className="text-white/65 font-semibold">in one place</strong>. No effort.</> },
-  { handle: "@readwise_j", role: "Knowledge Worker", accent: "gold"    as const, snippet: <>MarkMind is the <strong className="text-white/65 font-semibold">missing layer</strong> between reading and remembering.</> },
-  { handle: "@buildinpub", role: "Founder",          accent: "blue"    as const, snippet: <>Captured <strong className="text-white/65 font-semibold">three product ideas</strong> in one reading session.</> },
+  { handle: "@readwise_j", role: "Knowledge Worker", accent: "orange"  as const, snippet: <>MarkMind is the <strong className="text-white/65 font-semibold">missing layer</strong> between reading and remembering.</> },
+  { handle: "@buildinpub", role: "Founder",          accent: "slate"   as const, snippet: <>Captured <strong className="text-white/65 font-semibold">three product ideas</strong> in one reading session.</> },
   { handle: "@deepdive99", role: "Researcher",       accent: "neutral" as const, snippet: <>It just <strong className="text-white/65 font-semibold">gets out of the way</strong> — that&rsquo;s rare.</> },
 ]
 const MINI_TRACK = [...MINI_ITEMS, ...MINI_ITEMS]
@@ -214,7 +215,7 @@ export function SocialProofSection() {
       <div className="relative z-10 flex flex-col items-center text-center mb-14">
         <div className="mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/3">
           <span className="w-1 h-1 rounded-full bg-white/40" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">Users</span>
+          <span className="text-badge font-bold uppercase tracking-[0.25em] text-white/40">Users</span>
         </div>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
           Used by people who{" "}
@@ -230,7 +231,7 @@ export function SocialProofSection() {
 
         {/* Atmo card 1 — tall left (spans 2 rows) */}
         <div className="col-span-12 md:col-span-5 md:row-span-2 min-h-[280px] md:min-h-0">
-          <AtmoCard accent="gold" />
+          <AtmoCard accent="orange" />
         </div>
 
         {/* Quote 1 — top right */}
@@ -245,7 +246,7 @@ export function SocialProofSection() {
             }
             handle="@kylemarc"
             role="Product Designer"
-            accent="gold"
+            accent="orange"
           />
         </div>
 
@@ -261,7 +262,7 @@ export function SocialProofSection() {
             }
             handle="@n_writer"
             role="Researcher"
-            accent="blue"
+            accent="slate"
           />
         </div>
 
@@ -278,13 +279,13 @@ export function SocialProofSection() {
             }
             handle="@jayworks"
             role="Indie Hacker"
-            accent="gold"
+            accent="orange"
           />
         </div>
 
         {/* Atmo card 2 — tall right (spans 2 rows) */}
         <div className="col-span-12 md:col-span-5 md:row-span-2 min-h-[280px] md:min-h-0">
-          <AtmoCard accent="blue" />
+          <AtmoCard accent="slate" />
         </div>
 
         {/* Quote 4 — bottom left */}
@@ -300,7 +301,7 @@ export function SocialProofSection() {
             }
             handle="@alex_phd"
             role="PhD Student"
-            accent="blue"
+            accent="slate"
           />
         </div>
       </div>
@@ -329,7 +330,7 @@ export function SocialProofSection() {
       </div>
 
       {/* Bottom stat */}
-      <div className="relative z-10 mt-14 text-center text-white/15 text-[10px] tracking-[0.4em] uppercase font-bold">
+      <div className="relative z-10 mt-14 text-center text-white/15 text-badge tracking-[0.4em] uppercase font-bold">
         400+ users · Built in public · Improved by real feedback
       </div>
     </section>

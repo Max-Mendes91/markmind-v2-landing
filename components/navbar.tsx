@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useCallback } from "react"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
 import type { NavLink } from "@/types"
@@ -23,10 +24,12 @@ export const Navbar = () => {
       <div className="bg-black/40 backdrop-blur-[20px] border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_rgba(255,155,81,0.15)] ring-1 ring-brand-orange/20">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 pl-1 shrink-0">
-          <img
+          <Image
             src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/brand-assets/www.markmind.xyz/logo-1771684912530.png"
             alt="MarkMind Logo"
-            className="w-7 h-7 brightness-110"
+            width={28}
+            height={28}
+            className="brightness-110"
           />
           <span className="text-base font-black tracking-tight text-white hidden sm:block">
             MarkMind

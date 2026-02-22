@@ -3,13 +3,17 @@ import { Archivo, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _archivo = Archivo({
+const archivo = Archivo({
   subsets: ['latin'],
   variable: '--font-archivo',
 })
-const _geistMono = Geist_Mono({ subsets: ['latin'] })
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+})
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://markmind.app'),
   title: 'MarkMind — Capture Ideas While You Browse',
   description:
     'MarkMind is a browser extension that captures highlights, annotations, and ideas from any webpage — instantly, with zero friction.',
@@ -40,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${archivo.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased selection:bg-brand-orange selection:text-black">
         {children}
         <Analytics />

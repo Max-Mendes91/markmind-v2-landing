@@ -11,7 +11,7 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black overflow-x-clip">
+    <main className="min-h-screen bg-black overflow-x-clip">
       <Navbar />
       <HeroSection />
       <MarqueeSection />
@@ -22,6 +22,6 @@ export default function Home() {
       <V2SignalSection />
       <CtaSection />
       <Footer />
-    </div>
+    </main>
   )
 }

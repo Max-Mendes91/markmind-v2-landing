@@ -5,7 +5,7 @@ export const BentoAIMock = () => (
     {/* AI indicator */}
     <div className="absolute top-1 right-1 flex items-center gap-1">
       <div className="w-1.5 h-1.5 rounded-full bg-brand-slate animate-pulse" />
-      <span className="text-micro text-white/40 font-bold uppercase tracking-wider">Sorting</span>
+      <span className="text-micro text-white/55 font-bold uppercase tracking-wider">Sorting</span>
     </div>
 
     {/* Drifting chips */}

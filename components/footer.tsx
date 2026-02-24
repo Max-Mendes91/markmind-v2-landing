@@ -68,7 +68,7 @@ export const Footer = () => (
       </nav>
 
       {/* Copyright */}
-      <span className="mt-8 text-badge text-white/35">
+      <span className="mt-8 text-badge text-white/50">
         MarkMind &copy; {new Date().getFullYear()}
       </span>
     </div>

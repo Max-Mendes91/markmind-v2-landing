@@ -29,7 +29,7 @@ export const BentoCollectionsMock = () => (
         </div>
       </div>
     ))}
-    <div className="text-micro text-white/40 font-bold uppercase tracking-widest mt-1">
+    <div className="text-micro text-white/55 font-bold uppercase tracking-widest mt-1">
       14 notes auto-grouped
     </div>
   </div>

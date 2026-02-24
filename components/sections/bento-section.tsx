@@ -91,7 +91,7 @@ export const BentoSection = () => (
       </div>
     </div>
 
-    <div className="relative z-10 mt-14 text-center text-white/35 text-badge tracking-[0.4em] uppercase font-bold">
+    <div className="relative z-10 mt-14 text-center text-white/50 text-badge tracking-[0.4em] uppercase font-bold">
       Used by people with 200, 2,000, even 10,000+ bookmarks
     </div>
   </section>

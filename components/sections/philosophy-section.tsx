@@ -64,7 +64,7 @@ export const PhilosophySection = () => (
     </div>
 
     {/* Closing */}
-    <p className="relative z-10 mt-16 text-center italic text-white/40 text-body-md max-w-lg mx-auto">
+    <p className="relative z-10 mt-16 text-center italic text-white/55 text-body-md max-w-lg mx-auto">
       &ldquo;The best organization system is the one that doesn&apos;t ask for attention.&rdquo;
     </p>
   </section>

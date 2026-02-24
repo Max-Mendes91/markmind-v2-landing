@@ -11,17 +11,19 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black overflow-x-clip">
+    <>
       <Navbar />
-      <HeroSection />
-      <MarqueeSection />
-      <BentoSection />
-      <RevealCardsSection />
-      <SocialProofSection />
-      <PhilosophySection />
-      <V2SignalSection />
-      <CtaSection />
+      <main className="min-h-screen bg-black overflow-x-clip">
+        <HeroSection />
+        <MarqueeSection />
+        <BentoSection />
+        <RevealCardsSection />
+        <SocialProofSection />
+        <PhilosophySection />
+        <V2SignalSection />
+        <CtaSection />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }

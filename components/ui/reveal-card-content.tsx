@@ -45,7 +45,7 @@ export const RevealCardContent = ({ id, accent }: RevealCardContentProps) => {
           </div>
           <div className="mt-2.5 flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-            <span className="text-label text-white/45 font-bold uppercase tracking-wider">Extracting page context</span>
+            <span className="text-label text-white/55 font-bold uppercase tracking-wider">Extracting page context</span>
           </div>
         </>
       )

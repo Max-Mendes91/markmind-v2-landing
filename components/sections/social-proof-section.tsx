@@ -243,7 +243,7 @@ export const SocialProofSection = () => {
       </div>
 
       {/* Bottom stat */}
-      <div className="relative z-10 mt-14 text-center text-white/35 text-badge tracking-[0.4em] uppercase font-bold">
+      <div className="relative z-10 mt-14 text-center text-white/50 text-badge tracking-[0.4em] uppercase font-bold">
         4.8 stars · 26 Chrome Web Store reviews · Open source
       </div>
     </section>

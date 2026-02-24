@@ -23,18 +23,20 @@ export const CtaSection = () => (
     </div>
 
     {/* SVG connector lines — curve from side rails inward */}
-    <svg className="hidden md:block absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+    <svg className="hidden md:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
       <path
-        d="M 10% 0 Q 10% 35%, 38% 45%"
+        d="M 10 0 Q 10 35, 38 45"
         fill="none"
         stroke="url(#line-fade-l)"
         strokeWidth="1"
+        vectorEffect="non-scaling-stroke"
       />
       <path
-        d="M 90% 0 Q 90% 35%, 62% 45%"
+        d="M 90 0 Q 90 35, 62 45"
         fill="none"
         stroke="url(#line-fade-r)"
         strokeWidth="1"
+        vectorEffect="non-scaling-stroke"
       />
       <defs>
         <linearGradient id="line-fade-l" x1="0" y1="0" x2="0" y2="1">

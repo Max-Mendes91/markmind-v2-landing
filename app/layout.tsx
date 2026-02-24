@@ -45,7 +45,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${archivo.variable} ${geistMono.variable}`}>
-      <head>
+      <body className="font-sans antialiased selection:bg-brand-orange selection:text-black">
+        {children}
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -70,10 +72,6 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
-      <body className="font-sans antialiased selection:bg-brand-orange selection:text-black">
-        {children}
-        <Analytics />
       </body>
     </html>
   )

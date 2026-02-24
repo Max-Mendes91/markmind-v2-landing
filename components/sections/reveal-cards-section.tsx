@@ -12,11 +12,11 @@ const PX_PER_CARD = 200  // px of scroll needed to reveal each card
 
 // ── Card positions — radiating from center browser mock ───────────────────────
 const REVEAL_CARDS = [
-  { id: "highlight",  pos: "top-[6%] right-[4%]",    accent: SLATE,  w: "w-[280px]" },
-  { id: "annotation", pos: "top-[16%] right-[22%]",   accent: ORANGE, w: "w-[260px]" },
-  { id: "capture",    pos: "top-[62%] left-[26%]",    accent: SLATE,  w: "w-[270px]" },
-  { id: "synced",     pos: "top-[40%] right-[4%]",    accent: ORANGE, w: "w-[300px]" },
-  { id: "saved",      pos: "top-[68%] right-[16%]",   accent: ORANGE, w: "w-[280px]" },
+  { id: "reading",  pos: "top-[6%] right-[4%]",    accent: SLATE,  w: "w-[280px]" },
+  { id: "analyze",  pos: "top-[16%] right-[22%]",   accent: ORANGE, w: "w-[260px]" },
+  { id: "folders",  pos: "top-[62%] left-[26%]",    accent: SLATE,  w: "w-[270px]" },
+  { id: "suggest",  pos: "top-[40%] right-[4%]",    accent: ORANGE, w: "w-[300px]" },
+  { id: "approve",  pos: "top-[68%] right-[16%]",   accent: ORANGE, w: "w-[280px]" },
 ] as const
 
 // ── Section ───────────────────────────────────────────────────────────────────
@@ -77,7 +77,7 @@ export const RevealCardsSection = () => {
   const outerHeight = `calc(100vh + ${TOTAL_CARDS * PX_PER_CARD}px)`
 
   return (
-    <div ref={scrollRef} style={{ height: outerHeight }}>
+    <div id="how-it-works" ref={scrollRef} style={{ height: outerHeight }}>
       <div ref={sectionRef} className="sticky top-0 h-screen short:h-[600px] bg-black overflow-hidden">
 
         {/* Background glows */}
@@ -97,14 +97,10 @@ export const RevealCardsSection = () => {
         {/* Left text */}
         <div className="absolute top-1/2 -translate-y-1/2 left-8 md:left-16 lg:left-24 z-40 max-w-[300px] md:max-w-[360px]">
           <SectionBadge label="How it works" />
-          <p className="text-2xl md:text-hero-sm lg:text-hero-md leading-[1.2] text-white/85 font-light tracking-tight">
-            While you&rsquo;re reading,{" "}
-            <span className="text-brand-orange italic font-semibold">ideas surface.</span>
-            <br />
-            <span className="text-white/55 text-xl md:text-hero-sub">
-              MarkMind captures them instantly — without breaking your flow.
-            </span>
-          </p>
+          <h2 className="text-2xl md:text-hero-sm lg:text-hero-md leading-[1.2] text-white/85 font-light tracking-tight">
+            A smart bookmark manager that works with{" "}
+            <span className="text-brand-orange italic font-semibold">how you already browse.</span>
+          </h2>
         </div>
 
         <RevealProgressDots revealedCount={revealedCount} />
@@ -144,7 +140,7 @@ export const RevealCardsSection = () => {
           style={{ opacity: revealedCount >= TOTAL_CARDS ? 0 : 0.5 }}
         >
           <span className="text-label uppercase tracking-[0.35em] font-bold text-white/50">
-            {revealedCount === 0 ? "Scroll to reveal" : `${TOTAL_CARDS - revealedCount} more`}
+            {revealedCount === 0 ? "Scroll" : `${TOTAL_CARDS - revealedCount} more`}
           </span>
           <svg className="w-3.5 h-3.5 text-white/40 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -153,7 +149,7 @@ export const RevealCardsSection = () => {
 
         {/* Footer meta */}
         <div className="absolute bottom-6 left-0 right-0 flex items-center justify-between px-10 pointer-events-none opacity-[0.07] text-note uppercase tracking-[0.4em] text-white">
-          <span>Capture Sequence</span>
+          <span>Single Bookmark Flow</span>
           <span>{revealedCount} / {TOTAL_CARDS} steps</span>
           <span>MarkMind</span>
         </div>

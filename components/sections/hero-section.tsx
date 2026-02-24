@@ -4,6 +4,9 @@ import { useState, useEffect, useRef } from "react"
 import { ArrowRight, Play, Sparkles, Bookmark, Zap } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
 
+const LOGO_URL =
+  "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/brand-assets/www.markmind.xyz/logo-1771684912530.png"
+
 const CYCLING_WORDS = [
   "without friction.",
   "with intention.",
@@ -83,6 +86,127 @@ const CornerFrame = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
+// ── Left floating decorations ─────────────────────────────────────────────────
+const HeroFloatingLeft = () => (
+  <>
+    {/* 1 — Far outer corner: label tag */}
+    <div
+      className="absolute left-[2%] top-[18%] xl:flex hidden items-center gap-2 animate-float"
+      style={{ animationDelay: "0s", animationDuration: "6s" }}
+    >
+      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
+        <Bookmark className="w-3 h-3 text-brand-orange" />
+        <span className="text-caption font-bold text-white/70">Text Highlight</span>
+        <span className="font-mono text-badge text-white/30">[ ]</span>
+      </div>
+    </div>
+
+    {/* 2 — Mid arc: capture card */}
+    <div
+      className="absolute left-[5%] top-[37%] xl:block hidden animate-float"
+      style={{ animationDelay: "1.2s", animationDuration: "7s" }}
+    >
+      <div className="glass-card p-3.5 rounded-2xl w-[210px]">
+        <div className="text-label uppercase tracking-wider text-muted-foreground font-bold mb-2 flex items-center gap-1.5">
+          <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+          Captured from page
+        </div>
+        <div className="bg-brand-orange/8 border border-brand-orange/15 rounded-xl p-2.5 mb-3">
+          <p className="text-caption text-white/75 leading-relaxed">
+            &ldquo;Neural plasticity refers to the brain&rsquo;s ability to reorganise itself&hellip;&rdquo;
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-5 h-5 rounded-full bg-brand-orange flex items-center justify-center shrink-0">
+            <Bookmark className="w-2.5 h-2.5 text-black" />
+          </div>
+          <span className="text-badge font-bold text-brand-orange">Save to MarkMind</span>
+        </div>
+      </div>
+    </div>
+
+    {/* 3 — Inner, closest to text: AI dots */}
+    <div
+      className="absolute left-[20%] top-[64%] xl:flex hidden items-center gap-2 animate-float"
+      style={{ animationDelay: "2.5s", animationDuration: "5.5s" }}
+    >
+      <Sparkles className="w-3.5 h-3.5 text-brand-slate" />
+      <div className="flex gap-1.5">
+        {[0, 0.2, 0.4].map((delay) => (
+          <div
+            key={delay}
+            className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce"
+            style={{ animationDelay: `${delay}s` }}
+          />
+        ))}
+      </div>
+      <span className="text-badge text-white/40 font-bold ml-1">AI organizing&hellip;</span>
+    </div>
+  </>
+)
+
+// ── Right floating decorations ────────────────────────────────────────────────
+const HeroFloatingRight = () => (
+  <>
+    {/* 1 — Far outer corner: label tag */}
+    <div
+      className="absolute right-[2%] top-[18%] xl:flex hidden items-center gap-2 animate-float"
+      style={{ animationDelay: "0.7s", animationDuration: "6.5s" }}
+    >
+      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
+        <span className="text-caption font-bold text-white/70">Smart Collections</span>
+        <Zap className="w-3 h-3 text-brand-slate" />
+      </div>
+    </div>
+
+    {/* 2 — Mid arc: note organized card */}
+    <div
+      className="absolute right-[5%] top-[37%] xl:block hidden animate-float"
+      style={{ animationDelay: "2s", animationDuration: "8s" }}
+    >
+      <div className="glass-card p-3.5 rounded-2xl w-[200px]">
+        <div className="flex items-center gap-2 mb-2.5">
+          <div className="w-2 h-2 rounded-full bg-emerald-400" />
+          <span className="text-badge font-bold text-white/60 uppercase tracking-wider">Organized</span>
+        </div>
+        <div className="text-body-xs font-bold text-white mb-1">Neuroscience</div>
+        <div className="text-caption text-white/50 mb-2.5">Research › Brain › Learning</div>
+        <div className="flex gap-1 flex-wrap">
+          {["#plasticity", "#research", "#memory"].map((tag) => (
+            <span
+              key={tag}
+              className="px-2 py-0.5 rounded-full bg-brand-slate/10 border border-brand-slate/20 text-label text-brand-slate font-bold"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* 3 — Inner, closest to text: integration icons */}
+    <div
+      className="absolute right-[20%] top-[64%] xl:flex hidden items-center gap-2 animate-float"
+      style={{ animationDelay: "3.5s", animationDuration: "7.5s" }}
+    >
+      {[
+        { label: "C", bg: "bg-blue-500/20 border-blue-500/30", text: "text-blue-300" },
+        { label: "N", bg: "bg-white/10 border-white/20", text: "text-white" },
+        { label: "G", bg: "bg-red-500/20 border-red-500/30", text: "text-red-300" },
+        { label: "✦", bg: "bg-purple-500/20 border-purple-500/30", text: "text-purple-300" },
+      ].map(({ label, bg, text }) => (
+        <div
+          key={label}
+          className={`w-8 h-8 rounded-full border flex items-center justify-center ${bg}`}
+        >
+          <span className={`text-caption font-black ${text}`}>{label}</span>
+        </div>
+      ))}
+    </div>
+  </>
+)
+
+// ── Section ───────────────────────────────────────────────────────────────────
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black geometric-bg pt-20">
@@ -95,119 +219,8 @@ export const HeroSection = () => {
         <div className="absolute top-[25%] right-0 w-[280px] h-[500px] bg-brand-slate/3 blur-[100px] rounded-full" />
       </div>
 
-      {/* === LEFT FLOATING ARC (outer → inner as y increases) === */}
-
-      {/* 1 — Far outer corner: label tag */}
-      <div
-        className="absolute left-[2%] top-[18%] xl:flex hidden items-center gap-2 animate-float"
-        style={{ animationDelay: "0s", animationDuration: "6s" }}
-      >
-        <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
-          <Bookmark className="w-3 h-3 text-brand-orange" />
-          <span className="text-caption font-bold text-white/70">Text Highlight</span>
-          <span className="font-mono text-badge text-white/30">[ ]</span>
-        </div>
-      </div>
-
-      {/* 2 — Mid arc: capture card */}
-      <div
-        className="absolute left-[5%] top-[37%] xl:block hidden animate-float"
-        style={{ animationDelay: "1.2s", animationDuration: "7s" }}
-      >
-        <div className="glass-card p-3.5 rounded-2xl w-[210px]">
-          <div className="text-label uppercase tracking-wider text-muted-foreground font-bold mb-2 flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-            Captured from page
-          </div>
-          <div className="bg-brand-orange/8 border border-brand-orange/15 rounded-xl p-2.5 mb-3">
-            <p className="text-caption text-white/75 leading-relaxed">
-              &ldquo;Neural plasticity refers to the brain&rsquo;s ability to reorganise itself&hellip;&rdquo;
-            </p>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded-full bg-brand-orange flex items-center justify-center shrink-0">
-              <Bookmark className="w-2.5 h-2.5 text-black" />
-            </div>
-            <span className="text-badge font-bold text-brand-orange">Save to MarkMind</span>
-          </div>
-        </div>
-      </div>
-
-      {/* 3 — Inner, closest to text: AI dots */}
-      <div
-        className="absolute left-[20%] top-[64%] xl:flex hidden items-center gap-2 animate-float"
-        style={{ animationDelay: "2.5s", animationDuration: "5.5s" }}
-      >
-        <Sparkles className="w-3.5 h-3.5 text-brand-slate" />
-        <div className="flex gap-1.5">
-          {[0, 0.2, 0.4].map((delay) => (
-            <div
-              key={delay}
-              className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce"
-              style={{ animationDelay: `${delay}s` }}
-            />
-          ))}
-        </div>
-        <span className="text-badge text-white/40 font-bold ml-1">AI organizing&hellip;</span>
-      </div>
-
-      {/* === RIGHT FLOATING ARC (mirror) === */}
-
-      {/* 1 — Far outer corner: label tag */}
-      <div
-        className="absolute right-[2%] top-[18%] xl:flex hidden items-center gap-2 animate-float"
-        style={{ animationDelay: "0.7s", animationDuration: "6.5s" }}
-      >
-        <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
-          <span className="text-caption font-bold text-white/70">Smart Collections</span>
-          <Zap className="w-3 h-3 text-brand-slate" />
-        </div>
-      </div>
-
-      {/* 2 — Mid arc: note organized card */}
-      <div
-        className="absolute right-[5%] top-[37%] xl:block hidden animate-float"
-        style={{ animationDelay: "2s", animationDuration: "8s" }}
-      >
-        <div className="glass-card p-3.5 rounded-2xl w-[200px]">
-          <div className="flex items-center gap-2 mb-2.5">
-            <div className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="text-badge font-bold text-white/60 uppercase tracking-wider">Organized</span>
-          </div>
-          <div className="text-body-xs font-bold text-white mb-1">Neuroscience</div>
-          <div className="text-caption text-white/50 mb-2.5">Research › Brain › Learning</div>
-          <div className="flex gap-1 flex-wrap">
-            {["#plasticity", "#research", "#memory"].map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-0.5 rounded-full bg-brand-slate/10 border border-brand-slate/20 text-label text-brand-slate font-bold"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* 3 — Inner, closest to text: integration icons */}
-      <div
-        className="absolute right-[20%] top-[64%] xl:flex hidden items-center gap-2 animate-float"
-        style={{ animationDelay: "3.5s", animationDuration: "7.5s" }}
-      >
-        {[
-          { label: "C", bg: "bg-blue-500/20 border-blue-500/30", text: "text-blue-300" },
-          { label: "N", bg: "bg-white/10 border-white/20", text: "text-white" },
-          { label: "G", bg: "bg-red-500/20 border-red-500/30", text: "text-red-300" },
-          { label: "✦", bg: "bg-purple-500/20 border-purple-500/30", text: "text-purple-300" },
-        ].map(({ label, bg, text }) => (
-          <div
-            key={label}
-            className={`w-8 h-8 rounded-full border flex items-center justify-center ${bg}`}
-          >
-            <span className={`text-caption font-black ${text}`}>{label}</span>
-          </div>
-        ))}
-      </div>
+      <HeroFloatingLeft />
+      <HeroFloatingRight />
 
       {/* === CENTER CONTENT === */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto w-full">
@@ -216,7 +229,7 @@ export const HeroSection = () => {
         <div className="mb-6">
           <CornerFrame>
             <img
-              src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/brand-assets/www.markmind.xyz/logo-1771684912530.png"
+              src={LOGO_URL}
               alt="MarkMind"
               className="w-10 h-10 brightness-110"
             />

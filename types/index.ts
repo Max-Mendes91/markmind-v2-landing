@@ -6,10 +6,21 @@ export interface NavLink {
   href:  string
 }
 
+export interface FooterLink {
+  label: string
+  href:  string
+}
+
 // ── Marquee ───────────────────────────────────────────────────────────────────
 export interface MarqueeItem {
   label: string
   Icon:  LucideIcon
+}
+
+// ── Philosophy ────────────────────────────────────────────────────────────────
+export interface PhilosophyPrinciple {
+  keyword:   string
+  statement: string
 }
 
 // ── Testimonials ──────────────────────────────────────────────────────────────

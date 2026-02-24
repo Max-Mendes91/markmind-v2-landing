@@ -5,7 +5,7 @@ export const BentoCaptureMock = () => (
     {/* Section label */}
     <div className="absolute top-2 left-2 flex items-center gap-1.5">
       <div className="w-1.5 h-1.5 rounded-full bg-brand-orange/60 animate-pulse" />
-      <span className="text-note font-bold uppercase tracking-widest text-white/25">Reading mode</span>
+      <span className="text-note font-bold uppercase tracking-widest text-white/40">Reading mode</span>
     </div>
 
     {/* Text lines */}
@@ -35,7 +35,7 @@ export const BentoCaptureMock = () => (
 
     {/* Saved note appears */}
     <div className="animate-note-appear glass-card rounded-xl p-3 border border-brand-orange/15">
-      <div className="text-note text-white/30 font-bold uppercase tracking-widest mb-1.5">Saved note</div>
+      <div className="text-note text-white/45 font-bold uppercase tracking-widest mb-1.5">Saved note</div>
       <div className="w-full h-1.5 rounded-full bg-brand-orange/20 mb-1.5" />
       <div className="w-4/5 h-1.5 rounded-full bg-brand-orange/15" />
       <div className="flex gap-1 mt-2">

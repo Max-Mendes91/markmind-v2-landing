@@ -44,7 +44,7 @@ export const MarqueeSection = () => {
             <span className="absolute bottom-0.5 right-0.5 w-2 h-2 border-b border-r border-brand-orange/25" />
 
             <Icon className="w-3.5 h-3.5 text-brand-orange/70 shrink-0" />
-            <span className="text-caption font-bold uppercase tracking-[0.2em] text-white/40 whitespace-nowrap">
+            <span className="text-caption font-bold uppercase tracking-[0.2em] text-white/50 whitespace-nowrap">
               {label}
             </span>
           </div>

@@ -59,7 +59,7 @@ export const SocialProofSection = () => {
           Used by people who{" "}
           <span className="text-gradient-gold-metallic italic">think on the web.</span>
         </h2>
-        <p className="text-white/35 text-base max-w-sm leading-relaxed">
+        <p className="text-white/50 text-base max-w-sm leading-relaxed">
           400+ users. No hype. Real feedback from people who read and think for a living.
         </p>
       </div>
@@ -134,7 +134,7 @@ export const SocialProofSection = () => {
       </div>
 
       {/* Bottom stat */}
-      <div className="relative z-10 mt-14 text-center text-white/15 text-badge tracking-[0.4em] uppercase font-bold">
+      <div className="relative z-10 mt-14 text-center text-white/35 text-badge tracking-[0.4em] uppercase font-bold">
         400+ users · Built in public · Improved by real feedback
       </div>
     </section>

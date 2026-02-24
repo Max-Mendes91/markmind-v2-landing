@@ -13,7 +13,7 @@ export const BentoCollectionsMock = () => (
         className="animate-float"
         style={{ animationDelay: delay, animationDuration: "6s" }}
       >
-        <div className="text-note font-black uppercase tracking-widest mb-1.5" style={{ color, opacity: 0.5 }}>
+        <div className="text-note font-black uppercase tracking-widest mb-1.5" style={{ color, opacity: 0.7 }}>
           {name}
         </div>
         <div className="flex gap-1.5 flex-wrap">
@@ -29,7 +29,7 @@ export const BentoCollectionsMock = () => (
         </div>
       </div>
     ))}
-    <div className="text-micro text-white/20 font-bold uppercase tracking-widest mt-1">
+    <div className="text-micro text-white/40 font-bold uppercase tracking-widest mt-1">
       14 notes auto-grouped
     </div>
   </div>

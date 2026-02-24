@@ -20,7 +20,7 @@ export const BentoSection = () => (
         Built for how you{" "}
         <span className="text-gradient-gold-metallic italic">actually think.</span>
       </h2>
-      <p className="text-white/40 text-lg max-w-md leading-relaxed">
+      <p className="text-white/50 text-lg max-w-md leading-relaxed">
         Every feature removes a layer of friction between your brain and the web.
       </p>
     </div>
@@ -37,7 +37,7 @@ export const BentoSection = () => (
         </div>
         <div>
           <h3 className="text-card-title font-black text-white mb-1">Instant Capture</h3>
-          <p className="text-body-sm text-white/40 leading-relaxed">
+          <p className="text-body-sm text-white/50 leading-relaxed">
             Highlight any text and save it in one click — without leaving the page.
           </p>
         </div>
@@ -52,7 +52,7 @@ export const BentoSection = () => (
         </div>
         <div>
           <h3 className="text-body-md font-black text-white mb-1">AI Organization</h3>
-          <p className="text-body-xs text-white/40 leading-relaxed">
+          <p className="text-body-xs text-white/50 leading-relaxed">
             Notes auto-categorize the moment you capture them.
           </p>
         </div>
@@ -67,7 +67,7 @@ export const BentoSection = () => (
         </div>
         <div>
           <h3 className="text-body-md font-black text-white mb-1">Smart Collections</h3>
-          <p className="text-body-xs text-white/40 leading-relaxed">
+          <p className="text-body-xs text-white/50 leading-relaxed">
             Related ideas cluster automatically. Find anything in seconds.
           </p>
         </div>
@@ -80,7 +80,7 @@ export const BentoSection = () => (
         <div className="md:w-2/5 flex flex-col justify-center">
           <BentoChip icon={Zap} label="Native" color={SLATE} />
           <h3 className="text-card-title-lg font-black text-white mb-2">Browser-Native Flow</h3>
-          <p className="text-body-sm text-white/40 leading-relaxed">
+          <p className="text-body-sm text-white/50 leading-relaxed">
             The extension lives in your browser. No new tabs, no logins, no context switching — ever.
           </p>
         </div>
@@ -91,7 +91,7 @@ export const BentoSection = () => (
       </div>
     </div>
 
-    <div className="relative z-10 mt-14 text-center text-white/15 text-badge tracking-[0.4em] uppercase font-bold">
+    <div className="relative z-10 mt-14 text-center text-white/35 text-badge tracking-[0.4em] uppercase font-bold">
       Trusted by 10,000+ deep thinkers worldwide
     </div>
   </section>

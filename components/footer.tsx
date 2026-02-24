@@ -9,8 +9,8 @@ const FOOTER_NAV: FooterLink[] = [
   { label: "How It Works",   href: "#how-it-works" },
   { label: "Pricing",        href: "#pricing" },
   { label: "About",          href: "#about" },
-  { label: "Privacy",        href: "#" },
-  { label: "Terms",          href: "#" },
+  { label: "Privacy",        href: "#privacy" },
+  { label: "Terms",          href: "#terms" },
 ]
 
 export const Footer = () => (
@@ -40,7 +40,7 @@ export const Footer = () => (
       </div>
 
       {/* Tagline */}
-      <p className="text-white/35 text-base max-w-md leading-relaxed mb-8">
+      <p className="text-white/50 text-base max-w-md leading-relaxed mb-8">
         Capture highlights, annotations, and ideas from any webpage — instantly,
         with zero friction.
       </p>
@@ -56,7 +56,7 @@ export const Footer = () => (
           <a
             key={label}
             href={href}
-            className="text-body-xs text-white/35 underline underline-offset-4 decoration-white/10 hover:text-white/60 hover:decoration-white/30 transition-colors"
+            className="text-body-xs text-white/50 underline underline-offset-4 decoration-white/15 hover:text-white/70 hover:decoration-white/40 transition-colors"
           >
             {label}
           </a>
@@ -64,7 +64,7 @@ export const Footer = () => (
       </nav>
 
       {/* Copyright */}
-      <span className="mt-8 text-badge text-white/15">
+      <span className="mt-8 text-badge text-white/35">
         MarkMind &copy; {new Date().getFullYear()}
       </span>
     </div>

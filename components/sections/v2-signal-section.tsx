@@ -54,7 +54,7 @@ export const V2SignalSection = () => (
         {V2_HIGHLIGHTS.map((label) => (
           <span
             key={label}
-            className="px-3.5 py-1.5 rounded-full border border-white/8 bg-white/3 text-badge font-bold uppercase tracking-[0.2em] text-white/30"
+            className="px-3.5 py-1.5 rounded-full border border-white/8 bg-white/3 text-badge font-bold uppercase tracking-[0.2em] text-white/45"
           >
             {label}
           </span>

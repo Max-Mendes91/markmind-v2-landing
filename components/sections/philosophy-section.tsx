@@ -43,7 +43,7 @@ export const PhilosophySection = () => (
           </span>
         </span>
       </h2>
-      <p className="text-white/35 text-base max-w-md leading-relaxed">
+      <p className="text-white/50 text-base max-w-md leading-relaxed">
         MarkMind exists because most tools ask too much of you. We believe the
         best software disappears into your workflow.
       </p>
@@ -56,7 +56,7 @@ export const PhilosophySection = () => (
           <h3 className="text-card-title-lg font-black text-white mb-2">
             {keyword}
           </h3>
-          <p className="text-body text-white/45 leading-relaxed">
+          <p className="text-body text-white/55 leading-relaxed">
             {statement}
           </p>
         </div>
@@ -64,7 +64,7 @@ export const PhilosophySection = () => (
     </div>
 
     {/* Closing */}
-    <p className="relative z-10 mt-16 text-center italic text-white/25 text-body-md max-w-lg mx-auto">
+    <p className="relative z-10 mt-16 text-center italic text-white/40 text-body-md max-w-lg mx-auto">
       &ldquo;The best tool is the one you forget you&apos;re using.&rdquo;
     </p>
   </section>

@@ -25,11 +25,11 @@ export const SocialMiniCard = ({
       <Corners color={color} />
 
       <div className="flex items-center justify-between">
-        <span className="text-label font-bold text-white/30 font-mono">{handle}</span>
+        <span className="text-label font-bold text-white/45 font-mono">{handle}</span>
         <Stars />
       </div>
       <p className="text-body-xs text-white/50 leading-relaxed flex-1">&ldquo;{snippet}&rdquo;</p>
-      <div className="text-label text-white/20 uppercase tracking-[0.2em] font-bold">{role}</div>
+      <div className="text-label text-white/40 uppercase tracking-[0.2em] font-bold">{role}</div>
     </div>
   )
 }

@@ -72,7 +72,7 @@ export const CtaSection = () => (
         <span className="text-gradient-gold-metallic italic">today.</span>
       </h2>
 
-      <p className="text-white/35 text-base max-w-md leading-relaxed mb-10">
+      <p className="text-white/50 text-base max-w-md leading-relaxed mb-10">
         Available as a browser extension. No account required. Lightweight by
         design.
       </p>

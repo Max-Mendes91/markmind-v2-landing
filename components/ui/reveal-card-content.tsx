@@ -44,7 +44,7 @@ export const RevealCardContent = ({ id, accent }: RevealCardContentProps) => {
           </div>
           <div className="mt-2.5 flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-            <span className="text-label text-white/30 font-bold uppercase tracking-wider">AI enriching context</span>
+            <span className="text-label text-white/45 font-bold uppercase tracking-wider">AI enriching context</span>
           </div>
         </>
       )
@@ -79,15 +79,15 @@ export const RevealCardContent = ({ id, accent }: RevealCardContentProps) => {
                 Synced
               </div>
               <h3 className="text-body-lg font-black text-white leading-tight mb-1">Adaptability in AI</h3>
-              <p className="text-caption text-white/40">Captured from Hawking&rsquo;s Archive.</p>
+              <p className="text-caption text-white/50">Captured from Hawking&rsquo;s Archive.</p>
             </div>
             <div className="w-9 h-9 rounded-full flex items-center justify-center text-black shrink-0" style={{ background: accent }}>
               <CheckCircle2 className="w-4 h-4" />
             </div>
           </div>
           <div className="pt-3 border-t border-white/6 flex items-center gap-2">
-            <Link2 className="w-3 h-3 text-white/25" />
-            <span className="text-label text-white/30 font-mono">source: hawking.edu/lectures/ai</span>
+            <Link2 className="w-3 h-3 text-white/40" />
+            <span className="text-label text-white/45 font-mono">source: hawking.edu/lectures/ai</span>
           </div>
         </>
       )

@@ -50,7 +50,7 @@ export const SocialQuoteCard = ({
         </div>
         <div className="min-w-0">
           <div className="text-caption font-bold text-white/50">{handle}</div>
-          <div className="text-label text-white/25 uppercase tracking-wider font-bold">{role}</div>
+          <div className="text-label text-white/40 uppercase tracking-wider font-bold">{role}</div>
         </div>
         <div className="ml-auto shrink-0"><Stars /></div>
       </div>

@@ -101,7 +101,7 @@ export const RevealCardsSection = () => {
             While you&rsquo;re reading,{" "}
             <span className="text-brand-orange italic font-semibold">ideas surface.</span>
             <br />
-            <span className="text-white/45 text-xl md:text-hero-sub">
+            <span className="text-white/55 text-xl md:text-hero-sub">
               MarkMind captures them instantly — without breaking your flow.
             </span>
           </p>

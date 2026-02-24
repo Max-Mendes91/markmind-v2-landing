@@ -5,12 +5,13 @@ import { SLATE } from "@/lib/tokens"
 import type { FooterLink } from "@/types"
 
 const FOOTER_NAV: FooterLink[] = [
-  { label: "Features",       href: "#features" },
-  { label: "How It Works",   href: "#how-it-works" },
-  { label: "Pricing",        href: "#pricing" },
-  { label: "About",          href: "#about" },
-  { label: "Privacy",        href: "#privacy" },
-  { label: "Terms",          href: "#terms" },
+  { label: "Features",     href: "/#features" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Reviews",      href: "/#reviews" },
+  { label: "Blog",         href: "/blog" },
+  { label: "Privacy",      href: "/privacy" },
+  { label: "Open Source",  href: "https://github.com/migsilva89/MarkMind" },
+  { label: "Contact",      href: "mailto:themarkmind@gmail.com" },
 ]
 
 export const Footer = () => (
@@ -41,13 +42,16 @@ export const Footer = () => (
 
       {/* Tagline */}
       <p className="text-white/50 text-base max-w-md leading-relaxed mb-8">
-        Capture highlights, annotations, and ideas from any webpage — instantly,
-        with zero friction.
+        An AI bookmark organizer that keeps
+        <br />
+        your Chrome folders clean without
+        <br />
+        taking control away from you.
       </p>
 
       {/* CTA */}
-      <CtaButton href="https://chromewebstore.google.com/detail/markmind" size="sm" variant="outline">
-        Install Extension
+      <CtaButton href="https://chromewebstore.google.com/detail/markmind/bdobgdkpeffdbonfpokgkbncgnbnjnoo" size="sm" variant="outline">
+        Install for Free
       </CtaButton>
 
       {/* Navigation links */}

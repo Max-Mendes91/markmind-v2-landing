@@ -7,9 +7,9 @@ import { CtaButton } from "@/components/ui/cta-button"
 import type { NavLink } from "@/types"
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About", href: "#about" },
+  { label: "Features", href: "/#features" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Blog", href: "/blog" },
 ]
 
 export const Navbar = () => {
@@ -22,7 +22,7 @@ export const Navbar = () => {
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
       <div className="bg-black/40 backdrop-blur-[20px] border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_rgba(255,155,81,0.15)] ring-1 ring-brand-orange/20">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 pl-1 shrink-0">
+        <a href="/" className="flex items-center gap-2.5 pl-1 shrink-0">
           <Image
             src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/brand-assets/www.markmind.xyz/logo-1771684912530.png"
             alt="MarkMind Logo"
@@ -51,11 +51,11 @@ export const Navbar = () => {
         {/* CTA */}
         <div className="flex items-center gap-2 pr-1">
           <CtaButton
-            href="https://chromewebstore.google.com/detail/markmind"
+            href="https://chromewebstore.google.com/detail/markmind/bdobgdkpeffdbonfpokgkbncgnbnjnoo"
             size="sm"
             className="bg-gradient-to-r from-brand-slate to-brand-orange"
           >
-            Install Extension
+            Add to Chrome — Free
           </CtaButton>
           <button
             className="md:hidden flex items-center justify-center w-8 h-8 text-white ml-2"

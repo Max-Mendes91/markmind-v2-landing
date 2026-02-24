@@ -1,24 +1,24 @@
 import {
-  Bookmark,
-  BrainCircuit,
+  Sparkles,
   Layers2,
-  Zap,
   Globe,
+  Zap,
+  FolderTree,
+  Cpu,
+  BrainCircuit,
   Shield,
-  Search,
-  CheckCircle2,
 } from "lucide-react"
 import type { MarqueeItem } from "@/types"
 
 const MARQUEE_ITEMS: MarqueeItem[] = [
-  { label: "Instant Capture",         Icon: Bookmark       },
-  { label: "AI Organization",         Icon: BrainCircuit   },
-  { label: "Smart Collections",       Icon: Layers2        },
-  { label: "Zero Friction",           Icon: Zap            },
-  { label: "Browser Native",          Icon: Globe          },
-  { label: "Distraction Free",        Icon: Shield         },
-  { label: "Thought Retrieval",       Icon: Search         },
-  { label: "Works Everywhere",        Icon: CheckCircle2   },
+  { label: "AI Folder Suggestions",          Icon: Sparkles     },
+  { label: "Bulk Bookmark Organizer",        Icon: Layers2      },
+  { label: "Chrome Extension",              Icon: Globe        },
+  { label: "Organize Hundreds at Once",      Icon: Zap          },
+  { label: "Respects Your Existing Folders", Icon: FolderTree   },
+  { label: "Background Processing",         Icon: Cpu          },
+  { label: "Multi-Provider AI",             Icon: BrainCircuit },
+  { label: "Open Source & Private",          Icon: Shield       },
 ]
 
 // Duplicate for seamless loop

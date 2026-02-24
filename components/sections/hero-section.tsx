@@ -8,9 +8,9 @@ const LOGO_URL =
   "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/brand-assets/www.markmind.xyz/logo-1771684912530.png"
 
 const CYCLING_WORDS = [
-  "without friction.",
-  "with intention.",
-  "effortlessly.",
+  "that actually sorts your bookmarks.",
+  "that respects your existing folders.",
+  "that cleans up years of chaos.",
 ]
 
 // Duplicate first word at end so the wrap-around reset is invisible
@@ -96,7 +96,7 @@ const HeroFloatingLeft = () => (
     >
       <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
         <Bookmark className="w-3 h-3 text-brand-orange" />
-        <span className="text-caption font-bold text-white/70">Text Highlight</span>
+        <span className="text-caption font-bold text-white/70">Current page detected</span>
         <span className="font-mono text-badge text-white/45">[ ]</span>
       </div>
     </div>
@@ -109,18 +109,18 @@ const HeroFloatingLeft = () => (
       <div className="glass-card p-3.5 rounded-2xl w-[210px]">
         <div className="text-label uppercase tracking-wider text-muted-foreground font-bold mb-2 flex items-center gap-1.5">
           <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-          Captured from page
+          Ready to organize
         </div>
         <div className="bg-brand-orange/8 border border-brand-orange/15 rounded-xl p-2.5 mb-3">
           <p className="text-caption text-white/75 leading-relaxed">
-            &ldquo;Neural plasticity refers to the brain&rsquo;s ability to reorganise itself&hellip;&rdquo;
+            &ldquo;Understanding React Server Components in Production&rdquo;
           </p>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-5 h-5 rounded-full bg-brand-orange flex items-center justify-center shrink-0">
             <Bookmark className="w-2.5 h-2.5 text-black" />
           </div>
-          <span className="text-badge font-bold text-brand-orange">Save to MarkMind</span>
+          <span className="text-badge font-bold text-brand-orange">Suggest folder</span>
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@ const HeroFloatingLeft = () => (
           />
         ))}
       </div>
-      <span className="text-badge text-white/50 font-bold ml-1">AI organizing&hellip;</span>
+      <span className="text-badge text-white/50 font-bold ml-1">Analyzing your folders&hellip;</span>
     </div>
   </>
 )
@@ -154,7 +154,7 @@ const HeroFloatingRight = () => (
       style={{ animationDelay: "0.7s", animationDuration: "6.5s" }}
     >
       <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
-        <span className="text-caption font-bold text-white/70">Smart Collections</span>
+        <span className="text-caption font-bold text-white/70">AI suggestion</span>
         <Zap className="w-3 h-3 text-brand-slate" />
       </div>
     </div>
@@ -167,12 +167,12 @@ const HeroFloatingRight = () => (
       <div className="glass-card p-3.5 rounded-2xl w-[200px]">
         <div className="flex items-center gap-2 mb-2.5">
           <div className="w-2 h-2 rounded-full bg-emerald-400" />
-          <span className="text-badge font-bold text-white/60 uppercase tracking-wider">Organized</span>
+          <span className="text-badge font-bold text-white/60 uppercase tracking-wider">Destination</span>
         </div>
-        <div className="text-body-xs font-bold text-white mb-1">Neuroscience</div>
-        <div className="text-caption text-white/50 mb-2.5">Research › Brain › Learning</div>
+        <div className="text-body-xs font-bold text-white mb-1">Learning</div>
+        <div className="text-caption text-white/50 mb-2.5">Development › Frontend › React</div>
         <div className="flex gap-1 flex-wrap">
-          {["#plasticity", "#research", "#memory"].map((tag) => (
+          {["#react", "#tutorial", "#reference"].map((tag) => (
             <span
               key={tag}
               className="px-2 py-0.5 rounded-full bg-brand-slate/10 border border-brand-slate/20 text-label text-brand-slate font-bold"
@@ -240,35 +240,39 @@ export const HeroSection = () => {
         <div className="mb-8 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-orange/30 bg-brand-orange/5">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
           <span className="text-brand-orange text-caption font-bold uppercase tracking-[0.25em]">
-            Browser Extension · V2 is Here
+            AI Bookmark Organizer · V2
           </span>
         </div>
 
         {/* Main headline */}
-        <h1 className="font-black tracking-tight leading-[0.88] mb-6">
-          <span className="block text-white text-5xl sm:text-6xl md:text-7xl lg:text-display-sm xl:text-display">
-            Think on the web
+        <h1 className="font-black tracking-tight leading-[0.92] mb-6">
+          <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            AI bookmark organizer for people
           </span>
-          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-display-sm xl:text-display">
+          <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            with too many tabs
+          </span>
+          <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-1">
             <CyclingWord />
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl text-muted-foreground max-w-[520px] leading-relaxed mb-10">
-          The lightweight browser extension that expands your intent. Capture, organize, and retrieve
-          thoughts — without breaking your flow.
+        <p className="text-base md:text-lg text-muted-foreground max-w-[520px] leading-relaxed mb-10">
+          Chrome bookmarks get messy because nobody has time to fix them. MarkMind replaces the default
+          bookmark button with AI that reads the page, checks your folder structure, and suggests the
+          right place. You review. You approve. Done.
         </p>
 
         {/* CTA buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <CtaButton href="https://chromewebstore.google.com/detail/markmind" variant="primary" size="lg">
-            Add to Chrome
+          <CtaButton href="https://chromewebstore.google.com/detail/markmind/bdobgdkpeffdbonfpokgkbncgnbnjnoo" variant="primary" size="lg">
+            Add to Chrome — Free
             <ArrowRight className="w-4 h-4" />
           </CtaButton>
-          <CtaButton href="#features" variant="outline" size="lg">
+          <CtaButton href="/#how-it-works" variant="outline" size="lg">
             <Play className="w-4 h-4 fill-white" />
-            Watch Demo
+            See how it works
           </CtaButton>
         </div>
       </div>
@@ -276,7 +280,7 @@ export const HeroSection = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-20">
         <div className="w-px h-12 bg-linear-to-b from-white to-transparent" />
-        <span className="text-label uppercase tracking-[0.4em] font-bold text-white">Scroll</span>
+        <span className="text-label uppercase tracking-[0.4em] font-bold text-white">See it in action</span>
       </div>
     </section>
   )

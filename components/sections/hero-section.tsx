@@ -97,7 +97,7 @@ const HeroFloatingLeft = () => (
       <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
         <Bookmark className="w-3 h-3 text-brand-orange" />
         <span className="text-caption font-bold text-white/70">Text Highlight</span>
-        <span className="font-mono text-badge text-white/30">[ ]</span>
+        <span className="font-mono text-badge text-white/45">[ ]</span>
       </div>
     </div>
 
@@ -127,7 +127,7 @@ const HeroFloatingLeft = () => (
 
     {/* 3 — Inner, closest to text: AI dots */}
     <div
-      className="absolute left-[20%] top-[64%] xl:flex hidden items-center gap-2 animate-float"
+      className="absolute left-[20%] top-[76%] xl:flex hidden items-center gap-2 animate-float"
       style={{ animationDelay: "2.5s", animationDuration: "5.5s" }}
     >
       <Sparkles className="w-3.5 h-3.5 text-brand-slate" />
@@ -140,7 +140,7 @@ const HeroFloatingLeft = () => (
           />
         ))}
       </div>
-      <span className="text-badge text-white/40 font-bold ml-1">AI organizing&hellip;</span>
+      <span className="text-badge text-white/50 font-bold ml-1">AI organizing&hellip;</span>
     </div>
   </>
 )
@@ -186,7 +186,7 @@ const HeroFloatingRight = () => (
 
     {/* 3 — Inner, closest to text: integration icons */}
     <div
-      className="absolute right-[20%] top-[64%] xl:flex hidden items-center gap-2 animate-float"
+      className="absolute right-[20%] top-[76%] xl:flex hidden items-center gap-2 animate-float"
       style={{ animationDelay: "3.5s", animationDuration: "7.5s" }}
     >
       {[
@@ -262,11 +262,11 @@ export const HeroSection = () => {
 
         {/* CTA buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <CtaButton href="#" variant="primary" size="lg">
+          <CtaButton href="https://chromewebstore.google.com/detail/markmind" variant="primary" size="lg">
             Add to Chrome
             <ArrowRight className="w-4 h-4" />
           </CtaButton>
-          <CtaButton href="#" variant="outline" size="lg">
+          <CtaButton href="#features" variant="outline" size="lg">
             <Play className="w-4 h-4 fill-white" />
             Watch Demo
           </CtaButton>

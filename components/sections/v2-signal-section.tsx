@@ -2,10 +2,10 @@ import { SectionBadge } from "@/components/ui/section-badge"
 import { Corners } from "@/components/ui/corners"
 import { ORANGE, SLATE } from "@/lib/tokens"
 
-const V2_HIGHLIGHTS = ["Faster capture", "Cleaner UI", "Smarter defaults"] as const
+const V2_HIGHLIGHTS = ["Organize hundreds at once", "Gemini, OpenAI, Anthropic, or OpenRouter", "Resume anytime — even after closing the popup"] as const
 
 export const V2SignalSection = () => (
-  <section className="relative px-4 md:px-8 lg:px-16 py-16 md:py-20 bg-black overflow-visible">
+  <section id="whats-new" className="relative px-4 md:px-8 lg:px-16 py-16 md:py-20 bg-black overflow-visible">
     <div className="absolute inset-0 geometric-bg opacity-10 pointer-events-none" />
 
     {/* Shared ambient glow — positioned to bleed across both this and CTA section */}
@@ -42,13 +42,13 @@ export const V2SignalSection = () => (
     <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center text-center">
       <SectionBadge label="V2" />
 
-      <p className="text-2xl md:text-3xl font-light text-white/70 leading-relaxed tracking-tight">
-        MarkMind v2 focuses on{" "}
-        <span className="text-gradient-gold-metallic font-medium italic pr-1">
-          clarity, speed, and control
-        </span>{" "}
-        — shaped by real usage.
-      </p>
+      <h2 className="text-2xl md:text-3xl font-light text-white/70 leading-relaxed tracking-tight">
+        Now a bulk bookmark organizer with
+        <br />
+        <span className="text-gradient-gold-metallic font-medium italic">
+          multi-provider AI support.
+        </span>
+      </h2>
 
       <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
         {V2_HIGHLIGHTS.map((label) => (

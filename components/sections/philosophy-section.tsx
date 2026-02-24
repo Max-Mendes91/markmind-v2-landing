@@ -2,38 +2,38 @@ import { SectionBadge } from "@/components/ui/section-badge"
 import { CyclingText } from "@/components/ui/cycling-text"
 import type { PhilosophyPrinciple } from "@/types"
 
-const CYCLING_WORDS = ["friction.", "clutter.", "barriers.", "hassle."]
+const CYCLING_WORDS = ["folder clutter.", "your guesswork.", "manual sorting.", "decision chaos."]
 
 const PRINCIPLES: PhilosophyPrinciple[] = [
   {
     keyword:   "Simplicity",
     statement:
-      "Every feature we ship must reduce friction, not add it. If it creates clutter, it doesn\u2019t ship.",
+      "One clear action: click, review, confirm. No dashboards. No complex setup.",
   },
   {
     keyword:   "Intent",
     statement:
-      "Your tools should respond to what you\u2019re trying to do \u2014 not demand that you learn a new workflow.",
+      "Your existing folders matter. The AI works with your structure instead of replacing it with its own system.",
   },
   {
     keyword:   "Restraint",
     statement:
-      "We say no to most ideas. The ones that survive earn their place by making the core experience better.",
+      "We avoided accounts, subscriptions, and unnecessary data collection. If it doesn\u2019t improve bookmarking, it stays out.",
   },
 ]
 
 export const PhilosophySection = () => (
-  <section className="relative px-4 md:px-8 lg:px-16 py-28 bg-black overflow-hidden">
+  <section id="philosophy" className="relative px-4 md:px-8 lg:px-16 py-28 bg-black overflow-hidden">
     <div className="absolute inset-0 geometric-bg opacity-20 pointer-events-none" />
 
     {/* Header */}
     <div className="relative z-10 flex flex-col items-center text-center mb-16">
       <SectionBadge label="Philosophy" />
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
-        We don&apos;t build features.
+        We build a bookmark organizer
         <br />
         <span className="text-gradient-gold-metallic italic">
-          We remove{" "}
+          that removes{" "}
           <span className="relative inline-block px-4">
             <span className="absolute w-5 h-5 border-brand-orange/55 corner-pulse -top-2 -left-1 border-t border-l" style={{ animationDelay: "0s" }} />
             <span className="absolute w-5 h-5 border-brand-orange/55 corner-pulse -top-2 -right-1 border-t border-r" style={{ animationDelay: "0.3s" }} />
@@ -44,8 +44,8 @@ export const PhilosophySection = () => (
         </span>
       </h2>
       <p className="text-white/50 text-base max-w-md leading-relaxed">
-        MarkMind exists because most tools ask too much of you. We believe the
-        best software disappears into your workflow.
+        Bookmarks fail when they rely on discipline. We designed MarkMind to
+        handle the sorting part so you can focus on what you&apos;re reading.
       </p>
     </div>
 
@@ -65,7 +65,7 @@ export const PhilosophySection = () => (
 
     {/* Closing */}
     <p className="relative z-10 mt-16 text-center italic text-white/40 text-body-md max-w-lg mx-auto">
-      &ldquo;The best tool is the one you forget you&apos;re using.&rdquo;
+      &ldquo;The best organization system is the one that doesn&apos;t ask for attention.&rdquo;
     </p>
   </section>
 )

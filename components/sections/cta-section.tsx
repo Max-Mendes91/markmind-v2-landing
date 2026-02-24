@@ -5,7 +5,7 @@ import { Corners } from "@/components/ui/corners"
 import { ORANGE, SLATE } from "@/lib/tokens"
 
 export const CtaSection = () => (
-  <section className="relative px-4 md:px-8 lg:px-16 py-28 bg-black overflow-visible">
+  <section id="get-started" className="relative px-4 md:px-8 lg:px-16 py-28 bg-black overflow-visible">
     <div className="absolute inset-0 geometric-bg opacity-20 pointer-events-none" />
 
     {/* Ambient glow */}
@@ -68,27 +68,26 @@ export const CtaSection = () => (
       <SectionBadge label="Get Started" />
 
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
-        Start capturing ideas{" "}
-        <span className="text-gradient-gold-metallic italic">today.</span>
+        Install the AI bookmark manager.{" "}
+        <span className="text-gradient-gold-metallic italic">Try it on your mess.</span>
       </h2>
 
       <p className="text-white/50 text-base max-w-md leading-relaxed mb-10">
-        Available as a browser extension. No account required. Lightweight by
-        design.
+        Free to install. Bring your own API key. No account required. Fully open source.
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-4">
         <CtaButton
-          href="https://chromewebstore.google.com/detail/markmind"
+          href="https://chromewebstore.google.com/detail/markmind/bdobgdkpeffdbonfpokgkbncgnbnjnoo"
           variant="primary"
           size="lg"
         >
-          Install MarkMind
+          Add MarkMind to Chrome
           <ArrowRight className="w-4 h-4" />
         </CtaButton>
 
-        <CtaButton href="#features" variant="outline" size="lg">
-          Learn More
+        <CtaButton href="https://github.com/migsilva89/MarkMind" variant="outline" size="lg">
+          View on GitHub
         </CtaButton>
       </div>
     </div>

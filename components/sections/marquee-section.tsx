@@ -10,7 +10,7 @@ import {
 } from "lucide-react"
 import type { MarqueeItem } from "@/types"
 
-const ITEMS: MarqueeItem[] = [
+const MARQUEE_ITEMS: MarqueeItem[] = [
   { label: "Instant Capture",         Icon: Bookmark       },
   { label: "AI Organization",         Icon: BrainCircuit   },
   { label: "Smart Collections",       Icon: Layers2        },
@@ -22,7 +22,7 @@ const ITEMS: MarqueeItem[] = [
 ]
 
 // Duplicate for seamless loop
-const TRACK = [...ITEMS, ...ITEMS]
+const MARQUEE_TRACK = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS]
 
 export const MarqueeSection = () => {
   return (
@@ -32,7 +32,7 @@ export const MarqueeSection = () => {
       <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-linear-to-l from-black to-transparent" />
 
       <div className="flex w-max animate-marquee">
-        {TRACK.map(({ label, Icon }, i) => (
+        {MARQUEE_TRACK.map(({ label, Icon }, i) => (
           <div
             key={i}
             className="relative flex items-center gap-2.5 mx-6 px-4 py-2 shrink-0"

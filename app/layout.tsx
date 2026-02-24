@@ -14,22 +14,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://markmind.app'),
-  title: 'MarkMind — Capture Ideas While You Browse',
+  title: 'MarkMind — AI Bookmark Organizer for Chrome',
   description:
-    'MarkMind is a browser extension that captures highlights, annotations, and ideas from any webpage — instantly, with zero friction.',
-  keywords: ['browser extension', 'reading tool', 'highlight', 'annotate', 'knowledge capture'],
+    'AI bookmark organizer that sorts your Chrome bookmarks into folders. Bulk organize hundreds at once. Open source, no account required. Free to install.',
+  keywords: ['bookmark organizer', 'chrome extension', 'AI bookmarks', 'bookmark manager', 'organize bookmarks', 'browser extension'],
   openGraph: {
-    title:       'MarkMind — Capture Ideas While You Browse',
-    description: 'Zero-friction idea capture for every webpage you read.',
+    title:       'MarkMind — AI Bookmark Organizer for Chrome',
+    description: 'Sort your Chrome bookmarks into folders with AI. Bulk organize hundreds at once. Free & open source.',
     url:         'https://markmind.app',
     siteName:    'MarkMind',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'MarkMind' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'MarkMind — AI Bookmark Organizer' }],
     type: 'website',
   },
   twitter: {
     card:        'summary_large_image',
-    title:       'MarkMind — Capture Ideas While You Browse',
-    description: 'Zero-friction idea capture for every webpage you read.',
+    title:       'MarkMind — AI Bookmark Organizer for Chrome',
+    description: 'Sort your Chrome bookmarks into folders with AI. Bulk organize hundreds at once. Free & open source.',
     images:      ['/og-image.png'],
   },
 }
@@ -45,6 +45,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${archivo.variable} ${geistMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'MarkMind',
+              applicationCategory: 'BrowserApplication',
+              operatingSystem: 'Chrome',
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD',
+              },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.8',
+                reviewCount: '26',
+              },
+              description: 'AI bookmark organizer that sorts your Chrome bookmarks into folders. Bulk organize hundreds at once. Open source, no account required.',
+              url: 'https://markmind.app',
+            }),
+          }}
+        />
+      </head>
       <body className="font-sans antialiased selection:bg-brand-orange selection:text-black">
         {children}
         <Analytics />

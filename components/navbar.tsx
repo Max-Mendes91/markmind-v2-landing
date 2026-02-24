@@ -7,7 +7,6 @@ import { CtaButton } from "@/components/ui/cta-button"
 import type { NavLink } from "@/types"
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Home", href: "#" },
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "About", href: "#about" },
@@ -52,7 +51,7 @@ export const Navbar = () => {
         {/* CTA */}
         <div className="flex items-center gap-2 pr-1">
           <CtaButton
-            href="#"
+            href="https://chromewebstore.google.com/detail/markmind"
             size="sm"
             className="bg-gradient-to-r from-brand-slate to-brand-orange"
           >

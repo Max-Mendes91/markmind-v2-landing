@@ -1,5 +1,8 @@
 import { SectionBadge } from "@/components/ui/section-badge"
+import { CyclingText } from "@/components/ui/cycling-text"
 import type { PhilosophyPrinciple } from "@/types"
+
+const CYCLING_WORDS = ["friction.", "clutter.", "barriers.", "hassle."]
 
 const PRINCIPLES: PhilosophyPrinciple[] = [
   {
@@ -30,7 +33,14 @@ export const PhilosophySection = () => (
         We don&apos;t build features.
         <br />
         <span className="text-gradient-gold-metallic italic">
-          We remove friction.
+          We remove{" "}
+          <span className="relative inline-block px-4">
+            <span className="absolute w-5 h-5 border-brand-orange/55 corner-pulse -top-2 -left-1 border-t border-l" style={{ animationDelay: "0s" }} />
+            <span className="absolute w-5 h-5 border-brand-orange/55 corner-pulse -top-2 -right-1 border-t border-r" style={{ animationDelay: "0.3s" }} />
+            <span className="absolute w-5 h-5 border-brand-orange/55 corner-pulse -bottom-1 -left-1 border-b border-l" style={{ animationDelay: "0.6s" }} />
+            <span className="absolute w-5 h-5 border-brand-orange/55 corner-pulse -bottom-1 -right-1 border-b border-r" style={{ animationDelay: "0.9s" }} />
+            <CyclingText words={CYCLING_WORDS} className="text-gradient-gold-metallic italic" />
+          </span>
         </span>
       </h2>
       <p className="text-white/35 text-base max-w-md leading-relaxed">

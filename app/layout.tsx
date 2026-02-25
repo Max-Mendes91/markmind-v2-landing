@@ -1,31 +1,41 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import { Archivo, Geist_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-import { ThemeProvider } from './components/theme-provider'
+
+const archivo = Archivo({
+  subsets: ['latin'],
+  variable: '--font-archivo',
+})
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+})
 
 export const metadata: Metadata = {
-  title: 'MarkMind - AI-Powered Bookmark Organization',
-  description: 'MarkMind is a Chrome extension that uses AI to organize your bookmarks automatically.',
-  icons: {
-    icon: [
-      {
-        url: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/markmind-logo-0gYhL95PSC4a6yVacyEL995je8fB2h.png',
-        sizes: '32x32',
-        type: 'image/png',
-      }
-    ],
-    shortcut: [
-      {
-        url: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/markmind-logo-0gYhL95PSC4a6yVacyEL995je8fB2h.png',
-        type: 'image/png'
-      }
-    ],
-    apple: [
-      {
-        url: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/markmind-logo-0gYhL95PSC4a6yVacyEL995je8fB2h.png',
-        type: 'image/png'
-      }
-    ]
-  }
+  metadataBase: new URL('https://markmind.app'),
+  title: 'AI Bookmark Organizer for Chrome | MarkMind',
+  description:
+    'AI bookmark organizer that sorts your Chrome bookmarks into folders. Bulk organize hundreds at once. Open source, no account required. Free to install.',
+  keywords: ['bookmark organizer', 'chrome extension', 'AI bookmarks', 'bookmark manager', 'organize bookmarks', 'browser extension'],
+  openGraph: {
+    title:       'AI Bookmark Organizer for Chrome | MarkMind',
+    description: 'Sort your Chrome bookmarks into folders with AI. Bulk organize hundreds at once. Free & open source.',
+    url:         'https://markmind.app',
+    siteName:    'MarkMind',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'MarkMind — AI Bookmark Organizer' }],
+    type: 'website',
+  },
+  twitter: {
+    card:        'summary_large_image',
+    title:       'AI Bookmark Organizer for Chrome | MarkMind',
+    description: 'Sort your Chrome bookmarks into folders with AI. Bulk organize hundreds at once. Free & open source.',
+    images:      ['/og-image.png'],
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#000000',
 }
 
 export default function RootLayout({
@@ -34,11 +44,34 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <ThemeProvider defaultTheme="system">
-          {children}
-        </ThemeProvider>
+    <html lang="en" className={`${archivo.variable} ${geistMono.variable}`}>
+      <body className="font-sans antialiased selection:bg-brand-orange selection:text-black">
+        {children}
+        <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'MarkMind',
+              applicationCategory: 'BrowserApplication',
+              operatingSystem: 'Chrome',
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD',
+              },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.8',
+                reviewCount: '26',
+              },
+              description: 'AI bookmark organizer that sorts your Chrome bookmarks into folders. Bulk organize hundreds at once. Open source, no account required.',
+              url: 'https://markmind.app',
+            }),
+          }}
+        />
       </body>
     </html>
   )

@@ -12,7 +12,7 @@ const FOOTER_NAV: FooterLink[] = [
   { label: "Privacy",      href: "/privacy" },
   { label: "Terms",        href: "/terms" },
   { label: "Open Source",  href: "https://github.com/migsilva89/MarkMind" },
-  { label: "Contact",      href: "mailto:themarkmind@gmail.com" },
+  { label: "Contact",      href: "/contact" },
 ]
 
 export const Footer = () => (

@@ -12,15 +12,16 @@ export const BlogHero = () => (
       <SectionBadge label="Blog" />
 
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-3 sm:mb-4">
-        Thoughts on{" "}
-        <span className="text-gradient-gold-metallic italic">
-          bookmarks &amp; AI
-        </span>
+        The{" "}
+        <span className="text-gradient-gold-metallic italic pr-2">
+          MarkMind
+        </span>{" "}
+        Blog
       </h1>
 
-      <p className="text-white/50 text-sm sm:text-base max-w-md leading-relaxed">
-        Tips, guides, and behind-the-scenes updates on building an AI-powered
-        bookmark organizer.
+      <p className="text-white/50 text-sm sm:text-base max-w-lg leading-relaxed">
+        Productivity workflows, AI use cases, browser tips, and everything
+        we learn building tools for people.
       </p>
     </div>
   </section>

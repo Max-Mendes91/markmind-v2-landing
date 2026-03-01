@@ -4,11 +4,11 @@ import { BlogHero } from "@/components/sections/blog-hero"
 import { BlogPostList } from "@/components/sections/blog-post-list"
 
 export const metadata: Metadata = {
-  title: "Blog | MarkMind — AI Bookmark Organizer",
+  title: "Blog — AI Tips, Productivity & Browser Workflows | MarkMind",
   description:
     "Tips, guides, and updates about bookmark organization, AI-powered productivity, and getting the most out of MarkMind.",
   openGraph: {
-    title: "Blog | MarkMind",
+    title: "Blog — AI Tips, Productivity & Browser Workflows | MarkMind",
     description:
       "Tips, guides, and updates about bookmark organization, AI-powered productivity, and getting the most out of MarkMind.",
     url: "https://markmind.app/blog",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | MarkMind",
+    title: "Blog — AI Tips, Productivity & Browser Workflows | MarkMind",
     description:
       "Tips, guides, and updates about bookmark organization and AI-powered productivity.",
     images: ["/og-image.png"],

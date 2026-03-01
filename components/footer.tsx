@@ -10,6 +10,7 @@ const FOOTER_NAV: FooterLink[] = [
   { label: "Reviews",      href: "/#reviews" },
   { label: "Blog",         href: "/blog" },
   { label: "Privacy",      href: "/privacy" },
+  { label: "Terms",        href: "/terms" },
   { label: "Open Source",  href: "https://github.com/migsilva89/MarkMind" },
   { label: "Contact",      href: "mailto:themarkmind@gmail.com" },
 ]

@@ -22,3 +22,8 @@ export const accentColor: Record<Accent, string> = {
   slate:   SLATE,
   neutral: "rgba(255,255,255,0.35)",
 }
+
+// ── Site-wide constants ─────────────────────────────────────────────────────────
+export const SITE_URL       = "https://markmind.xyz"
+export const CONTACT_EMAIL  = "themarkmind@gmail.com"
+export const GITHUB_URL     = "https://github.com/migsilva89/MarkMind"

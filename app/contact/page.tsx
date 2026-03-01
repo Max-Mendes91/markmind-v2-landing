@@ -6,16 +6,13 @@ import { useCallback, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Corners } from "@/components/ui/corners"
-import { ORANGE } from "@/lib/tokens"
-
-const EMAIL = "themarkmind@gmail.com"
-const GITHUB_URL = "https://github.com/migsilva89/MarkMind"
+import { ORANGE, CONTACT_EMAIL, GITHUB_URL } from "@/lib/tokens"
 
 const ContactPage = () => {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = useCallback(async () => {
-    await navigator.clipboard.writeText(EMAIL)
+    await navigator.clipboard.writeText(CONTACT_EMAIL)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }, [])
@@ -55,7 +52,7 @@ const ContactPage = () => {
                     <div className="min-w-0">
                       <p className="text-white/40 text-xs sm:text-sm mb-0.5">Email</p>
                       <p className="text-white text-sm sm:text-base font-medium truncate">
-                        {EMAIL}
+                        {CONTACT_EMAIL}
                       </p>
                     </div>
                   </div>

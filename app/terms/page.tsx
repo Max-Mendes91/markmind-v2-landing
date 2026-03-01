@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { CONTACT_EMAIL, GITHUB_URL } from "@/lib/tokens"
 
 export const metadata: Metadata = {
   title: "Terms of Service | MarkMind",
@@ -94,7 +95,7 @@ const TermsPage = () => (
                 Open Source License
               </h2>
               <p>
-                MarkMind is released under an open-source license. The source code is available on <a href="https://github.com/migsilva89/MarkMind" className="text-brand-orange hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>. You are free to inspect, fork, and contribute to the project in accordance with the license terms in the repository.
+                MarkMind is released under an open-source license. The source code is available on <a href={GITHUB_URL} className="text-brand-orange hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>. You are free to inspect, fork, and contribute to the project in accordance with the license terms in the repository.
               </p>
             </section>
 
@@ -164,7 +165,7 @@ const TermsPage = () => (
 
             <section className="border-t border-white/10 pt-8">
               <p>
-                Questions about these terms? Contact us at <a href="mailto:themarkmind@gmail.com" className="text-brand-orange hover:underline">themarkmind@gmail.com</a>.
+                Questions about these terms? Contact us at <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-orange hover:underline">{CONTACT_EMAIL}</a>.
               </p>
             </section>
           </div>

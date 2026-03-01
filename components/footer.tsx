@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Corners } from "@/components/ui/corners"
 import { CtaButton } from "@/components/ui/cta-button"
-import { SLATE } from "@/lib/tokens"
+import { SLATE, GITHUB_URL } from "@/lib/tokens"
 import type { FooterLink } from "@/types"
 
 const FOOTER_NAV: FooterLink[] = [
@@ -11,7 +11,7 @@ const FOOTER_NAV: FooterLink[] = [
   { label: "Blog",         href: "/blog" },
   { label: "Privacy",      href: "/privacy" },
   { label: "Terms",        href: "/terms" },
-  { label: "Open Source",  href: "https://github.com/migsilva89/MarkMind" },
+  { label: "Open Source",  href: GITHUB_URL },
   { label: "Contact",      href: "/contact" },
 ]
 

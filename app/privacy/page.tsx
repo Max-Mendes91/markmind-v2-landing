@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { CONTACT_EMAIL, GITHUB_URL } from "@/lib/tokens"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | MarkMind",
@@ -43,7 +44,7 @@ const PrivacyPage = () => (
                 MarkMind is a browser extension built by a small team based in the European Union (Poland and Portugal). We believe in privacy by design. MarkMind does not collect, store, or sell your personal data.
               </p>
               <p className="mt-3">
-                Contact: <a href="mailto:themarkmind@gmail.com" className="text-brand-orange hover:underline">themarkmind@gmail.com</a>
+                Contact: <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-orange hover:underline">{CONTACT_EMAIL}</a>
               </p>
             </section>
 
@@ -119,7 +120,7 @@ const PrivacyPage = () => (
                 </li>
               </ul>
               <p className="mt-4">
-                Since MarkMind does not collect or store personal data, most of these rights are satisfied by default. If you have questions or want to exercise any right, contact us at <a href="mailto:themarkmind@gmail.com" className="text-brand-orange hover:underline">themarkmind@gmail.com</a>.
+                Since MarkMind does not collect or store personal data, most of these rights are satisfied by default. If you have questions or want to exercise any right, contact us at <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-orange hover:underline">{CONTACT_EMAIL}</a>.
               </p>
             </section>
 
@@ -155,7 +156,7 @@ const PrivacyPage = () => (
                 Open Source
               </h2>
               <p>
-                MarkMind is open source. You can inspect exactly what the extension does by reviewing the source code on <a href="https://github.com/migsilva89/MarkMind" className="text-brand-orange hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>. Transparency is not just a policy for us. It is the product.
+                MarkMind is open source. You can inspect exactly what the extension does by reviewing the source code on <a href={GITHUB_URL} className="text-brand-orange hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>. Transparency is not just a policy for us. It is the product.
               </p>
             </section>
 
@@ -170,7 +171,7 @@ const PrivacyPage = () => (
 
             <section className="border-t border-white/10 pt-8">
               <p>
-                Questions? Reach out at <a href="mailto:themarkmind@gmail.com" className="text-brand-orange hover:underline">themarkmind@gmail.com</a>.
+                Questions? Reach out at <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-orange hover:underline">{CONTACT_EMAIL}</a>.
               </p>
             </section>
           </div>

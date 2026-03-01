@@ -4,16 +4,20 @@ import { getBlogPosts } from "@/lib/blog"
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const posts = await getBlogPosts()
 
+  const latestPostDate = posts.length > 0
+    ? new Date(posts[0].dateModified ?? posts[0].datePublished)
+    : new Date("2025-01-01")
+
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: "https://markmind.app",
-      lastModified: new Date(),
+      lastModified: latestPostDate,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: "https://markmind.app/blog",
-      lastModified: new Date(),
+      lastModified: latestPostDate,
       changeFrequency: "weekly",
       priority: 0.8,
     },

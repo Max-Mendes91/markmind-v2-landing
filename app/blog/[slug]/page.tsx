@@ -102,7 +102,7 @@ const BlogPostPage = async ({ params }: PageProps) => {
           name: "Blog",
           item: "https://markmind.app/blog",
         },
-        { "@type": "ListItem", position: 3, name: meta.title },
+        { "@type": "ListItem", position: 3, name: meta.title, item: canonicalUrl },
       ],
     },
   ]

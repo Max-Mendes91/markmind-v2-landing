@@ -32,19 +32,22 @@ export const getBlogPost = async (
 /** Get all blog posts sorted by datePublished descending */
 export const getBlogPosts = async (): Promise<BlogPostMeta[]> => {
   const slugs = getBlogPostSlugs()
-  const posts: BlogPostMeta[] = []
 
-  for (const slug of slugs) {
-    try {
-      const mod = await import(`@/content/blog/${slug}.mdx`)
-      posts.push(mod.metadata as BlogPostMeta)
-    } catch {
-      // Skip posts that fail to load
-    }
-  }
-
-  return posts.sort(
-    (a, b) =>
-      new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime(),
+  const results = await Promise.all(
+    slugs.map(async (slug) => {
+      try {
+        const mod = await import(`@/content/blog/${slug}.mdx`)
+        return mod.metadata as BlogPostMeta
+      } catch {
+        return null
+      }
+    }),
   )
+
+  return results
+    .filter((post): post is BlogPostMeta => post !== null)
+    .sort(
+      (a, b) =>
+        new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime(),
+    )
 }

@@ -148,6 +148,8 @@ const HeroFloatingLeft = () => (
 )
 
 // ── Right floating decorations ────────────────────────────────────────────────
+const SUPPORTED_BROWSERS = ["Chrome", "Brave", "Edge", "Opera"] as const
+
 const HeroFloatingRight = () => (
   <>
     {/* 1 — Far outer corner: label tag */}
@@ -197,7 +199,7 @@ const HeroFloatingRight = () => (
           Compatible browsers
         </div>
         <div className="flex gap-1.5 flex-wrap">
-          {["Chrome", "Brave", "Edge", "Opera"].map((name) => (
+          {SUPPORTED_BROWSERS.map((name) => (
             <span
               key={name}
               className="px-2 py-0.5 rounded-full bg-brand-slate/10 border border-brand-slate/20 text-label text-brand-slate font-bold"

@@ -96,10 +96,10 @@
   --color-brand-offwhite: #EAEFEF;
 
   /* ── Custom type scale ── */
-  --text-micro:         7px;
-  --text-note:          8px;
-  --text-label:         9px;
-  --text-badge:         10px;
+  --text-micro:         9px;
+  --text-note:          10px;
+  --text-label:         11px;
+  --text-badge:         12px;
   --text-caption:       11px;
   --text-body-xs:       12px;
   --text-body-sm:       13px;

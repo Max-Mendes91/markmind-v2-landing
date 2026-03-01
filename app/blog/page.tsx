@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Blog — AI Tips, Productivity & Browser Workflows | MarkMind",
     description:
       "Tips, guides, and updates about bookmark organization, AI-powered productivity, and getting the most out of MarkMind.",
-    url: "https://markmind.app/blog",
+    url: "https://markmind.xyz/blog",
     siteName: "MarkMind",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "https://markmind.app/blog",
+    canonical: "https://markmind.xyz/blog",
   },
 }
 
@@ -45,8 +45,8 @@ const BlogPage = async () => {
       name: "MarkMind Blog",
       description:
         "Tips, guides, and updates about bookmark organization and AI-powered productivity.",
-      url: "https://markmind.app/blog",
-      isPartOf: { "@type": "WebSite", url: "https://markmind.app" },
+      url: "https://markmind.xyz/blog",
+      isPartOf: { "@type": "WebSite", url: "https://markmind.xyz" },
       inLanguage: "en",
     },
     {
@@ -55,7 +55,7 @@ const BlogPage = async () => {
       itemListElement: posts.map((post, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `https://markmind.app/blog/${post.slug}`,
+        url: `https://markmind.xyz/blog/${post.slug}`,
         name: post.title,
       })),
     },

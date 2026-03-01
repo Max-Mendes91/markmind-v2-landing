@@ -10,13 +10,13 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: "https://markmind.app",
+      url: "https://markmind.xyz",
       lastModified: latestPostDate,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://markmind.app/blog",
+      url: "https://markmind.xyz/blog",
       lastModified: latestPostDate,
       changeFrequency: "weekly",
       priority: 0.8,
@@ -24,7 +24,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   ]
 
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `https://markmind.app/blog/${post.slug}`,
+    url: `https://markmind.xyz/blog/${post.slug}`,
     lastModified: new Date(post.dateModified ?? post.datePublished),
     changeFrequency: "monthly" as const,
     priority: 0.7,

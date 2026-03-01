@@ -20,7 +20,7 @@ export const generateMetadata = async ({
   if (!post) return { title: "Post Not Found | MarkMind" }
 
   const { meta } = post
-  const canonicalUrl = `https://markmind.app/blog/${meta.slug}`
+  const canonicalUrl = `https://markmind.xyz/blog/${meta.slug}`
   const ogImage = meta.image ?? "/og-image.png"
 
   return {
@@ -58,7 +58,7 @@ const BlogPostPage = async ({ params }: PageProps) => {
   if (!post) notFound()
 
   const { meta, Content } = post
-  const canonicalUrl = `https://markmind.app/blog/${meta.slug}`
+  const canonicalUrl = `https://markmind.xyz/blog/${meta.slug}`
 
   const jsonLd = [
     {
@@ -69,18 +69,18 @@ const BlogPostPage = async ({ params }: PageProps) => {
       author: {
         "@type": "Organization",
         name: "MarkMind",
-        url: "https://markmind.app",
+        url: "https://markmind.xyz",
       },
       publisher: {
         "@type": "Organization",
         name: "MarkMind",
-        url: "https://markmind.app",
+        url: "https://markmind.xyz",
       },
       datePublished: meta.datePublished,
       dateModified: meta.dateModified ?? meta.datePublished,
       mainEntityOfPage: canonicalUrl,
       image: meta.image
-        ? `https://markmind.app${meta.image}`
+        ? `https://markmind.xyz${meta.image}`
         : undefined,
       keywords: meta.keywords,
       inLanguage: "en",
@@ -94,13 +94,13 @@ const BlogPostPage = async ({ params }: PageProps) => {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://markmind.app",
+          item: "https://markmind.xyz",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Blog",
-          item: "https://markmind.app/blog",
+          item: "https://markmind.xyz/blog",
         },
         { "@type": "ListItem", position: 3, name: meta.title, item: canonicalUrl },
       ],

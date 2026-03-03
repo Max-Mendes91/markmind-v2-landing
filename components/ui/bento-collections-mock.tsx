@@ -10,8 +10,8 @@ export const BentoCollectionsMock = () => (
     {COLLECTION_GROUPS.map(({ name, color, tags, delay }) => (
       <div
         key={name}
-        className="animate-float"
-        style={{ animationDelay: delay, animationDuration: "6s" }}
+        className="animate-note-appear"
+        style={{ animationDelay: delay, animationDuration: "5s" }}
       >
         <div className="text-note font-black uppercase tracking-widest mb-1.5" style={{ color, opacity: 0.7 }}>
           {name}

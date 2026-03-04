@@ -1,53 +1,117 @@
-import fs from "fs"
-import path from "path"
 import type { BlogPostMeta } from "@/types"
+import type { Document } from "@contentful/rich-text-types"
+import type { Asset, EntrySkeletonType, EntryFieldTypes } from "contentful"
+import { getClient } from "@/lib/contentful"
 
-const CONTENT_DIR = path.join(process.cwd(), "content", "blog")
+const CONTENT_TYPE = "blogPost"
 
-/** Get all blog post slugs by reading the content/blog directory */
-export const getBlogPostSlugs = (): string[] => {
-  if (!fs.existsSync(CONTENT_DIR)) return []
-
-  return fs
-    .readdirSync(CONTENT_DIR)
-    .filter((file) => file.endsWith(".mdx"))
-    .map((file) => file.replace(/\.mdx$/, ""))
+/** Contentful skeleton type for the blogPost content model */
+interface BlogPostSkeleton extends EntrySkeletonType {
+  contentTypeId: "blogPost"
+  fields: {
+    title: EntryFieldTypes.Text
+    slug: EntryFieldTypes.Text
+    metaDescription: EntryFieldTypes.Text
+    keywords: EntryFieldTypes.Array<EntryFieldTypes.Symbol>
+    ogTitle: EntryFieldTypes.Text
+    h1: EntryFieldTypes.Text
+    author: EntryFieldTypes.Text
+    datePublished: EntryFieldTypes.Date
+    dateModified?: EntryFieldTypes.Date
+    tags: EntryFieldTypes.Array<EntryFieldTypes.Symbol>
+    image?: EntryFieldTypes.AssetLink
+    excerpt: EntryFieldTypes.Text
+    readingTime: EntryFieldTypes.Text
+    body: EntryFieldTypes.RichText
+  }
 }
 
-/** Get a single blog post's metadata + MDX content component */
+/** Resolved field types after Contentful resolves links */
+interface ResolvedBlogFields {
+  title: string
+  slug: string
+  metaDescription: string
+  keywords: string[]
+  ogTitle: string
+  h1: string
+  author: string
+  datePublished: string
+  dateModified?: string
+  tags: string[]
+  image?: Asset
+  excerpt: string
+  readingTime: string
+  body: Document
+}
+
+/** Transform a Contentful asset URL to an absolute HTTPS URL */
+const resolveImageUrl = (asset?: Asset): string | undefined => {
+  const url = asset?.fields?.file?.url
+  if (!url) return undefined
+  return typeof url === "string" && url.startsWith("//") ? `https:${url}` : String(url)
+}
+
+/** Map Contentful entry fields to BlogPostMeta */
+const toMeta = (fields: ResolvedBlogFields): BlogPostMeta => ({
+  title: fields.title,
+  slug: fields.slug,
+  metaDescription: fields.metaDescription,
+  keywords: fields.keywords,
+  ogTitle: fields.ogTitle,
+  h1: fields.h1,
+  author: fields.author,
+  datePublished: fields.datePublished,
+  dateModified: fields.dateModified,
+  tags: fields.tags,
+  image: resolveImageUrl(fields.image),
+  excerpt: fields.excerpt,
+  readingTime: fields.readingTime,
+})
+
+/** Get all blog post slugs */
+export const getBlogPostSlugs = async (): Promise<string[]> => {
+  const client = getClient()
+  const entries = await client.getEntries<BlogPostSkeleton>({
+    content_type: CONTENT_TYPE,
+    select: ["fields.slug"],
+    order: ["-fields.datePublished"],
+    limit: 100,
+  })
+  return entries.items.map((item) => item.fields.slug as string)
+}
+
+/** Get a single blog post by slug — returns meta + rich text document */
 export const getBlogPost = async (
   slug: string,
-): Promise<{ meta: BlogPostMeta; Content: React.ComponentType } | null> => {
-  try {
-    const mod = await import(`@/content/blog/${slug}.mdx`)
-    return {
-      meta: mod.metadata as BlogPostMeta,
-      Content: mod.default as React.ComponentType,
-    }
-  } catch {
-    return null
+): Promise<{ meta: BlogPostMeta; body: Document } | null> => {
+  const client = getClient()
+  const entries = await client.getEntries<BlogPostSkeleton>({
+    content_type: CONTENT_TYPE,
+    "fields.slug": slug,
+    limit: 1,
+    include: 2,
+  })
+
+  if (entries.items.length === 0) return null
+
+  const fields = entries.items[0].fields as unknown as ResolvedBlogFields
+  return {
+    meta: toMeta(fields),
+    body: fields.body,
   }
 }
 
 /** Get all blog posts sorted by datePublished descending */
 export const getBlogPosts = async (): Promise<BlogPostMeta[]> => {
-  const slugs = getBlogPostSlugs()
+  const client = getClient()
+  const entries = await client.getEntries<BlogPostSkeleton>({
+    content_type: CONTENT_TYPE,
+    order: ["-fields.datePublished"],
+    limit: 100,
+    include: 1,
+  })
 
-  const results = await Promise.all(
-    slugs.map(async (slug) => {
-      try {
-        const mod = await import(`@/content/blog/${slug}.mdx`)
-        return mod.metadata as BlogPostMeta
-      } catch {
-        return null
-      }
-    }),
+  return entries.items.map((item) =>
+    toMeta(item.fields as unknown as ResolvedBlogFields),
   )
-
-  return results
-    .filter((post): post is BlogPostMeta => post !== null)
-    .sort(
-      (a, b) =>
-        new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime(),
-    )
 }

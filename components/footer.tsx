@@ -28,7 +28,7 @@ export const Footer = () => (
         <Corners color={SLATE} />
         <div className="flex items-center gap-3">
           <Image
-            src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/brand-assets/www.markmind.xyz/logo-1771684912530.png"
+            src="/logo.png"
             alt="MarkMind Logo"
             width={48}
             height={48}

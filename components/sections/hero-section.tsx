@@ -4,8 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { ArrowRight, Play, Sparkles, Bookmark, Zap } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
 
-const LOGO_URL =
-  "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/brand-assets/www.markmind.xyz/logo-1771684912530.png"
+const LOGO_URL = "/logo.png"
 
 const CYCLING_WORDS = [
   "that actually sorts your bookmarks.",

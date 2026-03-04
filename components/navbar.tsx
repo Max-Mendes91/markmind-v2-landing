@@ -24,7 +24,7 @@ export const Navbar = () => {
         {/* Logo */}
         <a href="/" className="flex items-center gap-2.5 pl-1 shrink-0">
           <Image
-            src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/brand-assets/www.markmind.xyz/logo-1771684912530.png"
+            src="/logo.png"
             alt="MarkMind Logo"
             width={28}
             height={28}

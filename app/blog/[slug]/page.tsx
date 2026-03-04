@@ -1,15 +1,22 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import type { BlogPostMeta } from "@/types"
+import { SITE_URL } from "@/lib/tokens"
 import { getBlogPostSlugs, getBlogPost } from "@/lib/blog"
+import { renderRichText } from "@/lib/rich-text"
 import { BlogPostHeader } from "@/components/sections/blog-post-header"
 import { BlogPostCta } from "@/components/sections/blog-post-cta"
+
+export const revalidate = 3600
 
 interface PageProps {
   params: Promise<{ slug: string }>
 }
 
-export const generateStaticParams = () =>
-  getBlogPostSlugs().map((slug) => ({ slug }))
+export const generateStaticParams = async () => {
+  const slugs = await getBlogPostSlugs()
+  return slugs.map((slug) => ({ slug }))
+}
 
 export const generateMetadata = async ({
   params,
@@ -20,7 +27,7 @@ export const generateMetadata = async ({
   if (!post) return { title: "Post Not Found | MarkMind" }
 
   const { meta } = post
-  const canonicalUrl = `https://markmind.xyz/blog/${meta.slug}`
+  const canonicalUrl = `${SITE_URL}/blog/${meta.slug}`
   const ogImage = meta.image ?? "/og-image.png"
 
   return {
@@ -51,61 +58,43 @@ export const generateMetadata = async ({
   }
 }
 
+/** Build JSON-LD structured data for a blog post */
+const buildJsonLd = (meta: BlogPostMeta, canonicalUrl: string) => [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: meta.h1,
+    description: meta.metaDescription,
+    author: { "@type": "Organization", name: "MarkMind", url: SITE_URL },
+    publisher: { "@type": "Organization", name: "MarkMind", url: SITE_URL },
+    datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
+    mainEntityOfPage: canonicalUrl,
+    image: meta.image ?? undefined,
+    keywords: meta.keywords,
+    inLanguage: "en",
+    articleSection: "Blog",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: meta.title, item: canonicalUrl },
+    ],
+  },
+]
+
 const BlogPostPage = async ({ params }: PageProps) => {
   const { slug } = await params
   const post = await getBlogPost(slug)
 
   if (!post) notFound()
 
-  const { meta, Content } = post
-  const canonicalUrl = `https://markmind.xyz/blog/${meta.slug}`
-
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: meta.h1,
-      description: meta.metaDescription,
-      author: {
-        "@type": "Organization",
-        name: "MarkMind",
-        url: "https://markmind.xyz",
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "MarkMind",
-        url: "https://markmind.xyz",
-      },
-      datePublished: meta.datePublished,
-      dateModified: meta.dateModified ?? meta.datePublished,
-      mainEntityOfPage: canonicalUrl,
-      image: meta.image
-        ? `https://markmind.xyz${meta.image}`
-        : undefined,
-      keywords: meta.keywords,
-      inLanguage: "en",
-      articleSection: "Blog",
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://markmind.xyz",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Blog",
-          item: "https://markmind.xyz/blog",
-        },
-        { "@type": "ListItem", position: 3, name: meta.title, item: canonicalUrl },
-      ],
-    },
-  ]
+  const { meta, body } = post
+  const canonicalUrl = `${SITE_URL}/blog/${meta.slug}`
+  const jsonLd = buildJsonLd(meta, canonicalUrl)
 
   return (
     <>
@@ -117,7 +106,7 @@ const BlogPostPage = async ({ params }: PageProps) => {
         <BlogPostHeader meta={meta} />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 md:px-8 pb-12 sm:pb-16 md:pb-20">
           <div className="prose-blog">
-            <Content />
+            {renderRichText(body)}
           </div>
         </div>
       </article>

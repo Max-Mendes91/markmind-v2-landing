@@ -1,7 +1,10 @@
 import type { Metadata } from "next"
+import { SITE_URL } from "@/lib/tokens"
 import { getBlogPosts } from "@/lib/blog"
 import { BlogHero } from "@/components/sections/blog-hero"
 import { BlogPostList } from "@/components/sections/blog-post-list"
+
+export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: "Blog — AI Tips, Productivity & Browser Workflows | MarkMind",
@@ -45,8 +48,8 @@ const BlogPage = async () => {
       name: "MarkMind Blog",
       description:
         "Tips, guides, and updates about bookmark organization and AI-powered productivity.",
-      url: "https://markmind.xyz/blog",
-      isPartOf: { "@type": "WebSite", url: "https://markmind.xyz" },
+      url: `${SITE_URL}/blog`,
+      isPartOf: { "@type": "WebSite", url: SITE_URL },
       inLanguage: "en",
     },
     {
@@ -55,7 +58,7 @@ const BlogPage = async () => {
       itemListElement: posts.map((post, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `https://markmind.xyz/blog/${post.slug}`,
+        url: `${SITE_URL}/blog/${post.slug}`,
         name: post.title,
       })),
     },

@@ -27,9 +27,9 @@ export const PhilosophySection = () => (
     <div className="absolute inset-0 geometric-bg opacity-20 pointer-events-none" />
 
     {/* Header */}
-    <div className="relative z-10 flex flex-col items-center text-center mb-16">
+    <div className="relative z-10 flex flex-col items-center text-center mb-16 max-w-5xl mx-auto">
       <SectionBadge label="Philosophy" />
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-black text-white leading-tight tracking-tight mb-4">
         We build a bookmark organizer
         <br />
         <span className="text-gradient-gold-metallic italic">

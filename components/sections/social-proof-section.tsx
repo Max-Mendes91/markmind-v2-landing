@@ -128,9 +128,9 @@ export const SocialProofSection = () => {
       <div className="absolute inset-0 geometric-bg opacity-20 pointer-events-none" />
 
       {/* Section header */}
-      <div className="relative z-10 flex flex-col items-center text-center mb-14">
+      <div className="relative z-10 flex flex-col items-center text-center mb-14 max-w-5xl mx-auto">
         <SectionBadge label="Users" />
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-black text-white leading-tight tracking-tight mb-4">
           A bookmark organizer people keep{" "}
           <span className="text-gradient-gold-metallic italic">
             after trying it once.

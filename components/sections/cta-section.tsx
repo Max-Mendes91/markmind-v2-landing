@@ -41,12 +41,12 @@ export const CtaSection = () => (
       <defs>
         <linearGradient id="line-fade-l" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="white" stopOpacity="0.06" />
-          <stop offset="60%" stopColor="#FF9B51" stopOpacity="0.12" />
+          <stop offset="60%" stopColor={ORANGE} stopOpacity="0.12" />
           <stop offset="100%" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="line-fade-r" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="white" stopOpacity="0.06" />
-          <stop offset="60%" stopColor="#BFC9D1" stopOpacity="0.12" />
+          <stop offset="60%" stopColor={SLATE} stopOpacity="0.12" />
           <stop offset="100%" stopColor="white" stopOpacity="0" />
         </linearGradient>
       </defs>
@@ -66,11 +66,12 @@ export const CtaSection = () => (
       </div>
     </div>
 
-    <div className="relative z-10 flex flex-col items-center text-center">
+    <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
       <SectionBadge label="Get Started" />
 
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-4">
-        Install the AI bookmark manager.{" "}
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-black text-white leading-tight tracking-tight mb-4">
+        Install the AI bookmark manager.
+        <br />
         <span className="text-gradient-gold-metallic italic">Try it on your mess.</span>
       </h2>
 

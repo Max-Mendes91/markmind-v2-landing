@@ -91,7 +91,7 @@ const HeroFloatingLeft = () => (
   <>
     {/* 1 — Far outer corner: label tag */}
     <div
-      className="absolute left-[2%] top-[18%] xl:flex hidden items-center gap-2 animate-float"
+      className="absolute left-0 xl:left-[2%] top-[18%] lg:flex hidden lg:opacity-50 xl:opacity-100 items-center gap-2 animate-float"
       style={{ animationDelay: "0s", animationDuration: "6s" }}
     >
       <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
@@ -103,10 +103,10 @@ const HeroFloatingLeft = () => (
 
     {/* 2 — Mid arc: capture card */}
     <div
-      className="absolute left-[5%] top-[37%] xl:block hidden animate-float"
+      className="absolute left-[2%] 2xl:left-[5%] top-[37%] xl:block hidden animate-float"
       style={{ animationDelay: "1.2s", animationDuration: "7s" }}
     >
-      <div className="glass-card p-3.5 rounded-2xl w-[210px]">
+      <div className="glass-card p-3.5 rounded-2xl w-[180px] 2xl:w-[210px]">
         <div className="text-label uppercase tracking-wider text-muted-foreground font-bold mb-2 flex items-center gap-1.5">
           <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
           Ready to organize
@@ -127,7 +127,7 @@ const HeroFloatingLeft = () => (
 
     {/* 3 — Inner, closest to text: AI dots */}
     <div
-      className="absolute left-[20%] top-[76%] xl:flex hidden animate-float"
+      className="absolute left-[2%] 2xl:left-[12%] top-[76%] xl:flex hidden animate-float"
       style={{ animationDelay: "2.5s", animationDuration: "5.5s" }}
     >
       <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
@@ -154,7 +154,7 @@ const HeroFloatingRight = () => (
   <>
     {/* 1 — Far outer corner: label tag */}
     <div
-      className="absolute right-[2%] top-[18%] xl:flex hidden items-center gap-2 animate-float"
+      className="absolute right-0 xl:right-[2%] top-[18%] lg:flex hidden lg:opacity-50 xl:opacity-100 items-center gap-2 animate-float"
       style={{ animationDelay: "0.7s", animationDuration: "6.5s" }}
     >
       <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
@@ -165,10 +165,10 @@ const HeroFloatingRight = () => (
 
     {/* 2 — Mid arc: note organized card */}
     <div
-      className="absolute right-[5%] top-[37%] xl:block hidden animate-float"
+      className="absolute right-[2%] 2xl:right-[5%] top-[37%] xl:block hidden animate-float"
       style={{ animationDelay: "2s", animationDuration: "8s" }}
     >
-      <div className="glass-card p-3.5 rounded-2xl w-[200px]">
+      <div className="glass-card p-3.5 rounded-2xl w-[170px] 2xl:w-[200px]">
         <div className="flex items-center gap-2 mb-2.5">
           <div className="w-2 h-2 rounded-full bg-emerald-400" />
           <span className="text-badge font-bold text-white/60 uppercase tracking-wider">Destination</span>
@@ -190,7 +190,7 @@ const HeroFloatingRight = () => (
 
     {/* 3 — Inner, closest to text: compatible browsers card */}
     <div
-      className="absolute right-[18%] top-[76%] xl:block hidden animate-float"
+      className="absolute right-[2%] 2xl:right-[10%] top-[76%] xl:block hidden animate-float"
       style={{ animationDelay: "3.5s", animationDuration: "7.5s" }}
     >
       <div className="glass-card px-3.5 py-2.5 rounded-2xl border border-white/10">
@@ -216,7 +216,7 @@ const HeroFloatingRight = () => (
 // ── Section ───────────────────────────────────────────────────────────────────
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black geometric-bg pt-20">
+    <section className="relative min-h-screen short:min-h-[600px] flex items-center justify-center overflow-hidden bg-black geometric-bg pt-20">
 
       {/* === AMBIENT GLOWS === */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -230,7 +230,7 @@ export const HeroSection = () => {
       <HeroFloatingRight />
 
       {/* === CENTER CONTENT === */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto w-full">
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-4xl mx-auto w-full">
 
         {/* Logo mark with corner bracket animation */}
         <div className="mb-6">
@@ -244,7 +244,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Pill badge */}
-        <div className="mb-8 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-orange/30 bg-brand-orange/5">
+        <div className="mb-6 sm:mb-8 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-orange/30 bg-brand-orange/5">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
           <span className="text-brand-orange text-caption font-bold uppercase tracking-[0.25em]">
             AI Bookmark Organizer · V2
@@ -252,20 +252,20 @@ export const HeroSection = () => {
         </div>
 
         {/* Main headline */}
-        <h1 className="font-black tracking-tight leading-[0.92] mb-6">
-          <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+        <h1 className="font-black tracking-tight leading-[0.92] mb-4 sm:mb-6">
+          <span className="block text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
             AI bookmark organizer for people
           </span>
-          <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+          <span className="block text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
             with too many tabs
           </span>
-          <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-1">
+          <span className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl mt-1">
             <CyclingWord />
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base md:text-lg text-muted-foreground max-w-[520px] leading-relaxed mb-10">
+        <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-[520px] leading-relaxed mb-8 sm:mb-10">
           Chrome bookmarks get messy because nobody has time to fix them. MarkMind replaces the default
           bookmark button with AI that reads the page, checks your folder structure, and suggests the
           right place. You review. You approve. Done.
@@ -284,11 +284,6 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-20">
-        <div className="w-px h-12 bg-linear-to-b from-white to-transparent" />
-        <span className="text-label uppercase tracking-[0.4em] font-bold text-white">See it in action</span>
-      </div>
     </section>
   )
 }

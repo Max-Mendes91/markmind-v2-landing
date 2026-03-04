@@ -12,7 +12,7 @@ const PX_PER_CARD = 200  // px of scroll needed to reveal each card
 
 // ── Card positions — radiating from center browser mock ───────────────────────
 const REVEAL_CARDS = [
-  { id: "reading",  pos: "top-[6%] right-[4%]",    accent: SLATE,  w: "w-[280px]" },
+  { id: "reading",  pos: "top-[12%] right-[4%]",   accent: SLATE,  w: "w-[280px]" },
   { id: "analyze",  pos: "top-[16%] right-[22%]",   accent: ORANGE, w: "w-[260px]" },
   { id: "folders",  pos: "top-[62%] left-[26%]",    accent: SLATE,  w: "w-[270px]" },
   { id: "suggest",  pos: "top-[40%] right-[4%]",    accent: ORANGE, w: "w-[300px]" },
@@ -82,22 +82,22 @@ export const RevealCardsSection = () => {
 
         {/* Background glows */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-brand-slate/4 blur-[120px] rounded-full" />
-          <div className="absolute bottom-1/3 left-0 w-[300px] h-[300px] bg-brand-orange/4 blur-[100px] rounded-full" />
+          <div className="absolute top-1/3 right-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-brand-slate/4 blur-[120px] rounded-full" />
+          <div className="absolute bottom-1/3 left-0 w-[150px] h-[150px] md:w-[300px] md:h-[300px] bg-brand-orange/4 blur-[100px] rounded-full" />
           <div className="absolute inset-0 geometric-bg opacity-20" />
         </div>
 
         <RevealSvgLines lineData={lineData} revealedCount={revealedCount} />
 
-        {/* Browser mock — center hub */}
-        <div ref={browserRef} className="absolute left-1/2 top-[44%] -translate-x-1/2 -translate-y-1/2" style={{ zIndex: 8 }}>
+        {/* Browser mock — center hub (desktop only) */}
+        <div ref={browserRef} className="absolute left-1/2 top-[44%] -translate-x-1/2 -translate-y-1/2 hidden md:block" style={{ zIndex: 8 }}>
           <RevealBrowserMock />
         </div>
 
-        {/* Left text */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-8 md:left-16 lg:left-24 z-40 max-w-[300px] md:max-w-[360px]">
+        {/* Left text (desktop) */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-16 lg:left-24 z-40 max-w-[360px] hidden md:block">
           <SectionBadge label="How it works" />
-          <h2 className="text-2xl md:text-hero-sm lg:text-hero-md leading-[1.2] text-white/85 font-light tracking-tight">
+          <h2 className="text-hero-sm lg:text-hero-md leading-[1.2] text-white/85 font-light tracking-tight">
             A smart bookmark manager that works with{" "}
             <span className="text-brand-orange italic font-semibold">how you already browse.</span>
           </h2>
@@ -110,8 +110,8 @@ export const RevealCardsSection = () => {
           <div className="h-full bg-brand-orange transition-all duration-300 ease-out" style={{ width: `${progress * 100}%` }} />
         </div>
 
-        {/* Cards */}
-        <div className="relative w-full h-full">
+        {/* Desktop cards — absolute positioned */}
+        <div className="relative w-full h-full hidden md:block">
           {REVEAL_CARDS.map((card, i) => (
             <div
               key={card.id}
@@ -134,12 +134,67 @@ export const RevealCardsSection = () => {
           ))}
         </div>
 
+        {/* Mobile layout — heading + one card at a time */}
+        <div className="md:hidden flex flex-col items-center justify-center h-full px-4 pt-16 pb-20">
+          <SectionBadge label="How it works" />
+          <h2 className="text-2xl leading-[1.2] text-white/85 font-light tracking-tight text-center mb-6">
+            A smart bookmark manager that works with{" "}
+            <span className="text-brand-orange italic font-semibold">how you already browse.</span>
+          </h2>
+
+          {/* Step counter */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-label uppercase tracking-[0.3em] font-bold text-white/40">
+              {revealedCount === 0 ? "Scroll to explore" : `Step ${revealedCount} of ${TOTAL_CARDS}`}
+            </span>
+          </div>
+
+          {/* Single card container */}
+          <div className="relative w-full max-w-[320px] min-h-[180px]">
+            {REVEAL_CARDS.map((card, i) => {
+              const isActive = i === revealedCount - 1
+              return (
+                <div
+                  key={card.id}
+                  className="absolute inset-0"
+                  style={{
+                    opacity:         isActive ? 1 : 0,
+                    transform:       isActive ? "translateY(0) scale(1)" : "translateY(12px) scale(0.95)",
+                    transition:      "opacity 0.5s ease, transform 0.5s ease",
+                    pointerEvents:   isActive ? "auto" : "none",
+                  }}
+                >
+                  <div className="relative bento-card rounded-2xl p-5 overflow-hidden">
+                    <Corners color={card.accent} />
+                    <RevealCardContent id={card.id} accent={card.accent} />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Mobile progress dots */}
+          <div className="flex items-center gap-2 mt-5">
+            {REVEAL_CARDS.map((card, i) => (
+              <div
+                key={card.id}
+                className="rounded-full transition-all duration-400"
+                style={{
+                  width:      i === revealedCount - 1 ? "20px" : "6px",
+                  height:     "6px",
+                  background: i < revealedCount ? ORANGE : "rgba(255,255,255,0.15)",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Scroll hint */}
         <div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 transition-opacity duration-500"
           style={{ opacity: revealedCount >= TOTAL_CARDS ? 0 : 0.5 }}
         >
-          <span className="text-label uppercase tracking-[0.35em] font-bold text-white/50">
+          <span className="text-label uppercase tracking-[0.35em] font-bold text-white/50 hidden md:block">
             {revealedCount === 0 ? "Scroll" : `${TOTAL_CARDS - revealedCount} more`}
           </span>
           <svg className="w-3.5 h-3.5 text-white/40 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -148,7 +203,7 @@ export const RevealCardsSection = () => {
         </div>
 
         {/* Footer meta */}
-        <div className="absolute bottom-6 left-0 right-0 flex items-center justify-between px-10 pointer-events-none opacity-[0.07] text-note uppercase tracking-[0.4em] text-white">
+        <div className="absolute bottom-6 left-0 right-0 hidden md:flex items-center justify-between px-10 pointer-events-none opacity-[0.07] text-note uppercase tracking-[0.4em] text-white">
           <span>Single Bookmark Flow</span>
           <span>{revealedCount} / {TOTAL_CARDS} steps</span>
           <span>MarkMind</span>
@@ -167,7 +222,7 @@ const RevealSvgLines = ({
   lineData: Array<{ x1: number; y1: number; x2: number; y2: number }>
   revealedCount: number
 }) => (
-  <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 5 }} aria-hidden="true">
+  <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ zIndex: 5 }} aria-hidden="true">
     {lineData[0] && (
       <>
         <circle
@@ -207,7 +262,7 @@ const RevealSvgLines = ({
 
 // ── Progress dots ─────────────────────────────────────────────────────────────
 const RevealProgressDots = ({ revealedCount }: { revealedCount: number }) => (
-  <div className="absolute right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+  <div className="absolute right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
     {Array.from({ length: TOTAL_CARDS }).map((_, i) => (
       <div
         key={i}

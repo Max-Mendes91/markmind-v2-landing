@@ -15,6 +15,9 @@ export const CSS_SLATE    = "var(--color-brand-slate)"
 export const CSS_NAVY     = "var(--color-brand-navy)"
 export const CSS_OFFWHITE = "var(--color-brand-offwhite)"
 
+// ── Site URL — single source of truth ──────────────────────────────────────────
+export const SITE_URL = "https://markmind.xyz"
+
 export type Accent = "orange" | "slate" | "neutral"
 
 export const accentColor: Record<Accent, string> = {

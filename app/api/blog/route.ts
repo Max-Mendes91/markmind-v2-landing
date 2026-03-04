@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server"
+import { SITE_URL } from "@/lib/tokens"
 import { getBlogPosts } from "@/lib/blog"
 
 const ALLOWED_ORIGINS = [
   "chrome-extension://", // any chrome extension in dev
-  "https://markmind.xyz",
-  "https://www.markmind.xyz",
+  SITE_URL,
+  `https://www.${SITE_URL.replace("https://", "")}`,
 ]
 
 const isAllowedOrigin = (origin: string | null): boolean => {
@@ -26,9 +27,9 @@ export const GET = async (request: Request) => {
   const feed = posts.map((post) => ({
     title: post.h1,
     slug: post.slug,
-    url: `https://markmind.xyz/blog/${post.slug}`,
+    url: `${SITE_URL}/blog/${post.slug}`,
     excerpt: post.excerpt,
-    image: post.image ? `https://markmind.xyz${post.image}` : null,
+    image: post.image ?? null,
     tags: post.tags,
     datePublished: post.datePublished,
     readingTime: post.readingTime,

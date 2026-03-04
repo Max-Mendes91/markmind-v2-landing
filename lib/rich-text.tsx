@@ -66,7 +66,7 @@ const renderOptions: Options = {
       <hr className="border-white/8 my-6 sm:my-8 md:my-10" />
     ),
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const { title, file } = node.data.target.fields
+      const { title, description, file } = node.data.target.fields
       const url = (file.url as string).startsWith("//")
         ? `https:${file.url}`
         : (file.url as string)
@@ -74,7 +74,7 @@ const renderOptions: Options = {
       return (
         <Image
           src={url}
-          alt={(title as string) ?? ""}
+          alt={(description as string) || (title as string) || ""}
           width={imgDetails?.width ?? 1200}
           height={imgDetails?.height ?? 630}
           className="rounded-xl border border-white/10 my-5 sm:my-6 md:my-8 w-full h-auto"
@@ -83,6 +83,19 @@ const renderOptions: Options = {
     },
     [INLINES.HYPERLINK]: (node, children) => {
       const href = node.data.uri as string
+
+      const isSafeUrl = (url: string): boolean => {
+        if (url.startsWith("/") || url.startsWith("#")) return true
+        try {
+          const protocol = new URL(url).protocol
+          return ["http:", "https:", "mailto:", "tel:"].includes(protocol)
+        } catch {
+          return false
+        }
+      }
+
+      if (!isSafeUrl(href)) return <span>{children}</span>
+
       if (href.startsWith("/")) {
         return (
           <Link href={href} className={LINK_CLASSES}>

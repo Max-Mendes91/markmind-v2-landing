@@ -126,25 +126,29 @@ const HeroFloatingLeft = () => (
 
     {/* 3 — Inner, closest to text: AI dots */}
     <div
-      className="absolute left-[20%] top-[76%] xl:flex hidden items-center gap-2 animate-float"
+      className="absolute left-[20%] top-[76%] xl:flex hidden animate-float"
       style={{ animationDelay: "2.5s", animationDuration: "5.5s" }}
     >
-      <Sparkles className="w-3.5 h-3.5 text-brand-slate" />
-      <div className="flex gap-1.5">
-        {[0, 0.2, 0.4].map((delay) => (
-          <div
-            key={delay}
-            className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce"
-            style={{ animationDelay: `${delay}s` }}
-          />
-        ))}
+      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
+        <Sparkles className="w-3.5 h-3.5 text-brand-slate" />
+        <div className="flex gap-1.5">
+          {[0, 0.2, 0.4].map((delay) => (
+            <div
+              key={delay}
+              className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce"
+              style={{ animationDelay: `${delay}s` }}
+            />
+          ))}
+        </div>
+        <span className="text-badge text-white/50 font-bold">Analyzing your folders&hellip;</span>
       </div>
-      <span className="text-badge text-white/50 font-bold ml-1">Analyzing your folders&hellip;</span>
     </div>
   </>
 )
 
 // ── Right floating decorations ────────────────────────────────────────────────
+const SUPPORTED_BROWSERS = ["Chrome", "Brave", "Edge", "Opera"] as const
+
 const HeroFloatingRight = () => (
   <>
     {/* 1 — Far outer corner: label tag */}
@@ -183,24 +187,27 @@ const HeroFloatingRight = () => (
       </div>
     </div>
 
-    {/* 3 — Inner, closest to text: integration icons */}
+    {/* 3 — Inner, closest to text: compatible browsers card */}
     <div
-      className="absolute right-[20%] top-[76%] xl:flex hidden items-center gap-2 animate-float"
+      className="absolute right-[18%] top-[76%] xl:block hidden animate-float"
       style={{ animationDelay: "3.5s", animationDuration: "7.5s" }}
     >
-      {[
-        { label: "C", bg: "bg-blue-500/20 border-blue-500/30", text: "text-blue-300" },
-        { label: "N", bg: "bg-white/10 border-white/20", text: "text-white" },
-        { label: "G", bg: "bg-red-500/20 border-red-500/30", text: "text-red-300" },
-        { label: "✦", bg: "bg-purple-500/20 border-purple-500/30", text: "text-purple-300" },
-      ].map(({ label, bg, text }) => (
-        <div
-          key={label}
-          className={`w-8 h-8 rounded-full border flex items-center justify-center ${bg}`}
-        >
-          <span className={`text-caption font-black ${text}`}>{label}</span>
+      <div className="glass-card px-3.5 py-2.5 rounded-2xl border border-white/10">
+        <div className="text-label uppercase tracking-wider text-muted-foreground font-bold mb-2 flex items-center gap-1.5">
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          Compatible browsers
         </div>
-      ))}
+        <div className="flex gap-1.5 flex-wrap">
+          {SUPPORTED_BROWSERS.map((name) => (
+            <span
+              key={name}
+              className="px-2 py-0.5 rounded-full bg-brand-slate/10 border border-brand-slate/20 text-label text-brand-slate font-bold"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   </>
 )

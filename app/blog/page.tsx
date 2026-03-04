@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Blog — AI Tips, Productivity & Browser Workflows | MarkMind",
     description:
       "Tips, guides, and updates about bookmark organization, AI-powered productivity, and getting the most out of MarkMind.",
-    url: "https://markmind.xyz/blog",
+    url: `${SITE_URL}/blog`,
     siteName: "MarkMind",
     images: [
       {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "https://markmind.xyz/blog",
+    canonical: `${SITE_URL}/blog`,
   },
 }
 
@@ -59,7 +59,7 @@ const BlogPage = async () => {
         "@type": "ListItem",
         position: index + 1,
         url: `${SITE_URL}/blog/${post.slug}`,
-        name: post.title,
+        name: post.h1,
       })),
     },
   ]
@@ -68,7 +68,7 @@ const BlogPage = async () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
       <BlogHero />
       <BlogPostList posts={posts} />

@@ -1,7 +1,11 @@
 import { createClient, type ContentfulClientApi } from "contentful"
 
-const SPACE_ID = process.env.CONTENTFUL_SPACE_ID!
-const ACCESS_TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN!
+const SPACE_ID = process.env.CONTENTFUL_SPACE_ID
+const ACCESS_TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN
+
+if (!SPACE_ID || !ACCESS_TOKEN) {
+  throw new Error("Missing CONTENTFUL_SPACE_ID or CONTENTFUL_ACCESS_TOKEN env vars")
+}
 const PREVIEW_TOKEN = process.env.CONTENTFUL_PREVIEW_TOKEN
 
 export const contentfulClient: ContentfulClientApi<undefined> = createClient({

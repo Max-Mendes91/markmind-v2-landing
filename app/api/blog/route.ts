@@ -3,14 +3,16 @@ import { SITE_URL } from "@/lib/tokens"
 import { getBlogPosts } from "@/lib/blog"
 
 const ALLOWED_ORIGINS = [
-  "chrome-extension://", // any chrome extension in dev
+  "chrome-extension://bdobgdkpeffdbonfpokgkbncgnbnjnoo",
   SITE_URL,
   `https://www.${SITE_URL.replace("https://", "")}`,
 ]
 
 const isAllowedOrigin = (origin: string | null): boolean => {
   if (!origin) return false
-  return ALLOWED_ORIGINS.some((allowed) => origin.startsWith(allowed))
+  if (ALLOWED_ORIGINS.includes(origin)) return true
+  if (process.env.NODE_ENV === "development" && origin.startsWith("chrome-extension://")) return true
+  return false
 }
 
 const corsHeaders = (origin: string | null) => ({

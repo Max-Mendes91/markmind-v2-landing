@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://markmind.app'),
+  metadataBase: new URL('https://markmind.xyz'),
   title: 'AI Bookmark Organizer for Chrome | MarkMind',
   description:
     'AI bookmark organizer that sorts your Chrome bookmarks into folders. Bulk organize hundreds at once. Open source, no account required. Free to install.',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title:       'AI Bookmark Organizer for Chrome | MarkMind',
     description: 'Sort your Chrome bookmarks into folders with AI. Bulk organize hundreds at once. Free & open source.',
-    url:         'https://markmind.app',
+    url:         'https://markmind.xyz',
     siteName:    'MarkMind',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'MarkMind — AI Bookmark Organizer' }],
     type: 'website',
@@ -68,7 +68,7 @@ export default function RootLayout({
                 reviewCount: '26',
               },
               description: 'AI bookmark organizer that sorts your Chrome bookmarks into folders. Bulk organize hundreds at once. Open source, no account required.',
-              url: 'https://markmind.app',
+              url: 'https://markmind.xyz',
             }),
           }}
         />

@@ -320,3 +320,11 @@
 .animate-word-exit  { animation: word-exit-up  0.45s cubic-bezier(0.4, 0, 1, 1)     forwards; }
 .animate-word-enter { animation: word-enter-up 0.55s cubic-bezier(0.16, 1, 0.3, 1)  forwards; }
 
+/* ── Blog prose wrapper ── */
+.prose-blog > *:first-child {
+  margin-top: 0;
+}
+.prose-blog > *:last-child {
+  margin-bottom: 0;
+}
+

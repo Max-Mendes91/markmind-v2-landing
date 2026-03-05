@@ -32,3 +32,20 @@ export interface MiniTestimonial {
   snippet: React.ReactNode
   accent:  TestimonialAccent
 }
+
+// ── Blog ─────────────────────────────────────────────────────────────────────
+export interface BlogPostMeta {
+  title:           string
+  slug:            string
+  metaDescription: string
+  keywords:        string[]
+  ogTitle:         string
+  h1:              string
+  author:          string
+  datePublished:   string
+  dateModified?:   string
+  tags:            string[]
+  image?:          string
+  excerpt:         string
+  readingTime:     string
+}

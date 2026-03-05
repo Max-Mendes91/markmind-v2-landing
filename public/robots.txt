@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://markmind.app/sitemap.xml
+Sitemap: https://markmind.xyz/sitemap.xml

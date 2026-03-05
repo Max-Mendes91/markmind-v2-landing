@@ -2,7 +2,12 @@
 const nextConfig = {
   productionBrowserSourceMaps: true,
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+      },
+    ],
   },
 }
 

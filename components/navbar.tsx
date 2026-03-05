@@ -55,7 +55,8 @@ export const Navbar = () => {
             size="sm"
             className="bg-gradient-to-r from-brand-slate to-brand-orange"
           >
-            Add to Chrome — Free
+            <span className="sm:hidden">Install</span>
+            <span className="hidden sm:inline">Add to Chrome — Free</span>
           </CtaButton>
           <button
             className="md:hidden flex items-center justify-center w-8 h-8 text-white ml-2"

@@ -13,7 +13,62 @@
   }
 }
 
+/* ── Light mode (default) ── */
 :root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #f5f5f5;
+  --card-foreground: #1a1a1a;
+  --popover: #f5f5f5;
+  --popover-foreground: #1a1a1a;
+  --primary: #25343F;
+  --primary-foreground: #ffffff;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #1a1a1a;
+  --muted: #e5e5e5;
+  --muted-foreground: #737373;
+  --accent: #FF9B51;
+  --accent-foreground: #000000;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.08);
+  --ring: #25343F;
+  --chart-1: #25343F;
+  --chart-2: #FF9B51;
+  --chart-3: #1a1a1a;
+  --chart-4: #737373;
+  --chart-5: #a3a3a3;
+  --radius: 0.625rem;
+  --sidebar: #f8f8f8;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #25343F;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0f0f0;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: rgba(0, 0, 0, 0.05);
+  --sidebar-ring: #25343F;
+
+  /* ── Overlay channel (dark overlays on light bg) ── */
+  --overlay: 0 0 0;
+
+  /* ── Surface tokens ── */
+  --surface-glass: rgba(0, 0, 0, 0.03);
+  --surface-glass-border: rgba(0, 0, 0, 0.08);
+  --surface-elevated-from: rgba(245, 245, 245, 0.8);
+  --surface-elevated-to: rgba(240, 240, 240, 0.95);
+  --surface-elevated-border: rgba(0, 0, 0, 0.05);
+  --surface-elevated-shine: rgba(0, 0, 0, 0.06);
+  --shadow-card: rgba(0, 0, 0, 0.08);
+
+  /* ── Hero glow (subtle on light) ── */
+  --hero-glow-a: rgba(191, 201, 209, 0.08);
+  --hero-glow-b: rgba(255, 155, 81, 0.04);
+  --geometric-line: rgba(255, 155, 81, 0.06);
+}
+
+/* ── Dark mode ── */
+.dark {
   --background: #000000;
   --foreground: #e5e5e5;
   --card: #0a0a0a;
@@ -38,7 +93,6 @@
   --chart-3: #e5e5e5;
   --chart-4: #a3a3a3;
   --chart-5: #525252;
-  --radius: 0.625rem;
   --sidebar: #050505;
   --sidebar-foreground: #e5e5e5;
   --sidebar-primary: #BFC9D1;
@@ -47,6 +101,23 @@
   --sidebar-accent-foreground: #e5e5e5;
   --sidebar-border: rgba(255, 255, 255, 0.05);
   --sidebar-ring: #BFC9D1;
+
+  /* ── Overlay channel (white overlays on dark bg) ── */
+  --overlay: 255 255 255;
+
+  /* ── Surface tokens ── */
+  --surface-glass: rgba(255, 255, 255, 0.03);
+  --surface-glass-border: rgba(255, 255, 255, 0.1);
+  --surface-elevated-from: rgba(20, 20, 20, 0.8);
+  --surface-elevated-to: rgba(5, 5, 5, 0.95);
+  --surface-elevated-border: rgba(255, 255, 255, 0.05);
+  --surface-elevated-shine: rgba(255, 255, 255, 0.1);
+  --shadow-card: rgba(0, 0, 0, 0.5);
+
+  /* ── Hero glow ── */
+  --hero-glow-a: rgba(191, 201, 209, 0.15);
+  --hero-glow-b: rgba(255, 155, 81, 0.05);
+  --geometric-line: rgba(255, 155, 81, 0.03);
 }
 
 @theme inline {
@@ -95,6 +166,32 @@
   --color-brand-navy:     #25343F;
   --color-brand-offwhite: #EAEFEF;
 
+  /* ── Overlay tiers (auto-switch light/dark via --overlay channel) ── */
+  --color-overlay-2:  rgb(var(--overlay) / 0.02);
+  --color-overlay-3:  rgb(var(--overlay) / 0.03);
+  --color-overlay-4:  rgb(var(--overlay) / 0.04);
+  --color-overlay-5:  rgb(var(--overlay) / 0.05);
+  --color-overlay-6:  rgb(var(--overlay) / 0.06);
+  --color-overlay-8:  rgb(var(--overlay) / 0.08);
+  --color-overlay-10: rgb(var(--overlay) / 0.10);
+  --color-overlay-12: rgb(var(--overlay) / 0.12);
+  --color-overlay-15: rgb(var(--overlay) / 0.15);
+  --color-overlay-20: rgb(var(--overlay) / 0.20);
+  --color-overlay-30: rgb(var(--overlay) / 0.30);
+  --color-overlay-35: rgb(var(--overlay) / 0.35);
+  --color-overlay-40: rgb(var(--overlay) / 0.40);
+  --color-overlay-45: rgb(var(--overlay) / 0.45);
+  --color-overlay-50: rgb(var(--overlay) / 0.50);
+  --color-overlay-55: rgb(var(--overlay) / 0.55);
+  --color-overlay-58: rgb(var(--overlay) / 0.58);
+  --color-overlay-60: rgb(var(--overlay) / 0.60);
+  --color-overlay-65: rgb(var(--overlay) / 0.65);
+  --color-overlay-70: rgb(var(--overlay) / 0.70);
+  --color-overlay-75: rgb(var(--overlay) / 0.75);
+  --color-overlay-80: rgb(var(--overlay) / 0.80);
+  --color-overlay-85: rgb(var(--overlay) / 0.85);
+  --color-overlay-90: rgb(var(--overlay) / 0.90);
+
   /* ── Custom type scale ── */
   --text-micro:         9px;
   --text-note:          10px;
@@ -118,6 +215,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    transition: background-color 0.3s ease, color 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
   html {
     scroll-behavior: smooth;
@@ -150,28 +248,28 @@
 }
 
 .hero-glow {
-  background: radial-gradient(circle at 70% 30%, rgba(191, 201, 209, 0.15) 0%, rgba(0, 0, 0, 0) 50%),
-              radial-gradient(circle at 30% 70%, rgba(255, 155, 81, 0.05) 0%, rgba(0, 0, 0, 0) 50%);
+  background: radial-gradient(circle at 70% 30%, var(--hero-glow-a) 0%, transparent 50%),
+              radial-gradient(circle at 30% 70%, var(--hero-glow-b) 0%, transparent 50%);
 }
 
 .geometric-bg {
-  background-image: linear-gradient(rgba(255, 155, 81, 0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 155, 81, 0.03) 1px, transparent 1px);
+  background-image: linear-gradient(var(--geometric-line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--geometric-line) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-glass);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--surface-glass-border);
+  box-shadow: 0 25px 50px -12px var(--shadow-card);
 }
 
 .bento-card {
-  background: linear-gradient(180deg, rgba(20, 20, 20, 0.8) 0%, rgba(5, 5, 5, 0.95) 100%);
+  background: linear-gradient(180deg, var(--surface-elevated-from) 0%, var(--surface-elevated-to) 100%);
   backdrop-filter: blur(20px);
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--surface-elevated-border);
 }
 
 .bento-card::before {
@@ -180,7 +278,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(to bottom, var(--surface-elevated-shine), transparent);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;

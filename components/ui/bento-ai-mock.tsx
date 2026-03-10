@@ -5,23 +5,23 @@ export const BentoAIMock = () => (
     {/* AI indicator */}
     <div className="absolute top-1 right-1 flex items-center gap-1">
       <div className="w-1.5 h-1.5 rounded-full bg-brand-slate animate-pulse" />
-      <span className="text-micro text-white/55 font-bold uppercase tracking-wider">Sorting</span>
+      <span className="text-micro text-overlay-55 font-bold uppercase tracking-wider">Sorting</span>
     </div>
 
     {/* Drifting chips */}
     <div className="animate-drift-a absolute top-3 left-2">
-      <div className="glass-card px-2.5 py-1.5 rounded-xl border border-white/10">
-        <div className="text-note text-white/70 font-bold">Neural plasticity</div>
+      <div className="glass-card px-2.5 py-1.5 rounded-xl border border-overlay-10">
+        <div className="text-note text-overlay-70 font-bold">Neural plasticity</div>
       </div>
     </div>
     <div className="animate-drift-b absolute top-5 right-3" style={{ animationDelay: "1.5s" }}>
-      <div className="glass-card px-2.5 py-1.5 rounded-xl border border-white/10">
-        <div className="text-note text-white/70 font-bold">Figma shadows</div>
+      <div className="glass-card px-2.5 py-1.5 rounded-xl border border-overlay-10">
+        <div className="text-note text-overlay-70 font-bold">Figma shadows</div>
       </div>
     </div>
     <div className="animate-drift-c absolute bottom-10 left-6" style={{ animationDelay: "2.8s" }}>
-      <div className="glass-card px-2.5 py-1.5 rounded-xl border border-white/10">
-        <div className="text-note text-white/70 font-bold">SaaS pricing</div>
+      <div className="glass-card px-2.5 py-1.5 rounded-xl border border-overlay-10">
+        <div className="text-note text-overlay-70 font-bold">SaaS pricing</div>
       </div>
     </div>
 

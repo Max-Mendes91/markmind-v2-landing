@@ -93,10 +93,10 @@ const HeroFloatingLeft = () => (
       className="absolute left-0 xl:left-[2%] top-[18%] lg:flex hidden lg:opacity-50 xl:opacity-100 items-center gap-2 animate-float"
       style={{ animationDelay: "0s", animationDuration: "6s" }}
     >
-      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
+      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-overlay-10">
         <Bookmark className="w-3 h-3 text-brand-orange" />
-        <span className="text-caption font-bold text-white/70">Current page detected</span>
-        <span className="font-mono text-badge text-white/45">[ ]</span>
+        <span className="text-caption font-bold text-overlay-70">Current page detected</span>
+        <span className="font-mono text-badge text-overlay-45">[ ]</span>
       </div>
     </div>
 
@@ -111,7 +111,7 @@ const HeroFloatingLeft = () => (
           Ready to organize
         </div>
         <div className="bg-brand-orange/8 border border-brand-orange/15 rounded-xl p-2.5 mb-3">
-          <p className="text-caption text-white/75 leading-relaxed">
+          <p className="text-caption text-overlay-75 leading-relaxed">
             &ldquo;Understanding React Server Components in Production&rdquo;
           </p>
         </div>
@@ -129,18 +129,18 @@ const HeroFloatingLeft = () => (
       className="absolute left-[2%] 2xl:left-[12%] top-[76%] xl:flex hidden animate-float"
       style={{ animationDelay: "2.5s", animationDuration: "5.5s" }}
     >
-      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
+      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-overlay-10">
         <Sparkles className="w-3.5 h-3.5 text-brand-slate" />
         <div className="flex gap-1.5">
           {[0, 0.2, 0.4].map((delay) => (
             <div
               key={delay}
-              className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce"
+              className="w-1.5 h-1.5 rounded-full bg-overlay-50 animate-bounce"
               style={{ animationDelay: `${delay}s` }}
             />
           ))}
         </div>
-        <span className="text-badge text-white/50 font-bold">Analyzing your folders&hellip;</span>
+        <span className="text-badge text-overlay-50 font-bold">Analyzing your folders&hellip;</span>
       </div>
     </div>
   </>
@@ -156,8 +156,8 @@ const HeroFloatingRight = () => (
       className="absolute right-0 xl:right-[2%] top-[18%] lg:flex hidden lg:opacity-50 xl:opacity-100 items-center gap-2 animate-float"
       style={{ animationDelay: "0.7s", animationDuration: "6.5s" }}
     >
-      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10">
-        <span className="text-caption font-bold text-white/70">AI suggestion</span>
+      <div className="glass-card flex items-center gap-2 px-3 py-1.5 rounded-full border border-overlay-10">
+        <span className="text-caption font-bold text-overlay-70">AI suggestion</span>
         <Zap className="w-3 h-3 text-brand-slate" />
       </div>
     </div>
@@ -170,10 +170,10 @@ const HeroFloatingRight = () => (
       <div className="glass-card p-3.5 rounded-2xl w-[170px] 2xl:w-[200px]">
         <div className="flex items-center gap-2 mb-2.5">
           <div className="w-2 h-2 rounded-full bg-emerald-400" />
-          <span className="text-badge font-bold text-white/60 uppercase tracking-wider">Destination</span>
+          <span className="text-badge font-bold text-overlay-60 uppercase tracking-wider">Destination</span>
         </div>
-        <div className="text-body-xs font-bold text-white mb-1">Learning</div>
-        <div className="text-caption text-white/50 mb-2.5">Development › Frontend › React</div>
+        <div className="text-body-xs font-bold text-foreground mb-1">Learning</div>
+        <div className="text-caption text-overlay-50 mb-2.5">Development › Frontend › React</div>
         <div className="flex gap-1 flex-wrap">
           {["#react", "#tutorial", "#reference"].map((tag) => (
             <span
@@ -192,7 +192,7 @@ const HeroFloatingRight = () => (
       className="absolute right-[2%] 2xl:right-[10%] top-[76%] xl:block hidden animate-float"
       style={{ animationDelay: "3.5s", animationDuration: "7.5s" }}
     >
-      <div className="glass-card px-3.5 py-2.5 rounded-2xl border border-white/10">
+      <div className="glass-card px-3.5 py-2.5 rounded-2xl border border-overlay-10">
         <div className="text-label uppercase tracking-wider text-muted-foreground font-bold mb-2 flex items-center gap-1.5">
           <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           Compatible browsers
@@ -215,7 +215,7 @@ const HeroFloatingRight = () => (
 // ── Section ───────────────────────────────────────────────────────────────────
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen short:min-h-[600px] flex items-center justify-center overflow-hidden bg-black geometric-bg pt-20">
+    <section className="relative min-h-screen short:min-h-[600px] flex items-center justify-center overflow-hidden bg-background geometric-bg pt-20">
 
       {/* === AMBIENT GLOWS === */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -252,10 +252,10 @@ export const HeroSection = () => {
 
         {/* Main headline */}
         <h1 className="font-black tracking-tight leading-[0.92] mb-4 sm:mb-6">
-          <span className="block text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
+          <span className="block text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
             AI bookmark organizer for people
           </span>
-          <span className="block text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
+          <span className="block text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
             with too many tabs
           </span>
           <span className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl mt-1">
@@ -277,7 +277,7 @@ export const HeroSection = () => {
             <ArrowRight className="w-4 h-4" />
           </CtaButton>
           <CtaButton href="/#how-it-works" variant="outline" size="lg">
-            <Play className="w-4 h-4 fill-white" />
+            <Play className="w-4 h-4 fill-foreground" />
             See how it works
           </CtaButton>
         </div>

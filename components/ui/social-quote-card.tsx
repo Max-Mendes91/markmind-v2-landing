@@ -36,12 +36,12 @@ export const SocialQuoteCard = ({
       </div>
 
       {/* Quote body */}
-      <p className="text-body md:text-body-md text-white/58 leading-[1.75] flex-1">
+      <p className="text-body md:text-body-md text-overlay-58 leading-[1.75] flex-1">
         &ldquo;{quote}&rdquo;
       </p>
 
       {/* Attribution */}
-      <div className="mt-7 pt-5 border-t border-white/6 flex items-center gap-3">
+      <div className="mt-7 pt-5 border-t border-overlay-6 flex items-center gap-3">
         <div
           className="w-8 h-8 rounded-xl flex items-center justify-center text-badge font-black shrink-0"
           style={{ background: `${color}10`, border: `1px solid ${color}20`, color: `${color}90` }}
@@ -49,8 +49,8 @@ export const SocialQuoteCard = ({
           {initials}
         </div>
         <div className="min-w-0">
-          <div className="text-caption font-bold text-white/50">{handle}</div>
-          <div className="text-label text-white/55 uppercase tracking-wider font-bold">{role}</div>
+          <div className="text-caption font-bold text-overlay-50">{handle}</div>
+          <div className="text-label text-overlay-55 uppercase tracking-wider font-bold">{role}</div>
         </div>
         <div className="ml-auto shrink-0"><Stars /></div>
       </div>

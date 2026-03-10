@@ -1,5 +1,5 @@
 import { Quote } from "lucide-react"
-import { ORANGE, SLATE, BLACK, ORANGE_DARK, SLATE_DARK } from "@/lib/tokens"
+import { ORANGE, SLATE, ORANGE_DARK, SLATE_DARK } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
 
 interface SocialAtmoCardProps {
@@ -16,7 +16,7 @@ export const SocialAtmoCard = ({ accent }: SocialAtmoCardProps) => {
   return (
     <div
       className="relative w-full h-full rounded-3xl overflow-hidden flex flex-col justify-end p-7"
-      style={{ background: `linear-gradient(145deg, ${from} 0%, ${BLACK} 100%)` }}
+      style={{ background: `linear-gradient(145deg, ${from} 0%, var(--background) 100%)` }}
     >
       <Corners color={color} />
 

@@ -15,7 +15,7 @@ const BASE = "inline-flex items-center justify-center gap-3 rounded-full font-bl
 
 const VARIANTS: Record<CtaVariant, string> = {
   primary: "bg-brand-orange [color:black] shadow-[0_0_30px_-8px_rgba(255,155,81,0.5)] hover:opacity-90",
-  outline: "border border-white/15 text-white hover:border-white/30 hover:bg-white/5",
+  outline: "border border-overlay-15 text-foreground hover:border-overlay-30 hover:bg-overlay-5",
 }
 
 const SIZES: Record<CtaSize, string> = {

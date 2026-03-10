@@ -16,7 +16,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         My anxiety is gone — yours is a{" "}
-        <strong className="text-white/65 font-semibold">life saver</strong>.
+        <strong className="text-overlay-65 font-semibold">life saver</strong>.
         Thank you!
       </>
     ),
@@ -28,7 +28,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         Easy to use. Nice instructions to get{" "}
-        <strong className="text-white/65 font-semibold">
+        <strong className="text-overlay-65 font-semibold">
           set up with the API key
         </strong>
         .
@@ -42,7 +42,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         Excellent idea, very{" "}
-        <strong className="text-white/65 font-semibold">
+        <strong className="text-overlay-65 font-semibold">
           helpful and easy
         </strong>{" "}
         to use.
@@ -56,7 +56,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         Never thought I needed this until I had{" "}
-        <strong className="text-white/65 font-semibold">+2000 bookmarks</strong>
+        <strong className="text-overlay-65 font-semibold">+2000 bookmarks</strong>
         !
       </>
     ),
@@ -68,7 +68,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         My folder is now{" "}
-        <strong className="text-white/65 font-semibold">clean</strong>. Would
+        <strong className="text-overlay-65 font-semibold">clean</strong>. Would
         highly recommend.
       </>
     ),
@@ -79,7 +79,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     accent: "neutral" as const,
     snippet: (
       <>
-        <strong className="text-white/65 font-semibold">Finally</strong> someone
+        <strong className="text-overlay-65 font-semibold">Finally</strong> someone
         did this.
       </>
     ),
@@ -123,20 +123,20 @@ export const SocialProofSection = () => {
   return (
     <section
       id="reviews"
-      className="relative px-4 md:px-8 lg:px-16 py-28 bg-black overflow-hidden"
+      className="relative px-4 md:px-8 lg:px-16 py-28 bg-background overflow-hidden"
     >
       <div className="absolute inset-0 geometric-bg opacity-20 pointer-events-none" />
 
       {/* Section header */}
       <div className="relative z-10 flex flex-col items-center text-center mb-14 max-w-5xl mx-auto">
         <SectionBadge label="Users" />
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-black text-white leading-tight tracking-tight mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-black text-foreground leading-tight tracking-tight mb-4">
           A bookmark organizer people keep{" "}
           <span className="text-gradient-gold-metallic italic">
             after trying it once.
           </span>
         </h2>
-        <p className="text-white/50 text-base max-w-sm leading-relaxed">
+        <p className="text-overlay-50 text-base max-w-sm leading-relaxed">
           Real reviews from the Chrome Web Store. 4.8 stars from people who
           finally cleaned up their bookmarks.
         </p>
@@ -154,7 +154,7 @@ export const SocialProofSection = () => {
             quote={
               <>
                 Never thought I needed this until I had +2000 bookmarks!{" "}
-                <strong className="text-white font-semibold">THE BEST!</strong>
+                <strong className="text-foreground font-semibold">THE BEST!</strong>
               </>
             }
             handle="Telmo C."
@@ -170,7 +170,7 @@ export const SocialProofSection = () => {
               <>
                 I&rsquo;ve organized some random folders with 200 bookmarks.
                 From now on I&rsquo;ll use MarkMind over{" "}
-                <strong className="text-white font-semibold">
+                <strong className="text-foreground font-semibold">
                   Chrome&rsquo;s native bookmark button
                 </strong>
                 .
@@ -188,7 +188,7 @@ export const SocialProofSection = () => {
             quote={
               <>
                 Amazing, my folder is now{" "}
-                <strong className="text-white font-semibold">
+                <strong className="text-foreground font-semibold">
                   clean, it&rsquo;s perfect
                 </strong>
                 , organized everything literally. Would highly recommend.
@@ -209,7 +209,7 @@ export const SocialProofSection = () => {
             badge="Finally"
             quote={
               <>
-                <strong className="text-white font-semibold">Finally</strong>{" "}
+                <strong className="text-foreground font-semibold">Finally</strong>{" "}
                 someone did this.
               </>
             }
@@ -226,8 +226,8 @@ export const SocialProofSection = () => {
         onMouseEnter={slowDown}
         onMouseLeave={speedUp}
       >
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 z-10 bg-linear-to-r from-black to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 z-10 bg-linear-to-l from-black to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 z-10 bg-linear-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 z-10 bg-linear-to-l from-background to-transparent" />
 
         <div
           ref={trackRef}
@@ -243,7 +243,7 @@ export const SocialProofSection = () => {
       </div>
 
       {/* Bottom stat */}
-      <div className="relative z-10 mt-14 text-center text-white/50 text-badge tracking-[0.4em] uppercase font-bold">
+      <div className="relative z-10 mt-14 text-center text-overlay-50 text-badge tracking-[0.4em] uppercase font-bold">
         4.8 stars · 26 Chrome Web Store reviews · Open source
       </div>
     </section>

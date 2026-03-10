@@ -4,6 +4,7 @@ import { useState, useCallback } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import type { NavLink } from "@/types"
 
 const NAV_LINKS: NavLink[] = [
@@ -20,7 +21,7 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
-      <div className="bg-black/40 backdrop-blur-[20px] border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_rgba(255,155,81,0.15)] ring-1 ring-brand-orange/20">
+      <div className="bg-background/40 backdrop-blur-[20px] border border-overlay-10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_rgba(255,155,81,0.15)] ring-1 ring-brand-orange/20">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2.5 pl-1 shrink-0">
           <Image
@@ -30,7 +31,7 @@ export const Navbar = () => {
             height={28}
             className="brightness-110"
           />
-          <span className="text-base font-black tracking-tight text-white hidden sm:block">
+          <span className="text-base font-black tracking-tight text-foreground hidden sm:block">
             MarkMind
           </span>
         </a>
@@ -41,7 +42,7 @@ export const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-badge font-bold text-muted-foreground hover:text-white transition-all uppercase tracking-[0.25em]"
+              className="text-badge font-bold text-muted-foreground hover:text-foreground transition-all uppercase tracking-[0.25em]"
             >
               {link.label}
             </a>
@@ -50,6 +51,7 @@ export const Navbar = () => {
 
         {/* CTA */}
         <div className="flex items-center gap-2 pr-1">
+          <ThemeToggle />
           <CtaButton
             href="https://chromewebstore.google.com/detail/markmind/bdobgdkpeffdbonfpokgkbncgnbnjnoo"
             size="sm"
@@ -59,7 +61,7 @@ export const Navbar = () => {
             <span className="hidden sm:inline">Add to Chrome — Free</span>
           </CtaButton>
           <button
-            className="md:hidden flex items-center justify-center w-8 h-8 text-white ml-2"
+            className="md:hidden flex items-center justify-center w-8 h-8 text-foreground ml-2"
             onClick={toggleMobile}
             aria-label="Toggle menu"
           >
@@ -70,13 +72,13 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden mt-2 bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden mt-2 bg-background/80 backdrop-blur-xl border border-overlay-10 rounded-3xl px-6 py-4 flex flex-col gap-4">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={closeMobile}
-              className="text-sm font-bold text-muted-foreground hover:text-white transition-all uppercase tracking-[0.15em]"
+              className="text-sm font-bold text-muted-foreground hover:text-foreground transition-all uppercase tracking-[0.15em]"
             >
               {link.label}
             </a>

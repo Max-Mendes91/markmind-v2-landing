@@ -78,7 +78,7 @@ export const RevealCardsSection = () => {
 
   return (
     <div id="how-it-works" ref={scrollRef} style={{ height: outerHeight }}>
-      <div ref={sectionRef} className="sticky top-0 h-screen short:h-[600px] bg-black overflow-hidden">
+      <div ref={sectionRef} className="sticky top-0 h-screen short:h-[600px] bg-background overflow-hidden">
 
         {/* Background glows */}
         <div className="absolute inset-0 pointer-events-none">
@@ -97,7 +97,7 @@ export const RevealCardsSection = () => {
         {/* Left text (desktop) */}
         <div className="absolute top-1/2 -translate-y-1/2 left-16 lg:left-24 z-40 max-w-[360px] hidden md:block">
           <SectionBadge label="How it works" />
-          <h2 className="text-hero-sm lg:text-hero-md leading-[1.2] text-white/85 font-light tracking-tight">
+          <h2 className="text-hero-sm lg:text-hero-md leading-[1.2] text-overlay-85 font-light tracking-tight">
             A smart bookmark manager that works with{" "}
             <span className="text-brand-orange italic font-semibold">how you already browse.</span>
           </h2>
@@ -106,7 +106,7 @@ export const RevealCardsSection = () => {
         <RevealProgressDots revealedCount={revealedCount} />
 
         {/* Progress bar */}
-        <div className="absolute bottom-0 left-0 w-full h-px bg-white/5 z-50">
+        <div className="absolute bottom-0 left-0 w-full h-px bg-overlay-5 z-50">
           <div className="h-full bg-brand-orange transition-all duration-300 ease-out" style={{ width: `${progress * 100}%` }} />
         </div>
 
@@ -137,14 +137,14 @@ export const RevealCardsSection = () => {
         {/* Mobile layout — heading + one card at a time */}
         <div className="md:hidden flex flex-col items-center justify-center h-full px-4 pt-16 pb-20">
           <SectionBadge label="How it works" />
-          <h2 className="text-2xl leading-[1.2] text-white/85 font-light tracking-tight text-center mb-6">
+          <h2 className="text-2xl leading-[1.2] text-overlay-85 font-light tracking-tight text-center mb-6">
             A smart bookmark manager that works with{" "}
             <span className="text-brand-orange italic font-semibold">how you already browse.</span>
           </h2>
 
           {/* Step counter */}
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-label uppercase tracking-[0.3em] font-bold text-white/40">
+            <span className="text-label uppercase tracking-[0.3em] font-bold text-overlay-40">
               {revealedCount === 0 ? "Scroll to explore" : `Step ${revealedCount} of ${TOTAL_CARDS}`}
             </span>
           </div>
@@ -182,7 +182,7 @@ export const RevealCardsSection = () => {
                 style={{
                   width:      i === revealedCount - 1 ? "20px" : "6px",
                   height:     "6px",
-                  background: i < revealedCount ? ORANGE : "rgba(255,255,255,0.15)",
+                  background: i < revealedCount ? ORANGE : "rgb(var(--overlay) / 0.15)",
                 }}
               />
             ))}
@@ -194,16 +194,16 @@ export const RevealCardsSection = () => {
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 transition-opacity duration-500"
           style={{ opacity: revealedCount >= TOTAL_CARDS ? 0 : 0.5 }}
         >
-          <span className="text-label uppercase tracking-[0.35em] font-bold text-white/50 hidden md:block">
+          <span className="text-label uppercase tracking-[0.35em] font-bold text-overlay-50 hidden md:block">
             {revealedCount === 0 ? "Scroll" : `${TOTAL_CARDS - revealedCount} more`}
           </span>
-          <svg className="w-3.5 h-3.5 text-white/40 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-3.5 h-3.5 text-overlay-40 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
 
         {/* Footer meta */}
-        <div className="absolute bottom-6 left-0 right-0 hidden md:flex items-center justify-between px-10 pointer-events-none opacity-[0.07] text-note uppercase tracking-[0.4em] text-white">
+        <div className="absolute bottom-6 left-0 right-0 hidden md:flex items-center justify-between px-10 pointer-events-none opacity-[0.07] text-note uppercase tracking-[0.4em] text-foreground">
           <span>Single Bookmark Flow</span>
           <span>{revealedCount} / {TOTAL_CARDS} steps</span>
           <span>MarkMind</span>
@@ -270,7 +270,7 @@ const RevealProgressDots = ({ revealedCount }: { revealedCount: number }) => (
         style={{
           width:      i < revealedCount ? "6px" : "5px",
           height:     i < revealedCount ? "6px" : "5px",
-          background: i < revealedCount ? ORANGE : "rgba(255,255,255,0.15)",
+          background: i < revealedCount ? ORANGE : "rgb(var(--overlay) / 0.15)",
           transform:  i < revealedCount ? "scale(1.3)" : "scale(1)",
           boxShadow:  i < revealedCount ? "0 0 8px rgba(255,155,81,0.5)" : "none",
         }}

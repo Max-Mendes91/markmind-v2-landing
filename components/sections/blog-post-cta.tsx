@@ -5,7 +5,7 @@ import { Corners } from "@/components/ui/corners"
 import { ORANGE } from "@/lib/tokens"
 
 export const BlogPostCta = () => (
-  <section className="relative px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-24 short:py-10 bg-black">
+  <section className="relative px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-24 short:py-10 bg-background">
     {/* Geometric background — hidden on XS mobile */}
     <div className="hidden sm:block absolute inset-0 geometric-bg opacity-10 pointer-events-none" />
 
@@ -18,11 +18,11 @@ export const BlogPostCta = () => (
         <SectionBadge label="Try MarkMind" />
       </div>
 
-      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight mb-3 sm:mb-4">
+      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-foreground leading-tight tracking-tight mb-3 sm:mb-4">
         Ready to organize your bookmarks?
       </h2>
 
-      <p className="text-white/50 text-sm sm:text-base max-w-md leading-relaxed mb-6 sm:mb-8">
+      <p className="text-overlay-50 text-sm sm:text-base max-w-md leading-relaxed mb-6 sm:mb-8">
         Free to install. Bring your own API key. No account required.
       </p>
 

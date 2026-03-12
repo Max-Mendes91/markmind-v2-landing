@@ -9,9 +9,9 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => (
   <NextThemesProvider
     attribute="class"
-    defaultTheme="dark"
-    enableSystem={false}
-    disableTransitionOnChange={false}
+    defaultTheme="system"
+    enableSystem={true}
+    disableTransitionOnChange={true}
   >
     {children}
   </NextThemesProvider>

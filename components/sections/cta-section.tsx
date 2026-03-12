@@ -23,7 +23,7 @@ export const CtaSection = () => (
     </div>
 
     {/* SVG connector lines — curve from side rails inward */}
-    <svg className="hidden md:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <svg className="hidden md:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
       <path
         d="M 10 0 Q 10 35, 38 45"
         fill="none"
@@ -75,7 +75,7 @@ export const CtaSection = () => (
         <span className="text-gradient-gold-metallic italic">Try it on your mess.</span>
       </h2>
 
-      <p className="text-overlay-50 text-base max-w-md leading-relaxed mb-10">
+      <p className="text-overlay-65 dark:text-overlay-50 text-base max-w-md leading-relaxed mb-10">
         Free to install. Bring your own API key. No account required. Fully open source.
       </p>
 

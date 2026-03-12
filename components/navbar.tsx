@@ -21,7 +21,7 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
-      <div className="bg-background/40 backdrop-blur-[20px] border border-overlay-10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_rgba(255,155,81,0.15)] ring-1 ring-brand-orange/20">
+      <div className="bg-background/40 backdrop-blur-[20px] border border-overlay-10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_var(--shadow-brand-orange-sm)] ring-1 ring-brand-orange/20">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2.5 pl-1 shrink-0">
           <Image

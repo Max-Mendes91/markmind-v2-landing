@@ -1,6 +1,4 @@
-interface CornersProps {
-  color: string
-}
+import type { CornersProps } from "@/types"
 
 export const Corners = ({ color }: CornersProps) => {
   const s = { borderColor: color }

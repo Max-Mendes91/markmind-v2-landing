@@ -1,5 +1,5 @@
 export const RevealBrowserMock = () => (
-  <div className="w-[175px] glass-card rounded-2xl overflow-hidden border border-overlay-12 shadow-[0_0_60px_-10px_rgba(255,155,81,0.18)]">
+  <div className="w-[175px] glass-card rounded-2xl overflow-hidden border border-overlay-12 shadow-[0_0_60px_-10px_var(--shadow-brand-orange-xs)]">
     {/* Chrome bar */}
     <div className="bg-overlay-4 border-b border-overlay-6 px-2.5 py-2 flex items-center gap-1.5">
       <div className="flex gap-1">

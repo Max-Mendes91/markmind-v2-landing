@@ -23,6 +23,12 @@ export const accentColor: Record<Accent, string> = {
   neutral: "rgb(var(--overlay) / 0.35)",
 }
 
+// Theme-aware accent text — uses CSS vars that resolve to darkened colors in light mode
+export const accentTextVar: Record<Exclude<Accent, "neutral">, string> = {
+  orange: "var(--accent-orange-text)",
+  slate:  "var(--accent-slate-text)",
+}
+
 // ── Site-wide constants ─────────────────────────────────────────────────────────
 export const SITE_URL       = "https://markmind.xyz"
 export const CONTACT_EMAIL  = "themarkmind@gmail.com"

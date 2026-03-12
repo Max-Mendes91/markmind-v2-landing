@@ -223,7 +223,7 @@ CONTENTFUL_PREVIEW_TOKEN=your_preview_token_here
 - **INF-001**: Vercel — Hosting platform. `NODE_ENV` is automatically set to `production` in deployed environments, which gates the CORS dev-mode relaxation (SEC-001).
 
 ### Technology Platform Dependencies
-- **PLT-001**: Next.js 14.x — Framework. `productionBrowserSourceMaps` is a Next.js-specific config flag (defaults to `false`).
+- **PLT-001**: Next.js 16.x — Framework. `productionBrowserSourceMaps` is a Next.js-specific config flag (defaults to `false`).
 - **PLT-002**: npm — Package manager. `package-lock.json` is the authoritative lockfile.
 
 ## 9. Examples & Edge Cases

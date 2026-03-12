@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import './animations.css';
 
 @custom-variant short {
   @media (max-height: 700px) {
@@ -54,12 +55,31 @@
 
   /* ── Surface tokens ── */
   --surface-glass: rgba(0, 0, 0, 0.03);
-  --surface-glass-border: rgba(0, 0, 0, 0.08);
-  --surface-elevated-from: rgba(245, 245, 245, 0.8);
-  --surface-elevated-to: rgba(240, 240, 240, 0.95);
-  --surface-elevated-border: rgba(0, 0, 0, 0.05);
+  --surface-glass-border: rgba(0, 0, 0, 0.12);
+  --surface-elevated-from: rgba(240, 240, 240, 0.95);
+  --surface-elevated-to: rgba(232, 232, 232, 1);
+  --surface-elevated-border: rgba(0, 0, 0, 0.12);
   --surface-elevated-shine: rgba(0, 0, 0, 0.06);
-  --shadow-card: rgba(0, 0, 0, 0.08);
+  --shadow-card: rgba(0, 0, 0, 0.12);
+
+  /* ── Accent text (darkened for readability on light bg) ── */
+  --accent-orange-text: #c06a20;
+  --accent-slate-text: #5a7a8a;
+
+  /* ── Atmospheric card gradients ── */
+  --atmo-orange-from: #fff5ed;
+  --atmo-orange-to: #fdf5ef;
+  --atmo-slate-from: #f0f4f8;
+  --atmo-slate-to: #eef2f6;
+  --atmo-orange-glow1: rgba(255, 155, 81, 0.35);
+  --atmo-orange-glow2: rgba(255, 155, 81, 0.20);
+  --atmo-slate-glow1: rgba(191, 201, 209, 0.35);
+  --atmo-slate-glow2: rgba(191, 201, 209, 0.20);
+
+  /* ── Brand shadows ── */
+  --shadow-brand-orange: rgba(255, 155, 81, 0.5);
+  --shadow-brand-orange-sm: rgba(255, 155, 81, 0.15);
+  --shadow-brand-orange-xs: rgba(255, 155, 81, 0.18);
 
   /* ── Hero glow (subtle on light) ── */
   --hero-glow-a: rgba(191, 201, 209, 0.08);
@@ -113,6 +133,25 @@
   --surface-elevated-border: rgba(255, 255, 255, 0.05);
   --surface-elevated-shine: rgba(255, 255, 255, 0.1);
   --shadow-card: rgba(0, 0, 0, 0.5);
+
+  /* ── Accent text (raw brand colors on dark bg) ── */
+  --accent-orange-text: #FF9B51;
+  --accent-slate-text: #BFC9D1;
+
+  /* ── Atmospheric card gradients ── */
+  --atmo-orange-from: #0f0800;
+  --atmo-orange-to: #000000;
+  --atmo-slate-from: #00091a;
+  --atmo-slate-to: #000000;
+  --atmo-orange-glow1: rgba(255, 155, 81, 0.10);
+  --atmo-orange-glow2: rgba(255, 155, 81, 0.05);
+  --atmo-slate-glow1: rgba(191, 201, 209, 0.08);
+  --atmo-slate-glow2: rgba(191, 201, 209, 0.04);
+
+  /* ── Brand shadows ── */
+  --shadow-brand-orange: rgba(255, 155, 81, 0.5);
+  --shadow-brand-orange-sm: rgba(255, 155, 81, 0.15);
+  --shadow-brand-orange-xs: rgba(255, 155, 81, 0.18);
 
   /* ── Hero glow ── */
   --hero-glow-a: rgba(191, 201, 209, 0.15);
@@ -215,7 +254,6 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    transition: background-color 0.3s ease, color 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
   html {
     scroll-behavior: smooth;
@@ -225,21 +263,7 @@
   }
 }
 
-/* MarkMind Custom Styles */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes border-flow {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
+/* ── Utility classes ── */
 .text-gradient-gold {
   background: linear-gradient(to bottom right, #FF9B51, #ffbf8a);
   -webkit-background-clip: text;
@@ -302,121 +326,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-/* ── Corner bracket scan animation ── */
-@keyframes corner-pulse {
-  0%, 100% { opacity: 0.25; transform: scale(1); }
-  50%       { opacity: 1;    transform: scale(0.85); }
-}
-
-.corner-pulse {
-  animation: corner-pulse 2.4s ease-in-out infinite;
-}
-
-/* ── Float variants ── */
-@keyframes float-reverse {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(14px); }
-}
-
-.animate-float-reverse {
-  animation: float-reverse 7s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float 9s ease-in-out infinite;
-}
-
-/* ── Bento card inner animations ── */
-@keyframes pulse-highlight {
-  0%, 100% { background-color: rgba(255,155,81,0.06); }
-  50%       { background-color: rgba(255,155,81,0.22); box-shadow: 0 0 14px rgba(255,155,81,0.14); }
-}
-@keyframes popup-cycle {
-  0%, 15%  { opacity: 0; transform: translateY(8px); }
-  28%, 70% { opacity: 1; transform: translateY(0); }
-  83%, 100%{ opacity: 0; transform: translateY(8px); }
-}
-@keyframes drift-a {
-  0%, 10%  { opacity: 0; transform: translateX(-100%); }
-  22%, 78% { opacity: 1; transform: translateX(0); }
-  90%, 100%{ opacity: 0; transform: translateX(-100%); }
-}
-@keyframes drift-b {
-  0%, 10%  { opacity: 0; transform: translateX(100%); }
-  22%, 78% { opacity: 1; transform: translateX(0); }
-  90%, 100%{ opacity: 0; transform: translateX(100%); }
-}
-@keyframes drift-c {
-  0%, 10%  { opacity: 0; transform: translateX(-100%); }
-  22%, 78% { opacity: 1; transform: translateX(0); }
-  90%, 100%{ opacity: 0; transform: translateX(-100%); }
-}
-@keyframes panel-slide {
-  0%, 12%  { transform: translateX(115%); opacity: 0; }
-  26%, 74% { transform: translateX(0);    opacity: 1; }
-  88%, 100%{ transform: translateX(115%); opacity: 0; }
-}
-@keyframes typing-cursor {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
-}
-@keyframes note-appear {
-  0%, 20%  { opacity: 0; transform: translateY(6px); }
-  35%, 85% { opacity: 1; transform: translateY(0); }
-  95%, 100%{ opacity: 0; transform: translateY(6px); }
-}
-
-.animate-pulse-highlight { animation: pulse-highlight 2.6s ease-in-out infinite; }
-.animate-popup-cycle     { animation: popup-cycle 5s ease-in-out infinite; }
-.animate-drift-a         { animation: drift-a 7s ease-in-out infinite; }
-.animate-drift-b         { animation: drift-b 8s ease-in-out infinite; }
-.animate-drift-c         { animation: drift-c 9s ease-in-out infinite; }
-.animate-panel-slide     { animation: panel-slide 7s ease-in-out infinite; }
-.animate-cursor          { animation: typing-cursor 0.9s step-end infinite; }
-.animate-note-appear     { animation: note-appear 5s ease-in-out infinite; }
-
-/* ── GPU acceleration for crispy text during animations ── */
-.animate-float, .animate-float-reverse, .animate-float-slow,
-.animate-drift-a, .animate-drift-b, .animate-drift-c,
-.animate-popup-cycle, .animate-note-appear, .animate-panel-slide,
-.animate-marquee, .animate-marquee-smooth {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── Marquee / infinite ticker ── */
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 28s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-/* Testimonial marquee — JS-controlled smooth deceleration, no instant pause */
-.animate-marquee-smooth {
-  animation: marquee 38s linear infinite;
-}
-
-/* ── Hero headline word-cycling ── */
-@keyframes word-exit-up {
-  from { transform: translateY(0);     opacity: 1; }
-  to   { transform: translateY(-115%); opacity: 0; }
-}
-@keyframes word-enter-up {
-  from { transform: translateY(115%);  opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
-}
-
-.animate-word-exit  { animation: word-exit-up  0.45s cubic-bezier(0.4, 0, 1, 1)     forwards; }
-.animate-word-enter { animation: word-enter-up 0.55s cubic-bezier(0.16, 1, 0.3, 1)  forwards; }
 
 /* ── Blog prose wrapper ── */
 .prose-blog > *:first-child {

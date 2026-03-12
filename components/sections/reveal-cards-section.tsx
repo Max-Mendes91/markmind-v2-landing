@@ -1,25 +1,35 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
-import { ORANGE, SLATE } from "@/lib/tokens"
+import { ORANGE, accentColor } from "@/lib/tokens"
+import type { Accent } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
 import { SectionBadge } from "@/components/ui/section-badge"
 import { RevealCardContent } from "@/components/ui/reveal-card-content"
 import { RevealBrowserMock } from "@/components/ui/reveal-browser-mock"
+import { RevealSvgLines } from "@/components/ui/reveal-svg-lines"
+import { RevealProgressDots } from "@/components/ui/reveal-progress-dots"
 
 const TOTAL_CARDS = 5
 const PX_PER_CARD = 200  // px of scroll needed to reveal each card
 
 // ── Card positions — radiating from center browser mock ───────────────────────
-const REVEAL_CARDS = [
-  { id: "reading",  pos: "top-[12%] right-[4%]",   accent: SLATE,  w: "w-[280px]" },
-  { id: "analyze",  pos: "top-[16%] right-[22%]",   accent: ORANGE, w: "w-[260px]" },
-  { id: "folders",  pos: "top-[62%] left-[26%]",    accent: SLATE,  w: "w-[270px]" },
-  { id: "suggest",  pos: "top-[40%] right-[4%]",    accent: ORANGE, w: "w-[300px]" },
-  { id: "approve",  pos: "top-[68%] right-[16%]",   accent: ORANGE, w: "w-[280px]" },
-] as const
+interface RevealCard {
+  id:     string
+  pos:    string
+  accent: Exclude<Accent, "neutral">
+  w:      string
+}
 
-// ── Section ───────────────────────────────────────────────────────────────────
+const REVEAL_CARDS: RevealCard[] = [
+  { id: "reading",  pos: "top-[12%] right-[4%]",   accent: "slate",  w: "w-[280px]" },
+  { id: "analyze",  pos: "top-[16%] right-[22%]",   accent: "orange", w: "w-[260px]" },
+  { id: "folders",  pos: "top-[62%] left-[26%]",    accent: "slate",  w: "w-[270px]" },
+  { id: "suggest",  pos: "top-[40%] right-[4%]",    accent: "orange", w: "w-[300px]" },
+  { id: "approve",  pos: "top-[68%] right-[16%]",   accent: "orange", w: "w-[280px]" },
+]
+
+// ── Section ───────────────────────────────────────────────────────────────
 export const RevealCardsSection = () => {
   const scrollRef  = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -87,7 +97,7 @@ export const RevealCardsSection = () => {
           <div className="absolute inset-0 geometric-bg opacity-20" />
         </div>
 
-        <RevealSvgLines lineData={lineData} revealedCount={revealedCount} />
+        <RevealSvgLines lineData={lineData} revealedCount={revealedCount} cards={REVEAL_CARDS} />
 
         {/* Browser mock — center hub (desktop only) */}
         <div ref={browserRef} className="absolute left-1/2 top-[44%] -translate-x-1/2 -translate-y-1/2 hidden md:block" style={{ zIndex: 8 }}>
@@ -103,7 +113,7 @@ export const RevealCardsSection = () => {
           </h2>
         </div>
 
-        <RevealProgressDots revealedCount={revealedCount} />
+        <RevealProgressDots revealedCount={revealedCount} totalCards={TOTAL_CARDS} />
 
         {/* Progress bar */}
         <div className="absolute bottom-0 left-0 w-full h-px bg-overlay-5 z-50">
@@ -124,10 +134,14 @@ export const RevealCardsSection = () => {
                 transition:      "opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)",
                 transitionDelay: `${i * 50}ms`,
                 pointerEvents:   i < revealedCount ? "auto" : "none",
+                willChange:      "transform, opacity",
               }}
             >
-              <div className="relative bento-card rounded-2xl p-5 overflow-hidden">
-                <Corners color={card.accent} />
+              <div
+                className="relative bento-card rounded-2xl p-5 overflow-hidden"
+                style={{ backdropFilter: i < revealedCount ? "blur(20px)" : "none" }}
+              >
+                <Corners color={accentColor[card.accent]} />
                 <RevealCardContent id={card.id} accent={card.accent} />
               </div>
             </div>
@@ -144,7 +158,7 @@ export const RevealCardsSection = () => {
 
           {/* Step counter */}
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-label uppercase tracking-[0.3em] font-bold text-overlay-40">
+            <span className="text-label uppercase tracking-[0.3em] font-bold text-overlay-55 dark:text-overlay-40">
               {revealedCount === 0 ? "Scroll to explore" : `Step ${revealedCount} of ${TOTAL_CARDS}`}
             </span>
           </div>
@@ -162,10 +176,14 @@ export const RevealCardsSection = () => {
                     transform:       isActive ? "translateY(0) scale(1)" : "translateY(12px) scale(0.95)",
                     transition:      "opacity 0.5s ease, transform 0.5s ease",
                     pointerEvents:   isActive ? "auto" : "none",
+                    willChange:      "transform, opacity",
                   }}
                 >
-                  <div className="relative bento-card rounded-2xl p-5 overflow-hidden">
-                    <Corners color={card.accent} />
+                  <div
+                    className="relative bento-card rounded-2xl p-5 overflow-hidden"
+                    style={{ backdropFilter: isActive ? "blur(20px)" : "none" }}
+                  >
+                    <Corners color={accentColor[card.accent]} />
                     <RevealCardContent id={card.id} accent={card.accent} />
                   </div>
                 </div>
@@ -194,87 +212,15 @@ export const RevealCardsSection = () => {
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 transition-opacity duration-500"
           style={{ opacity: revealedCount >= TOTAL_CARDS ? 0 : 0.5 }}
         >
-          <span className="text-label uppercase tracking-[0.35em] font-bold text-overlay-50 hidden md:block">
+          <span className="text-label uppercase tracking-[0.35em] font-bold text-overlay-65 dark:text-overlay-50 hidden md:block">
             {revealedCount === 0 ? "Scroll" : `${TOTAL_CARDS - revealedCount} more`}
           </span>
-          <svg className="w-3.5 h-3.5 text-overlay-40 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-3.5 h-3.5 text-overlay-55 dark:text-overlay-40 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
-        </div>
-
-        {/* Footer meta */}
-        <div className="absolute bottom-6 left-0 right-0 hidden md:flex items-center justify-between px-10 pointer-events-none opacity-[0.07] text-note uppercase tracking-[0.4em] text-foreground">
-          <span>Single Bookmark Flow</span>
-          <span>{revealedCount} / {TOTAL_CARDS} steps</span>
-          <span>MarkMind</span>
         </div>
 
       </div>
     </div>
   )
 }
-
-// ── SVG connection lines ──────────────────────────────────────────────────────
-const RevealSvgLines = ({
-  lineData,
-  revealedCount,
-}: {
-  lineData: Array<{ x1: number; y1: number; x2: number; y2: number }>
-  revealedCount: number
-}) => (
-  <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ zIndex: 5 }} aria-hidden="true">
-    {lineData[0] && (
-      <>
-        <circle
-          cx={lineData[0].x1} cy={lineData[0].y1} r="18"
-          fill="none" stroke={ORANGE} strokeWidth="0.5"
-          opacity={revealedCount > 0 ? 0.12 : 0.06}
-          style={{ transition: "opacity 0.6s ease" }}
-        />
-        <circle cx={lineData[0].x1} cy={lineData[0].y1} r="4" fill={ORANGE} opacity="0.55" />
-      </>
-    )}
-    {lineData.map((d, i) => {
-      const revealed = i < revealedCount
-      const midX = (d.x1 + d.x2) / 2
-      const path = `M ${d.x1} ${d.y1} C ${midX} ${d.y1} ${midX} ${d.y2} ${d.x2} ${d.y2}`
-      return (
-        <g key={i}>
-          <path
-            d={path} fill="none" stroke={REVEAL_CARDS[i].accent}
-            strokeWidth="1" strokeLinecap="round" pathLength={1}
-            style={{
-              strokeDasharray: "1",
-              strokeDashoffset: revealed ? 0 : 1,
-              opacity: revealed ? 0.28 : 0,
-              transition: `stroke-dashoffset 1s cubic-bezier(0.22,1,0.36,1) ${i * 80}ms, opacity 0.4s ease ${i * 80}ms`,
-            }}
-          />
-          <circle
-            cx={d.x2} cy={d.y2} r="2.5" fill={REVEAL_CARDS[i].accent}
-            style={{ opacity: revealed ? 0.5 : 0, transition: `opacity 0.35s ease ${i * 80 + 850}ms` }}
-          />
-        </g>
-      )
-    })}
-  </svg>
-)
-
-// ── Progress dots ─────────────────────────────────────────────────────────────
-const RevealProgressDots = ({ revealedCount }: { revealedCount: number }) => (
-  <div className="absolute right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
-    {Array.from({ length: TOTAL_CARDS }).map((_, i) => (
-      <div
-        key={i}
-        className="rounded-full transition-all duration-500"
-        style={{
-          width:      i < revealedCount ? "6px" : "5px",
-          height:     i < revealedCount ? "6px" : "5px",
-          background: i < revealedCount ? ORANGE : "rgb(var(--overlay) / 0.15)",
-          transform:  i < revealedCount ? "scale(1.3)" : "scale(1)",
-          boxShadow:  i < revealedCount ? "0 0 8px rgba(255,155,81,0.5)" : "none",
-        }}
-      />
-    ))}
-  </div>
-)

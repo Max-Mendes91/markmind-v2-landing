@@ -25,7 +25,7 @@ export const BentoFlowMock = () => (
           <div className="w-2 h-2 rounded-full bg-brand-slate animate-pulse" />
           <span className="text-note font-black text-brand-slate uppercase tracking-wider">MarkMind</span>
         </div>
-        <div className="text-note text-overlay-50 leading-tight">
+        <div className="text-note text-overlay-65 dark:text-overlay-50 leading-tight">
           Saved to <span className="text-brand-orange font-bold">Research</span>
         </div>
         <div className="w-full h-1.5 rounded bg-overlay-8" />

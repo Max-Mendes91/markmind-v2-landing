@@ -16,7 +16,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         My anxiety is gone — yours is a{" "}
-        <strong className="text-overlay-65 font-semibold">life saver</strong>.
+        <strong className="text-overlay-80 dark:text-overlay-65 font-semibold">life saver</strong>.
         Thank you!
       </>
     ),
@@ -28,7 +28,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         Easy to use. Nice instructions to get{" "}
-        <strong className="text-overlay-65 font-semibold">
+        <strong className="text-overlay-80 dark:text-overlay-65 font-semibold">
           set up with the API key
         </strong>
         .
@@ -42,7 +42,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         Excellent idea, very{" "}
-        <strong className="text-overlay-65 font-semibold">
+        <strong className="text-overlay-80 dark:text-overlay-65 font-semibold">
           helpful and easy
         </strong>{" "}
         to use.
@@ -56,7 +56,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         Never thought I needed this until I had{" "}
-        <strong className="text-overlay-65 font-semibold">+2000 bookmarks</strong>
+        <strong className="text-overlay-80 dark:text-overlay-65 font-semibold">+2000 bookmarks</strong>
         !
       </>
     ),
@@ -68,7 +68,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     snippet: (
       <>
         My folder is now{" "}
-        <strong className="text-overlay-65 font-semibold">clean</strong>. Would
+        <strong className="text-overlay-80 dark:text-overlay-65 font-semibold">clean</strong>. Would
         highly recommend.
       </>
     ),
@@ -79,7 +79,7 @@ const MINI_TESTIMONIAL_ITEMS: MiniTestimonial[] = [
     accent: "neutral" as const,
     snippet: (
       <>
-        <strong className="text-overlay-65 font-semibold">Finally</strong> someone
+        <strong className="text-overlay-80 dark:text-overlay-65 font-semibold">Finally</strong> someone
         did this.
       </>
     ),
@@ -136,7 +136,7 @@ export const SocialProofSection = () => {
             after trying it once.
           </span>
         </h2>
-        <p className="text-overlay-50 text-base max-w-sm leading-relaxed">
+        <p className="text-overlay-65 dark:text-overlay-50 text-base max-w-sm leading-relaxed">
           Real reviews from the Chrome Web Store. 4.8 stars from people who
           finally cleaned up their bookmarks.
         </p>
@@ -243,7 +243,7 @@ export const SocialProofSection = () => {
       </div>
 
       {/* Bottom stat */}
-      <div className="relative z-10 mt-14 text-center text-overlay-50 text-badge tracking-[0.4em] uppercase font-bold">
+      <div className="relative z-10 mt-14 text-center text-overlay-60 dark:text-overlay-50 text-badge tracking-[0.4em] uppercase font-bold">
         4.8 stars · 26 Chrome Web Store reviews · Open source
       </div>
     </section>

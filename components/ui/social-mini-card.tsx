@@ -1,4 +1,5 @@
-import { ORANGE, SLATE } from "@/lib/tokens"
+import { accentColor } from "@/lib/tokens"
+import type { Accent } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
 import { Stars } from "@/components/ui/stars"
 
@@ -6,7 +7,7 @@ interface SocialMiniCardProps {
   handle: string
   role: string
   snippet: React.ReactNode
-  accent?: "orange" | "slate" | "neutral"
+  accent?: Accent
 }
 
 export const SocialMiniCard = ({
@@ -15,7 +16,7 @@ export const SocialMiniCard = ({
   snippet,
   accent = "orange",
 }: SocialMiniCardProps) => {
-  const color = accent === "orange" ? ORANGE : accent === "slate" ? SLATE : "rgb(var(--overlay) / 0.35)"
+  const color = accentColor[accent]
 
   return (
     <div
@@ -25,11 +26,11 @@ export const SocialMiniCard = ({
       <Corners color={color} />
 
       <div className="flex items-center justify-between">
-        <span className="text-label font-bold text-overlay-60 font-mono">{handle}</span>
+        <span className="text-label font-bold text-overlay-75 dark:text-overlay-60 font-mono">{handle}</span>
         <Stars />
       </div>
-      <p className="text-body-xs text-overlay-50 leading-relaxed flex-1">&ldquo;{snippet}&rdquo;</p>
-      <div className="text-label text-overlay-55 uppercase tracking-[0.2em] font-bold">{role}</div>
+      <p className="text-body-xs text-overlay-65 dark:text-overlay-50 leading-relaxed flex-1">&ldquo;{snippet}&rdquo;</p>
+      <div className="text-label text-overlay-65 dark:text-overlay-55 uppercase tracking-[0.2em] font-bold">{role}</div>
     </div>
   )
 }

@@ -42,7 +42,7 @@ export const Footer = () => (
       </div>
 
       {/* Tagline */}
-      <p className="text-overlay-50 text-base max-w-md leading-relaxed mb-8">
+      <p className="text-overlay-65 dark:text-overlay-50 text-base max-w-md leading-relaxed mb-8">
         An AI bookmark organizer that keeps
         <br />
         your Chrome folders clean without
@@ -61,7 +61,7 @@ export const Footer = () => (
           <a
             key={label}
             href={href}
-            className="text-body-xs text-overlay-50 underline underline-offset-4 decoration-overlay-15 hover:text-overlay-70 hover:decoration-overlay-40 transition-colors"
+            className="text-body-xs text-overlay-65 dark:text-overlay-50 underline underline-offset-4 decoration-overlay-15 hover:text-overlay-70 hover:decoration-overlay-40 transition-colors"
           >
             {label}
           </a>
@@ -69,7 +69,7 @@ export const Footer = () => (
       </nav>
 
       {/* Copyright */}
-      <span className="mt-8 text-badge text-overlay-50">
+      <span className="mt-8 text-badge text-overlay-65 dark:text-overlay-50">
         MarkMind &copy; {new Date().getFullYear()}
       </span>
     </div>

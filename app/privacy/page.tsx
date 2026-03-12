@@ -82,7 +82,7 @@ const PrivacyPage = () => (
                 Website Analytics
               </h2>
               <p>
-                Our website (markmind.xyz) uses Vercel Analytics, which collects anonymous, aggregated page view data. No personal data, cookies, or identifiers are used. This applies only to the website, not to the browser extension.
+                Our website (markmind.xyz) uses Vercel Analytics, which collects anonymous, aggregated page view data without cookies. We also use Google Analytics for visitor insights — this only loads if you accept cookies via our consent banner. No analytics apply to the browser extension.
               </p>
             </section>
 

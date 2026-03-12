@@ -11,6 +11,9 @@ const ALLOWED_ORIGINS = [
 const isAllowedOrigin = (origin: string | null): boolean => {
   if (!origin) return false
   if (ALLOWED_ORIGINS.includes(origin)) return true
+  // DEV ONLY: Allow any chrome-extension origin for local testing.
+  // In production NODE_ENV !== "development", so only the explicit
+  // extension ID in ALLOWED_ORIGINS is permitted.
   if (process.env.NODE_ENV === "development" && origin.startsWith("chrome-extension://")) return true
   return false
 }

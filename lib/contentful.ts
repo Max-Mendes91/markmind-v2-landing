@@ -1,25 +1,32 @@
 import { createClient, type ContentfulClientApi } from "contentful"
 
-const SPACE_ID = process.env.CONTENTFUL_SPACE_ID
-const ACCESS_TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN
+let _client: ContentfulClientApi<undefined> | null = null
+let _previewClient: ContentfulClientApi<undefined> | null = null
 
-if (!SPACE_ID || !ACCESS_TOKEN) {
-  throw new Error("Missing CONTENTFUL_SPACE_ID or CONTENTFUL_ACCESS_TOKEN env vars")
+export const getClient = (preview = false): ContentfulClientApi<undefined> => {
+  if (preview) {
+    const spaceId = process.env.CONTENTFUL_SPACE_ID
+    const token = process.env.CONTENTFUL_PREVIEW_TOKEN
+    if (!spaceId || !token) {
+      throw new Error("Missing CONTENTFUL_SPACE_ID or CONTENTFUL_PREVIEW_TOKEN env vars")
+    }
+    if (!_previewClient) {
+      _previewClient = createClient({
+        space: spaceId,
+        accessToken: token,
+        host: "preview.contentful.com",
+      })
+    }
+    return _previewClient
+  }
+
+  const spaceId = process.env.CONTENTFUL_SPACE_ID
+  const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN
+  if (!spaceId || !accessToken) {
+    throw new Error("Missing CONTENTFUL_SPACE_ID or CONTENTFUL_ACCESS_TOKEN env vars")
+  }
+  if (!_client) {
+    _client = createClient({ space: spaceId, accessToken })
+  }
+  return _client
 }
-const PREVIEW_TOKEN = process.env.CONTENTFUL_PREVIEW_TOKEN
-
-export const contentfulClient: ContentfulClientApi<undefined> = createClient({
-  space: SPACE_ID,
-  accessToken: ACCESS_TOKEN,
-})
-
-export const previewClient: ContentfulClientApi<undefined> | null = PREVIEW_TOKEN
-  ? createClient({
-      space: SPACE_ID,
-      accessToken: PREVIEW_TOKEN,
-      host: "preview.contentful.com",
-    })
-  : null
-
-export const getClient = (preview = false): ContentfulClientApi<undefined> =>
-  preview && previewClient ? previewClient : contentfulClient

@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@/components/google-analytics'
 import { CookieConsent } from '@/components/cookie-consent'
 import { ThemeProvider } from '@/components/theme-provider'
+import { safeJsonLd } from '@/lib/utils'
 import './globals.css'
 
 const archivo = Archivo({
@@ -58,7 +59,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+            __html: safeJsonLd({
               '@context': 'https://schema.org',
               '@type': 'SoftwareApplication',
               name: 'MarkMind',

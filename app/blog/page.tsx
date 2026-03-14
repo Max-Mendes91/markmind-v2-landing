@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/tokens"
 import { getBlogPosts } from "@/lib/blog"
+import { safeJsonLd } from "@/lib/utils"
 import { BlogHero } from "@/components/sections/blog-hero"
 import { BlogPostList } from "@/components/sections/blog-post-list"
 
@@ -68,7 +69,7 @@ const BlogPage = async () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <BlogHero />
       <BlogPostList posts={posts} />

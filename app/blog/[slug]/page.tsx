@@ -4,6 +4,7 @@ import type { BlogPostMeta } from "@/types"
 import { SITE_URL } from "@/lib/tokens"
 import { getBlogPostSlugs, getBlogPost } from "@/lib/blog"
 import { renderRichText } from "@/lib/rich-text"
+import { safeJsonLd } from "@/lib/utils"
 import { BlogPostHeader } from "@/components/sections/blog-post-header"
 import { BlogPostCta } from "@/components/sections/blog-post-cta"
 
@@ -100,7 +101,7 @@ const BlogPostPage = async ({ params }: PageProps) => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <article className="relative">
         <BlogPostHeader meta={meta} />

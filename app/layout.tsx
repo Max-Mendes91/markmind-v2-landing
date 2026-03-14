@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { headers } from 'next/headers'
 import { Archivo, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@/components/google-analytics'
@@ -42,11 +43,13 @@ export const viewport: Viewport = {
   themeColor: '#000000',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const nonce = (await headers()).get('x-nonce') ?? undefined
+
   return (
     <html lang="en" className={`${archivo.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased selection:bg-brand-orange selection:text-black">
@@ -54,9 +57,10 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Analytics />
-        <GoogleAnalytics />
+        <GoogleAnalytics nonce={nonce} />
         <CookieConsent />
         <script
+          nonce={nonce}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: safeJsonLd({

@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { Archivo, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { GoogleAnalytics } from '@/components/google-analytics'
+import { CookieConsent } from '@/components/cookie-consent'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 const archivo = Archivo({
@@ -44,10 +47,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased selection:bg-brand-orange selection:text-black">
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
         <Analytics />
+        <GoogleAnalytics />
+        <CookieConsent />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

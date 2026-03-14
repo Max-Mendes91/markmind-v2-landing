@@ -17,7 +17,7 @@ export const BlogPostHeader = ({ meta }: BlogPostHeaderProps) => (
       {/* Back link */}
       <Link
         href="/blog"
-        className="inline-flex items-center gap-1.5 text-body-xs text-white/40 hover:text-white/70 transition-colors mb-5 sm:mb-6 md:mb-8"
+        className="inline-flex items-center gap-1.5 text-body-xs text-overlay-40 hover:text-overlay-70 transition-colors mb-5 sm:mb-6 md:mb-8"
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         Back to Blog
@@ -28,7 +28,7 @@ export const BlogPostHeader = ({ meta }: BlogPostHeaderProps) => (
         {meta.tags.map((tag) => (
           <span
             key={tag}
-            className="px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 rounded-full bg-white/5 border border-white/10 text-badge text-white/40 uppercase tracking-wider"
+            className="px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 rounded-full bg-overlay-5 border border-overlay-10 text-badge text-overlay-40 uppercase tracking-wider"
           >
             {tag}
           </span>
@@ -36,12 +36,12 @@ export const BlogPostHeader = ({ meta }: BlogPostHeaderProps) => (
       </div>
 
       {/* Title (H1) */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-foreground mb-3 sm:mb-4 md:mb-6 leading-tight">
         {meta.h1}
       </h1>
 
       {/* Meta info */}
-      <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-white/35 text-body-xs mb-6 sm:mb-8 md:mb-10">
+      <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-overlay-35 text-body-xs mb-6 sm:mb-8 md:mb-10">
         <span className="flex items-center gap-1.5">
           <Calendar className="w-3.5 h-3.5" />
           {formatDate(meta.datePublished)}
@@ -54,7 +54,7 @@ export const BlogPostHeader = ({ meta }: BlogPostHeaderProps) => (
 
       {/* Hero image */}
       {meta.image && (
-        <div className="relative aspect-video rounded-xl overflow-hidden bg-white/3 mb-6 sm:mb-8 md:mb-10 border border-white/8">
+        <div className="relative aspect-video rounded-xl overflow-hidden bg-overlay-3 mb-6 sm:mb-8 md:mb-10 border border-overlay-8">
           <Image
             src={meta.image}
             alt={meta.h1}

@@ -14,8 +14,8 @@ interface CtaButtonProps {
 const BASE = "inline-flex items-center justify-center gap-3 rounded-full font-black transition-all whitespace-nowrap"
 
 const VARIANTS: Record<CtaVariant, string> = {
-  primary: "bg-brand-orange [color:black] shadow-[0_0_30px_-8px_rgba(255,155,81,0.5)] hover:opacity-90",
-  outline: "border border-white/15 text-white hover:border-white/30 hover:bg-white/5",
+  primary: "bg-brand-orange [color:black] shadow-[0_0_30px_-8px_var(--shadow-brand-orange)] hover:opacity-90",
+  outline: "border border-overlay-15 text-foreground hover:border-overlay-30 hover:bg-overlay-5",
 }
 
 const SIZES: Record<CtaSize, string> = {
@@ -23,13 +23,13 @@ const SIZES: Record<CtaSize, string> = {
   sm: "px-4 py-2 sm:px-5 sm:py-2.5 text-body-xs sm:text-body-sm",
 }
 
-export function CtaButton({
+export const CtaButton = ({
   variant = "primary",
   size    = "lg",
   href,
   className,
   children,
-}: CtaButtonProps) {
+}: CtaButtonProps) => {
   const cls = cn(BASE, VARIANTS[variant], SIZES[size], className)
   if (href) return <a href={href} className={cls}>{children}</a>
   return <button className={cls}>{children}</button>

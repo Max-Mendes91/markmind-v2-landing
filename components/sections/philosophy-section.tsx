@@ -23,13 +23,13 @@ const PRINCIPLES: PhilosophyPrinciple[] = [
 ]
 
 export const PhilosophySection = () => (
-  <section id="philosophy" className="relative px-4 md:px-8 lg:px-16 py-28 bg-black overflow-hidden">
+  <section id="philosophy" className="relative px-4 md:px-8 lg:px-16 py-28 bg-background overflow-hidden">
     <div className="absolute inset-0 geometric-bg opacity-20 pointer-events-none" />
 
     {/* Header */}
     <div className="relative z-10 flex flex-col items-center text-center mb-16 max-w-5xl mx-auto">
       <SectionBadge label="Philosophy" />
-      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-black text-white leading-tight tracking-tight mb-4">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-black text-foreground leading-tight tracking-tight mb-4">
         We build a bookmark organizer
         <br />
         <span className="text-gradient-gold-metallic italic">
@@ -43,7 +43,7 @@ export const PhilosophySection = () => (
           </span>
         </span>
       </h2>
-      <p className="text-white/50 text-base max-w-md leading-relaxed">
+      <p className="text-overlay-50 text-base max-w-md leading-relaxed">
         Bookmarks fail when they rely on discipline. We designed MarkMind to
         handle the sorting part so you can focus on what you&apos;re reading.
       </p>
@@ -53,10 +53,10 @@ export const PhilosophySection = () => (
     <div className="relative z-10 max-w-2xl mx-auto flex flex-col gap-10">
       {PRINCIPLES.map(({ keyword, statement }) => (
         <div key={keyword} className="border-l-2 border-brand-orange/30 pl-6">
-          <h3 className="text-card-title-lg font-black text-white mb-2">
+          <h3 className="text-card-title-lg font-black text-foreground mb-2">
             {keyword}
           </h3>
-          <p className="text-body text-white/55 leading-relaxed">
+          <p className="text-body text-overlay-55 leading-relaxed">
             {statement}
           </p>
         </div>
@@ -64,7 +64,7 @@ export const PhilosophySection = () => (
     </div>
 
     {/* Closing */}
-    <p className="relative z-10 mt-16 text-center italic text-white/55 text-body-md max-w-lg mx-auto">
+    <p className="relative z-10 mt-16 text-center italic text-overlay-55 text-body-md max-w-lg mx-auto">
       &ldquo;The best organization system is the one that doesn&apos;t ask for attention.&rdquo;
     </p>
   </section>

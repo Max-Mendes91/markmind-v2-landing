@@ -17,27 +17,27 @@ export const metadata: Metadata = {
 const TermsPage = () => (
   <>
     <Navbar />
-    <main className="min-h-screen bg-black overflow-x-clip">
+    <main className="min-h-screen bg-background overflow-x-clip">
       <div className="relative px-4 sm:px-6 md:px-8 lg:px-16 pt-28 sm:pt-32 pb-16 sm:pb-20">
         <div className="relative z-10 max-w-3xl mx-auto">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-sm text-white/40 hover:text-white/70 transition-colors mb-6 sm:mb-8"
+            className="inline-flex items-center gap-1.5 text-sm text-overlay-40 hover:text-overlay-70 transition-colors mb-6 sm:mb-8"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to Home
           </Link>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-3">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground mb-3">
             Terms of Service
           </h1>
-          <p className="text-white/40 text-sm mb-10 sm:mb-12">
+          <p className="text-overlay-40 text-sm mb-10 sm:mb-12">
             Last updated: March 1, 2026
           </p>
 
-          <div className="space-y-10 text-white/60 text-sm sm:text-base leading-relaxed">
+          <div className="space-y-10 text-overlay-60 text-sm sm:text-base leading-relaxed">
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Agreement
               </h2>
               <p>
@@ -46,7 +46,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 What MarkMind Is
               </h2>
               <p>
@@ -55,7 +55,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Your API Key
               </h2>
               <p className="mb-3">
@@ -82,7 +82,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Your Data
               </h2>
               <p>
@@ -91,7 +91,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Open Source License
               </h2>
               <p>
@@ -100,7 +100,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Acceptable Use
               </h2>
               <p>You agree not to:</p>
@@ -125,7 +125,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Disclaimer of Warranties
               </h2>
               <p>
@@ -134,7 +134,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Limitation of Liability
               </h2>
               <p>
@@ -146,7 +146,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Governing Law
               </h2>
               <p>
@@ -155,7 +155,7 @@ const TermsPage = () => (
             </section>
 
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Changes to These Terms
               </h2>
               <p>
@@ -163,7 +163,7 @@ const TermsPage = () => (
               </p>
             </section>
 
-            <section className="border-t border-white/10 pt-8">
+            <section className="border-t border-overlay-10 pt-8">
               <p>
                 Questions about these terms? Contact us at <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-orange hover:underline">{CONTACT_EMAIL}</a>.
               </p>

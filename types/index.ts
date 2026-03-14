@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react"
+import type { Accent } from "@/lib/tokens"
 
-// ── Navigation ────────────────────────────────────────────────────────────────
+// ── Navigation ────────────────────────────────────────────────────────────
 export interface NavLink {
   label: string
   href:  string
@@ -11,29 +12,36 @@ export interface FooterLink {
   href:  string
 }
 
-// ── Marquee ───────────────────────────────────────────────────────────────────
+// ── Marquee ───────────────────────────────────────────────────────────────
 export interface MarqueeItem {
   label: string
   Icon:  LucideIcon
 }
 
-// ── Philosophy ────────────────────────────────────────────────────────────────
+// ── Philosophy ────────────────────────────────────────────────────────────
 export interface PhilosophyPrinciple {
   keyword:   string
   statement: string
 }
 
-// ── Testimonials ──────────────────────────────────────────────────────────────
-export type TestimonialAccent = "orange" | "slate" | "neutral"
-
+// ── Testimonials ──────────────────────────────────────────────────────────
 export interface MiniTestimonial {
   handle:  string
   role:    string
   snippet: React.ReactNode
-  accent:  TestimonialAccent
+  accent:  Accent
 }
 
-// ── Blog ─────────────────────────────────────────────────────────────────────
+// ── Shared component props ────────────────────────────────────────────────
+export interface CornersProps {
+  color: string
+}
+
+export interface SectionBadgeProps {
+  label: string
+}
+
+// ── Blog ─────────────────────────────────────────────────────────────────
 export interface BlogPostMeta {
   title:           string
   slug:            string

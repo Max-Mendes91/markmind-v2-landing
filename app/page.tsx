@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-black overflow-x-clip">
+      <main className="min-h-screen bg-background overflow-x-clip">
         <HeroSection />
         <MarqueeSection />
         <BentoSection />

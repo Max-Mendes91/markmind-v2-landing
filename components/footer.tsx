@@ -16,7 +16,7 @@ const FOOTER_NAV: FooterLink[] = [
 ]
 
 export const Footer = () => (
-  <footer className="relative px-4 md:px-8 lg:px-16 pt-24 pb-10 bg-black overflow-hidden">
+  <footer className="relative px-4 md:px-8 lg:px-16 pt-24 pb-10 bg-background overflow-hidden">
     {/* Geometric background */}
     <div className="absolute inset-0 geometric-bg opacity-10 pointer-events-none" />
 
@@ -35,14 +35,14 @@ export const Footer = () => (
             height={48}
             className="brightness-110"
           />
-          <span className="text-4xl md:text-5xl font-black text-white tracking-tight">
+          <span className="text-4xl md:text-5xl font-black text-foreground tracking-tight">
             MarkMind
           </span>
         </div>
       </div>
 
       {/* Tagline */}
-      <p className="text-white/50 text-base max-w-md leading-relaxed mb-8">
+      <p className="text-overlay-65 dark:text-overlay-50 text-base max-w-md leading-relaxed mb-8">
         An AI bookmark organizer that keeps
         <br />
         your Chrome folders clean without
@@ -61,7 +61,7 @@ export const Footer = () => (
           <a
             key={label}
             href={href}
-            className="text-body-xs text-white/50 underline underline-offset-4 decoration-white/15 hover:text-white/70 hover:decoration-white/40 transition-colors"
+            className="text-body-xs text-overlay-65 dark:text-overlay-50 underline underline-offset-4 decoration-overlay-15 hover:text-overlay-70 hover:decoration-overlay-40 transition-colors"
           >
             {label}
           </a>
@@ -69,7 +69,7 @@ export const Footer = () => (
       </nav>
 
       {/* Copyright */}
-      <span className="mt-8 text-badge text-white/50">
+      <span className="mt-8 text-badge text-overlay-65 dark:text-overlay-50">
         MarkMind &copy; {new Date().getFullYear()}
       </span>
     </div>

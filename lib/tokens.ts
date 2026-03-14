@@ -20,7 +20,13 @@ export type Accent = "orange" | "slate" | "neutral"
 export const accentColor: Record<Accent, string> = {
   orange:  ORANGE,
   slate:   SLATE,
-  neutral: "rgba(255,255,255,0.35)",
+  neutral: "rgb(var(--overlay) / 0.35)",
+}
+
+// Theme-aware accent text — uses CSS vars that resolve to darkened colors in light mode
+export const accentTextVar: Record<Exclude<Accent, "neutral">, string> = {
+  orange: "var(--accent-orange-text)",
+  slate:  "var(--accent-slate-text)",
 }
 
 // ── Site-wide constants ─────────────────────────────────────────────────────────

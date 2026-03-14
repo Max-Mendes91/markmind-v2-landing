@@ -26,10 +26,10 @@ const MARQUEE_TRACK = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS]
 
 export const MarqueeSection = () => {
   return (
-    <div className="relative w-full overflow-hidden border-y border-white/5 py-5 bg-black">
+    <div className="relative w-full overflow-hidden border-y border-overlay-12 dark:border-overlay-5 py-5 bg-background">
       {/* Fade masks on edges */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-linear-to-r from-black to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-linear-to-l from-black to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-linear-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-linear-to-l from-background to-transparent" />
 
       <div className="flex w-max animate-marquee">
         {MARQUEE_TRACK.map(({ label, Icon }, i) => (
@@ -43,8 +43,8 @@ export const MarqueeSection = () => {
             <span className="absolute bottom-0.5 left-0.5 w-2 h-2 border-b border-l border-brand-orange/25" />
             <span className="absolute bottom-0.5 right-0.5 w-2 h-2 border-b border-r border-brand-orange/25" />
 
-            <Icon className="w-3.5 h-3.5 text-brand-orange/70 shrink-0" />
-            <span className="text-caption font-bold uppercase tracking-[0.2em] text-white/50 whitespace-nowrap">
+            <Icon className="w-3.5 h-3.5 text-brand-orange/70 shrink-0" aria-hidden="true" />
+            <span className="text-caption font-bold uppercase tracking-[0.2em] text-overlay-85 dark:text-overlay-50 whitespace-nowrap">
               {label}
             </span>
           </div>

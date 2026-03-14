@@ -1,7 +1,7 @@
 import type { BlogPostMeta } from "@/types"
 import type { Document } from "@contentful/rich-text-types"
 import type { Asset, EntrySkeletonType, EntryFieldTypes } from "contentful"
-import { getClient } from "@/lib/contentful"
+import { getClient, isContentfulConfigured } from "@/lib/contentful"
 
 const CONTENT_TYPE = "blogPost"
 
@@ -70,48 +70,63 @@ const toMeta = (fields: ResolvedBlogFields): BlogPostMeta => ({
 
 /** Get all blog post slugs */
 export const getBlogPostSlugs = async (): Promise<string[]> => {
-  const client = getClient()
-  const entries = await client.getEntries<BlogPostSkeleton>({
-    content_type: CONTENT_TYPE,
-    select: ["fields.slug"],
-    order: ["-fields.datePublished"],
-    limit: 100,
-  })
-  return entries.items.map((item) => item.fields.slug as string)
+  if (!isContentfulConfigured()) return []
+  try {
+    const client = getClient()
+    const entries = await client.getEntries<BlogPostSkeleton>({
+      content_type: CONTENT_TYPE,
+      select: ["fields.slug"],
+      order: ["-fields.datePublished"],
+      limit: 100,
+    })
+    return entries.items.map((item) => item.fields.slug as string)
+  } catch {
+    return []
+  }
 }
 
 /** Get a single blog post by slug — returns meta + rich text document */
 export const getBlogPost = async (
   slug: string,
 ): Promise<{ meta: BlogPostMeta; body: Document } | null> => {
-  const client = getClient()
-  const entries = await client.getEntries<BlogPostSkeleton>({
-    content_type: CONTENT_TYPE,
-    "fields.slug": slug,
-    limit: 1,
-    include: 2,
-  })
+  if (!isContentfulConfigured()) return null
+  try {
+    const client = getClient()
+    const entries = await client.getEntries<BlogPostSkeleton>({
+      content_type: CONTENT_TYPE,
+      "fields.slug": slug,
+      limit: 1,
+      include: 2,
+    })
 
-  if (entries.items.length === 0) return null
+    if (entries.items.length === 0) return null
 
-  const fields = entries.items[0].fields as unknown as ResolvedBlogFields
-  return {
-    meta: toMeta(fields),
-    body: fields.body,
+    const fields = entries.items[0].fields as unknown as ResolvedBlogFields
+    return {
+      meta: toMeta(fields),
+      body: fields.body,
+    }
+  } catch {
+    return null
   }
 }
 
 /** Get all blog posts sorted by datePublished descending */
 export const getBlogPosts = async (): Promise<BlogPostMeta[]> => {
-  const client = getClient()
-  const entries = await client.getEntries<BlogPostSkeleton>({
-    content_type: CONTENT_TYPE,
-    order: ["-fields.datePublished"],
-    limit: 100,
-    include: 1,
-  })
+  if (!isContentfulConfigured()) return []
+  try {
+    const client = getClient()
+    const entries = await client.getEntries<BlogPostSkeleton>({
+      content_type: CONTENT_TYPE,
+      order: ["-fields.datePublished"],
+      limit: 100,
+      include: 1,
+    })
 
-  return entries.items.map((item) =>
-    toMeta(item.fields as unknown as ResolvedBlogFields),
-  )
+    return entries.items.map((item) =>
+      toMeta(item.fields as unknown as ResolvedBlogFields),
+    )
+  } catch {
+    return []
+  }
 }

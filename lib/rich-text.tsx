@@ -12,45 +12,45 @@ const LINK_CLASSES =
 const renderOptions: Options = {
   renderMark: {
     [MARKS.BOLD]: (text) => (
-      <strong className="font-bold text-white">{text}</strong>
+      <strong className="font-bold text-foreground">{text}</strong>
     ),
     [MARKS.ITALIC]: (text) => (
-      <em className="italic text-white/50">{text}</em>
+      <em className="italic text-overlay-50">{text}</em>
     ),
     [MARKS.CODE]: (text) => (
-      <code className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-sm text-brand-orange font-mono">
+      <code className="px-1.5 py-0.5 rounded bg-overlay-5 border border-overlay-10 text-sm text-brand-orange font-mono">
         {text}
       </code>
     ),
   },
   renderNode: {
     [BLOCKS.HEADING_1]: (_node, children) => (
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white mb-5 sm:mb-6 md:mb-8">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-foreground mb-5 sm:mb-6 md:mb-8">
         {children}
       </h1>
     ),
     [BLOCKS.HEADING_2]: (_node, children) => (
-      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mt-8 sm:mt-10 md:mt-12 mb-3 sm:mb-4 md:mb-5">
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground mt-8 sm:mt-10 md:mt-12 mb-3 sm:mb-4 md:mb-5">
         {children}
       </h2>
     ),
     [BLOCKS.HEADING_3]: (_node, children) => (
-      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white mt-6 sm:mt-8 mb-2 sm:mb-3">
+      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground mt-6 sm:mt-8 mb-2 sm:mb-3">
         {children}
       </h3>
     ),
     [BLOCKS.PARAGRAPH]: (_node, children) => (
-      <p className="text-sm sm:text-base text-white/60 font-normal leading-relaxed mb-4 sm:mb-5">
+      <p className="text-sm sm:text-base text-overlay-60 font-normal leading-relaxed mb-4 sm:mb-5">
         {children}
       </p>
     ),
     [BLOCKS.UL_LIST]: (_node, children) => (
-      <ul className="list-disc list-outside pl-4 sm:pl-5 md:pl-6 mb-4 sm:mb-5 space-y-1.5 sm:space-y-2 text-white/60 text-sm sm:text-base">
+      <ul className="list-disc list-outside pl-4 sm:pl-5 md:pl-6 mb-4 sm:mb-5 space-y-1.5 sm:space-y-2 text-overlay-60 text-sm sm:text-base">
         {children}
       </ul>
     ),
     [BLOCKS.OL_LIST]: (_node, children) => (
-      <ol className="list-decimal list-outside pl-4 sm:pl-5 md:pl-6 mb-4 sm:mb-5 space-y-1.5 sm:space-y-2 text-white/60 text-sm sm:text-base">
+      <ol className="list-decimal list-outside pl-4 sm:pl-5 md:pl-6 mb-4 sm:mb-5 space-y-1.5 sm:space-y-2 text-overlay-60 text-sm sm:text-base">
         {children}
       </ol>
     ),
@@ -58,12 +58,12 @@ const renderOptions: Options = {
       <li className="leading-relaxed">{children}</li>
     ),
     [BLOCKS.QUOTE]: (_node, children) => (
-      <blockquote className="border-l-2 border-brand-orange/40 pl-4 sm:pl-5 md:pl-6 my-5 sm:my-6 md:my-8 italic text-white/40">
+      <blockquote className="border-l-2 border-brand-orange/40 pl-4 sm:pl-5 md:pl-6 my-5 sm:my-6 md:my-8 italic text-overlay-40">
         {children}
       </blockquote>
     ),
     [BLOCKS.HR]: () => (
-      <hr className="border-white/8 my-6 sm:my-8 md:my-10" />
+      <hr className="border-overlay-8 my-6 sm:my-8 md:my-10" />
     ),
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { title, description, file } = node.data.target.fields
@@ -77,7 +77,7 @@ const renderOptions: Options = {
           alt={(description as string) || (title as string) || ""}
           width={imgDetails?.width ?? 1200}
           height={imgDetails?.height ?? 630}
-          className="rounded-xl border border-white/10 my-5 sm:my-6 md:my-8 w-full h-auto"
+          className="rounded-xl border border-overlay-10 my-5 sm:my-6 md:my-8 w-full h-auto"
         />
       )
     },

@@ -11,7 +11,7 @@ export const BlogHero = () => (
     <div className="relative z-10 flex flex-col items-center text-center">
       <SectionBadge label="Blog" />
 
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-3 sm:mb-4">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight tracking-tight mb-3 sm:mb-4">
         The{" "}
         <span className="text-gradient-gold-metallic italic pr-2">
           MarkMind
@@ -19,7 +19,7 @@ export const BlogHero = () => (
         Blog
       </h1>
 
-      <p className="text-white/50 text-sm sm:text-base max-w-lg leading-relaxed">
+      <p className="text-overlay-50 text-sm sm:text-base max-w-lg leading-relaxed">
         Productivity workflows, AI use cases, browser tips, and everything
         we learn building tools for people.
       </p>

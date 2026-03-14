@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useRef } from "react";
 import { SectionBadge } from "@/components/ui/section-badge";
 import { SocialAtmoCard } from "@/components/ui/social-atmo-card";
 import { SocialQuoteCard } from "@/components/ui/social-quote-card";
 import { SocialMiniCard } from "@/components/ui/social-mini-card";
+import { useMarqueeSpeed } from "@/hooks/use-marquee-speed";
 import type { MiniTestimonial } from "@/types";
 
 // ── Mini card data (duplicated for seamless marquee loop) ─────────────────────
@@ -90,35 +90,89 @@ const MINI_TESTIMONIAL_TRACK = [
   ...MINI_TESTIMONIAL_ITEMS,
 ];
 
+// ── Masonry grid ──────────────────────────────────────────────────────────────
+const QuoteGrid = () => (
+  <div className="relative z-10 grid grid-cols-12 gap-4 max-w-5xl mx-auto">
+    <div className="col-span-12 md:col-span-5 md:row-span-2 min-h-[280px] md:min-h-0">
+      <SocialAtmoCard accent="orange" />
+    </div>
+
+    <div className="col-span-12 md:col-span-7">
+      <SocialQuoteCard
+        badge="2,000+ bookmarks"
+        quote={
+          <>
+            Never thought I needed this until I had +2000 bookmarks!{" "}
+            <strong className="text-foreground font-semibold">THE BEST!</strong>
+          </>
+        }
+        handle="Telmo C."
+        role="Chrome Web Store · Verified Review"
+        accent="orange"
+      />
+    </div>
+
+    <div className="col-span-12 md:col-span-7">
+      <SocialQuoteCard
+        badge="200 bookmarks"
+        quote={
+          <>
+            I&rsquo;ve organized some random folders with 200 bookmarks.
+            From now on I&rsquo;ll use MarkMind over{" "}
+            <strong className="text-foreground font-semibold">
+              Chrome&rsquo;s native bookmark button
+            </strong>
+            .
+          </>
+        }
+        handle="Elja S."
+        role="Chrome Web Store · Verified Review"
+        accent="slate"
+      />
+    </div>
+
+    <div className="col-span-12 md:col-span-7">
+      <SocialQuoteCard
+        badge="Verified User"
+        quote={
+          <>
+            Amazing, my folder is now{" "}
+            <strong className="text-foreground font-semibold">
+              clean, it&rsquo;s perfect
+            </strong>
+            , organized everything literally. Would highly recommend.
+          </>
+        }
+        handle="Stefano J."
+        role="Chrome Web Store · Verified Review"
+        accent="orange"
+      />
+    </div>
+
+    <div className="col-span-12 md:col-span-5 md:row-span-2 min-h-[280px] md:min-h-0">
+      <SocialAtmoCard accent="slate" />
+    </div>
+
+    <div className="col-span-12 md:col-span-7">
+      <SocialQuoteCard
+        badge="Finally"
+        quote={
+          <>
+            <strong className="text-foreground font-semibold">Finally</strong>{" "}
+            someone did this.
+          </>
+        }
+        handle="Bruno DS."
+        role="Chrome Web Store · Verified Review"
+        accent="slate"
+      />
+    </div>
+  </div>
+);
+
 // ── Section ────────────────────────────────────────────────────────────────────
 export const SocialProofSection = () => {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number | null>(null);
-
-  const slowDown = useCallback(() => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    const step = () => {
-      const anim = trackRef.current?.getAnimations()[0];
-      if (!anim) return;
-      const next = Math.max(anim.playbackRate * 0.88, 0.25);
-      anim.playbackRate = next;
-      if (next > 0.26) rafRef.current = requestAnimationFrame(step);
-    };
-    rafRef.current = requestAnimationFrame(step);
-  }, []);
-
-  const speedUp = useCallback(() => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    const step = () => {
-      const anim = trackRef.current?.getAnimations()[0];
-      if (!anim) return;
-      const next = Math.min(anim.playbackRate * 1.12, 1);
-      anim.playbackRate = next;
-      if (next < 0.99) rafRef.current = requestAnimationFrame(step);
-      else anim.playbackRate = 1;
-    };
-    rafRef.current = requestAnimationFrame(step);
-  }, []);
+  const { trackRef, slowDown, speedUp } = useMarqueeSpeed();
 
   return (
     <section
@@ -142,83 +196,7 @@ export const SocialProofSection = () => {
         </p>
       </div>
 
-      {/* Masonry grid */}
-      <div className="relative z-10 grid grid-cols-12 gap-4 max-w-5xl mx-auto">
-        <div className="col-span-12 md:col-span-5 md:row-span-2 min-h-[280px] md:min-h-0">
-          <SocialAtmoCard accent="orange" />
-        </div>
-
-        <div className="col-span-12 md:col-span-7">
-          <SocialQuoteCard
-            badge="2,000+ bookmarks"
-            quote={
-              <>
-                Never thought I needed this until I had +2000 bookmarks!{" "}
-                <strong className="text-foreground font-semibold">THE BEST!</strong>
-              </>
-            }
-            handle="Telmo C."
-            role="Chrome Web Store · Verified Review"
-            accent="orange"
-          />
-        </div>
-
-        <div className="col-span-12 md:col-span-7">
-          <SocialQuoteCard
-            badge="200 bookmarks"
-            quote={
-              <>
-                I&rsquo;ve organized some random folders with 200 bookmarks.
-                From now on I&rsquo;ll use MarkMind over{" "}
-                <strong className="text-foreground font-semibold">
-                  Chrome&rsquo;s native bookmark button
-                </strong>
-                .
-              </>
-            }
-            handle="Elja S."
-            role="Chrome Web Store · Verified Review"
-            accent="slate"
-          />
-        </div>
-
-        <div className="col-span-12 md:col-span-7">
-          <SocialQuoteCard
-            badge="Verified User"
-            quote={
-              <>
-                Amazing, my folder is now{" "}
-                <strong className="text-foreground font-semibold">
-                  clean, it&rsquo;s perfect
-                </strong>
-                , organized everything literally. Would highly recommend.
-              </>
-            }
-            handle="Stefano J."
-            role="Chrome Web Store · Verified Review"
-            accent="orange"
-          />
-        </div>
-
-        <div className="col-span-12 md:col-span-5 md:row-span-2 min-h-[280px] md:min-h-0">
-          <SocialAtmoCard accent="slate" />
-        </div>
-
-        <div className="col-span-12 md:col-span-7">
-          <SocialQuoteCard
-            badge="Finally"
-            quote={
-              <>
-                <strong className="text-foreground font-semibold">Finally</strong>{" "}
-                someone did this.
-              </>
-            }
-            handle="Bruno DS."
-            role="Chrome Web Store · Verified Review"
-            accent="slate"
-          />
-        </div>
-      </div>
+      <QuoteGrid />
 
       {/* Mini testimonial marquee */}
       <div

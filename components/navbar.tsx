@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { MobileMenu } from "@/components/ui/mobile-menu"
 import type { NavLink } from "@/types"
 
 const NAV_LINKS: NavLink[] = [
@@ -70,21 +71,7 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden mt-2 bg-background/80 backdrop-blur-xl border border-overlay-10 rounded-3xl px-6 py-4 flex flex-col gap-4">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={closeMobile}
-              className="text-sm font-bold text-muted-foreground hover:text-foreground transition-all uppercase tracking-[0.15em]"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      )}
+      {mobileOpen && <MobileMenu links={NAV_LINKS} onClose={closeMobile} />}
     </nav>
   )
 }

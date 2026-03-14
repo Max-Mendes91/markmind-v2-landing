@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 
 /** Controls playback speed of a CSS animation via Web Animations API */
 export const useMarqueeSpeed = () => {
@@ -30,6 +30,10 @@ export const useMarqueeSpeed = () => {
       else anim.playbackRate = 1
     }
     rafRef.current = requestAnimationFrame(step)
+  }, [])
+
+  useEffect(() => {
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }
   }, [])
 
   return { trackRef, slowDown, speedUp }

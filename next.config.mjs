@@ -17,6 +17,8 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
+              // 'unsafe-inline' is required by Next.js for JSON-LD and inline scripts.
+              // TODO: Switch to nonce-based CSP when Next.js App Router supports it natively.
               "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' https://images.ctfassets.net data:",

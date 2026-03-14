@@ -18,9 +18,16 @@ yarn-error.log*
 
 # env files
 .env*
+!.env.example
 
 # vercel
 .vercel
+
+# macOS
+.DS_Store
+
+# pnpm (project uses npm)
+pnpm-lock.yaml
 
 # typescript
 *.tsbuildinfo

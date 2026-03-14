@@ -76,7 +76,7 @@ export default function RootLayout({
               },
               description: 'AI bookmark organizer that sorts your Chrome bookmarks into folders. Bulk organize hundreds at once. Open source, no account required.',
               url: 'https://markmind.xyz',
-            }),
+            }).replace(/</g, "\\u003c"),
           }}
         />
       </body>

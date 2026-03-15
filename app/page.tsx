@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/sections/hero-section"
 import { MarqueeSection } from "@/components/sections/marquee-section"
+import { VideoSection } from "@/components/sections/video-section"
 import { BentoSection } from "@/components/sections/bento-section"
 import { RevealCardsSection } from "@/components/sections/reveal-cards-section"
 import { SocialProofSection } from "@/components/sections/social-proof-section"
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="min-h-screen bg-background overflow-x-clip">
         <HeroSection />
         <MarqueeSection />
+        <VideoSection />
         <BentoSection />
         <RevealCardsSection />
         <SocialProofSection />

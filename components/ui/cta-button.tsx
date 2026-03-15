@@ -35,7 +35,7 @@ export const CtaButton = ({
   if (href) {
     const isInternal = href.startsWith("/")
     if (isInternal) return <Link href={href} className={cls}>{children}</Link>
-    return <a href={href} className={cls}>{children}</a>
+    return <a href={href} className={cls} target="_blank" rel="noopener noreferrer">{children}</a>
   }
   return <button className={cls}>{children}</button>
 }

@@ -1,11 +1,10 @@
+import Image from "next/image"
 import { ArrowRight, Play } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
 import { CyclingWord } from "@/components/ui/cycling-word"
 import { CornerFrame } from "@/components/ui/corner-frame"
 import { HeroFloatingLeft } from "@/components/ui/hero-floating-left"
 import { HeroFloatingRight } from "@/components/ui/hero-floating-right"
-
-const LOGO_URL = "/logo.png"
 
 // ── Section ───────────────────────────────────────────────────────────────
 export const HeroSection = () => {
@@ -29,10 +28,13 @@ export const HeroSection = () => {
         {/* Logo mark with corner bracket animation */}
         <div className="mb-6">
           <CornerFrame>
-            <img
-              src={LOGO_URL}
+            <Image
+              src="/logo.png"
               alt="MarkMind"
-              className="w-10 h-10 brightness-110"
+              width={40}
+              height={40}
+              className="brightness-110"
+              priority
             />
           </CornerFrame>
         </div>

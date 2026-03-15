@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 type CtaVariant = "primary" | "outline"
@@ -31,6 +32,10 @@ export const CtaButton = ({
   children,
 }: CtaButtonProps) => {
   const cls = cn(BASE, VARIANTS[variant], SIZES[size], className)
-  if (href) return <a href={href} className={cls}>{children}</a>
+  if (href) {
+    const isInternal = href.startsWith("/")
+    if (isInternal) return <Link href={href} className={cls}>{children}</Link>
+    return <a href={href} className={cls} target="_blank" rel="noopener noreferrer">{children}</a>
+  }
   return <button className={cls}>{children}</button>
 }

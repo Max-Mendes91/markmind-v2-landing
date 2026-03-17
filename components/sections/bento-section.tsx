@@ -3,10 +3,8 @@ import { ORANGE, SLATE } from "@/lib/tokens"
 import { Corners } from "@/components/ui/corners"
 import { SectionBadge } from "@/components/ui/section-badge"
 import { BentoChip } from "@/components/ui/bento-chip"
-import { BentoCaptureMock } from "@/components/ui/bento-capture-mock"
-import { BentoAIMock } from "@/components/ui/bento-ai-mock"
-import { BentoCollectionsMock } from "@/components/ui/bento-collections-mock"
-import { BentoFlowMock } from "@/components/ui/bento-flow-mock"
+import { ThemedGif } from "@/components/ui/themed-gif"
+import { CtaButton } from "@/components/ui/cta-button"
 
 // ── Section ───────────────────────────────────────────────────────────────────
 export const BentoSection = () => (
@@ -25,69 +23,114 @@ export const BentoSection = () => (
       </p>
     </div>
 
-    {/* Editorial grid — varied shapes */}
-    <div className="relative z-10 grid grid-cols-12 gap-4 max-w-5xl mx-auto">
+    {/* Two-column flex layout */}
+    <div className="relative z-10 flex flex-col md:flex-row gap-4 max-w-5xl mx-auto items-start">
 
-      {/* ── Card 1 — TALL featured left (spans 2 rows) ── */}
-      <div className="col-span-12 md:col-span-7 md:row-span-2 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[420px] short:min-h-[320px]">
-        <Corners color={ORANGE} />
-        <BentoChip icon={MousePointerClick} label="One Click" color={ORANGE} />
-        <div className="flex-1 rounded-2xl bg-overlay-2 border border-overlay-5 p-4 overflow-hidden mb-4">
-          <BentoCaptureMock />
-        </div>
-        <div>
-          <h3 className="text-card-title font-black text-foreground mb-1">Smart bookmark suggestions</h3>
-          <p className="text-body-sm text-overlay-65 dark:text-overlay-50 leading-relaxed">
-            Click the icon. MarkMind reads the page title, URL, description, and main heading. It compares that with your full bookmark tree and suggests the best matching folder.
-          </p>
-        </div>
-      </div>
+      {/* ── Left column (wider) ── */}
+      <div className="flex flex-col gap-4 w-full md:flex-[7]">
 
-      {/* ── Card 2 — Top right ── */}
-      <div className="col-span-12 md:col-span-5 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[200px] short:min-h-[160px]">
-        <Corners color={SLATE} />
-        <BentoChip icon={Layers2} label="Bulk" color={SLATE} />
-        <div className="flex-1 rounded-2xl bg-overlay-2 border border-overlay-5 p-4 overflow-hidden mb-4">
-          <BentoAIMock />
+        {/* Card 1 — One Click */}
+        <div className="bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden">
+          <Corners color={ORANGE} />
+          <BentoChip icon={MousePointerClick} label="One Click" color={ORANGE} />
+          <div className="w-full rounded-2xl overflow-hidden mb-4">
+            <ThemedGif
+              lightSrc="/gifs/demo-light.gif"
+              darkSrc="/gifs/demo-dark.gif"
+              alt="MarkMind smart bookmark suggestion demo"
+              className="w-full h-auto"
+            />
+          </div>
+          <div>
+            <h3 className="text-card-title font-black text-foreground mb-1">Smart bookmark suggestions</h3>
+            <p className="text-body-sm text-overlay-65 dark:text-overlay-50 leading-relaxed">
+              Click the icon. MarkMind reads the page title, URL, description, and main heading. It compares that with your full bookmark tree and suggests the best matching folder.
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 className="text-body-md font-black text-foreground mb-1">Organize hundreds of bookmarks at once</h3>
-          <p className="text-body-xs text-overlay-65 dark:text-overlay-50 leading-relaxed">
-            Scan your entire bookmark library. Select folders. Let AI propose a cleaner structure. Review every move before anything changes.
-          </p>
-        </div>
-      </div>
 
-      {/* ── Card 3 — Bottom right ── */}
-      <div className="col-span-12 md:col-span-5 bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden min-h-[200px] short:min-h-[160px]">
-        <Corners color={ORANGE} />
-        <BentoChip icon={ShieldCheck} label="Control" color={ORANGE} />
-        <div className="flex-1 rounded-2xl bg-overlay-2 border border-overlay-5 p-4 overflow-hidden mb-4">
-          <BentoCollectionsMock />
-        </div>
-        <div>
-          <h3 className="text-body-md font-black text-foreground mb-1">Full review before apply</h3>
-          <p className="text-body-xs text-overlay-65 dark:text-overlay-50 leading-relaxed">
-            Approve or reject folders. Approve or reject individual bookmarks. Nothing moves without your decision.
-          </p>
-        </div>
-      </div>
-
-      {/* ── Card 4 — WIDE full-width banner ── */}
-      <div className="col-span-12 bento-card relative rounded-3xl p-5 flex flex-col md:flex-row gap-6 overflow-hidden min-h-[200px] short:min-h-[160px]">
-        <Corners color={SLATE} />
-        {/* Left: text */}
-        <div className="md:w-2/5 flex flex-col justify-center">
+        {/* Card 4 — Private */}
+        <div className="bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden">
+          <Corners color={SLATE} />
           <BentoChip icon={Zap} label="Private" color={SLATE} />
-          <h3 className="text-card-title-lg font-black text-foreground mb-2">Zero backend. Your API key.</h3>
-          <p className="text-body-sm text-overlay-65 dark:text-overlay-50 leading-relaxed">
-            All AI calls go directly from your browser to your chosen provider. No accounts. No MarkMind servers. No data collection.
-          </p>
+          <div className="w-full rounded-2xl overflow-hidden mb-4">
+            <ThemedGif
+              lightSrc="/gifs/private-light.gif"
+              darkSrc="/gifs/private-dark.gif"
+              alt="MarkMind zero backend demo"
+              className="w-full h-auto"
+            />
+          </div>
+          <div>
+            <h3 className="text-card-title font-black text-foreground mb-1">Zero backend. Your API key.</h3>
+            <p className="text-body-sm text-overlay-65 dark:text-overlay-50 leading-relaxed">
+              All AI calls go directly from your browser to your chosen provider. No accounts. No MarkMind servers. No data collection.
+            </p>
+          </div>
         </div>
-        {/* Right: animated mock */}
-        <div className="flex-1 rounded-2xl bg-overlay-2 border border-overlay-5 p-4 overflow-hidden min-h-[140px]">
-          <BentoFlowMock />
+
+      </div>
+
+      {/* ── Right column (narrower) ── */}
+      <div className="flex flex-col gap-4 w-full md:flex-[5] self-stretch">
+
+        {/* Card 2 — Bulk */}
+        <div className="bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden">
+          <Corners color={SLATE} />
+          <BentoChip icon={Layers2} label="Bulk" color={SLATE} />
+          <div className="w-full rounded-2xl overflow-hidden mb-4">
+            <ThemedGif
+              lightSrc="/gifs/bulk-light.gif"
+              darkSrc="/gifs/bulk-dark.gif"
+              alt="MarkMind bulk organize demo"
+              className="w-full h-auto"
+            />
+          </div>
+          <div>
+            <h3 className="text-body-md font-black text-foreground mb-1">Organize hundreds of bookmarks at once</h3>
+            <p className="text-body-xs text-overlay-65 dark:text-overlay-50 leading-relaxed">
+              Scan your entire bookmark library. Select folders. Let AI propose a cleaner structure. Review every move before anything changes.
+            </p>
+          </div>
         </div>
+
+        {/* Card 3 — Control */}
+        <div className="bento-card relative rounded-3xl p-5 flex flex-col overflow-hidden">
+          <Corners color={ORANGE} />
+          <BentoChip icon={ShieldCheck} label="Control" color={ORANGE} />
+          <div className="w-full rounded-2xl overflow-hidden mb-4">
+            <ThemedGif
+              lightSrc="/gifs/control-light.gif"
+              darkSrc="/gifs/control-dark.gif"
+              alt="MarkMind review and control demo"
+              className="w-full h-auto"
+            />
+          </div>
+          <div>
+            <h3 className="text-body-md font-black text-foreground mb-1">Full review before apply</h3>
+            <p className="text-body-xs text-overlay-65 dark:text-overlay-50 leading-relaxed">
+              Approve or reject folders. Approve or reject individual bookmarks. Nothing moves without your decision.
+            </p>
+          </div>
+        </div>
+
+        {/* Card 5 — CTA */}
+        <div className="bento-card relative rounded-3xl p-6 flex flex-col justify-between gap-4 overflow-hidden flex-1">
+          <Corners color={ORANGE} />
+          <div>
+            <h3 className="text-card-title font-black text-foreground mb-2">Free. Open source. No account.</h3>
+            <p className="text-body-xs text-overlay-65 dark:text-overlay-50 leading-relaxed">
+              Install in seconds. Works with OpenAI, Gemini, OpenRouter and more. Your bookmarks, your rules.
+            </p>
+          </div>
+          <CtaButton
+            href="https://chromewebstore.google.com/detail/markmind/bdobgdkpeffdbonfpokgkbncgnbnjnoo"
+            size="sm"
+          >
+            Add to Chrome - Free
+          </CtaButton>
+        </div>
+
       </div>
     </div>
 

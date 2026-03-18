@@ -5,7 +5,7 @@
 ---
 
 ## Tailwind Breakpoints
-
+s
 | Breakpoint | Min-Width | Target Devices |
 |---|---|---|
 | default | 0px | XS Mobile (< 640px) |

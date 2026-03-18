@@ -11,6 +11,7 @@ export const useCookieConsent = () => {
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Consent
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Syncing with localStorage on mount, not available during SSR
     setConsent(stored)
   }, [])
 
@@ -31,7 +32,10 @@ export const CookieConsent = () => {
   const { consent, accept, decline } = useCookieConsent()
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Standard Next.js hydration mismatch pattern
+    setMounted(true)
+  }, [])
 
   // Don't render until mounted (avoids hydration mismatch)
   // Hide if user already chose

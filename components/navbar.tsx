@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { CtaButton } from "@/components/ui/cta-button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
@@ -26,7 +27,7 @@ export const Navbar = () => {
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
       <div className="bg-background/40 backdrop-blur-[20px] border border-overlay-10 rounded-full px-5 py-3 flex items-center justify-between shadow-[0_0_25px_-5px_var(--shadow-brand-orange-sm)] ring-1 ring-brand-orange/20">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2.5 pl-1 shrink-0">
+        <Link href="/" className="flex items-center gap-2.5 pl-1 shrink-0">
           <Image
             src="/logo.png"
             alt="MarkMind Logo"
@@ -37,18 +38,18 @@ export const Navbar = () => {
           <span className="text-base font-black tracking-tight text-foreground hidden sm:block">
             MarkMind
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 px-4">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-badge font-bold text-muted-foreground hover:text-foreground transition-all uppercase tracking-[0.25em]"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 

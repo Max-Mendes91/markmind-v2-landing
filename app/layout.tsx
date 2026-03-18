@@ -61,6 +61,7 @@ export default async function RootLayout({
         <CookieConsent />
         <script
           nonce={nonce}
+          suppressHydrationWarning
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: safeJsonLd({

@@ -1,16 +1,16 @@
 "use client"
 
-import { useCallback, useSyncExternalStore } from "react"
+import { useCallback, useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 import { Sun, Moon } from "lucide-react"
 
-const subscribe = () => () => {}
-const getSnapshot = () => true
-const getServerSnapshot = () => false
-
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme()
-  const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const toggleTheme = useCallback(() => {
     setTheme(theme === "dark" ? "light" : "dark")

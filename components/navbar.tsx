@@ -9,13 +9,11 @@ import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { MobileMenu } from "@/components/ui/mobile-menu"
 import type { NavLink } from "@/types"
 
-// ── V2 nav links — uncomment when ready to launch ────────────────────────────
-// const NAV_LINKS: NavLink[] = [
-//   { label: "Features", href: "/#features" },
-//   { label: "How It Works", href: "/#how-it-works" },
-//   { label: "Blog", href: "/blog" },
-// ]
-const NAV_LINKS: NavLink[] = []
+const NAV_LINKS: NavLink[] = [
+  { label: "Features", href: "/#features" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Blog", href: "/blog" },
+]
 
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)

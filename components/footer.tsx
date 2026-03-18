@@ -4,18 +4,11 @@ import { CtaButton } from "@/components/ui/cta-button"
 import { SLATE, GITHUB_URL } from "@/lib/tokens"
 import type { FooterLink } from "@/types"
 
-// ── V2 footer nav — uncomment when ready to launch ───────────────────────────
-// const FOOTER_NAV: FooterLink[] = [
-//   { label: "Features",     href: "/#features" },
-//   { label: "How It Works", href: "/#how-it-works" },
-//   { label: "Reviews",      href: "/#reviews" },
-//   { label: "Blog",         href: "/blog" },
-//   { label: "Privacy",      href: "/privacy" },
-//   { label: "Terms",        href: "/terms" },
-//   { label: "Open Source",  href: GITHUB_URL },
-//   { label: "Contact",      href: "/contact" },
-// ]
 const FOOTER_NAV: FooterLink[] = [
+  { label: "Features",     href: "/#features" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Reviews",      href: "/#reviews" },
+  { label: "Blog",         href: "/blog" },
   { label: "Privacy",      href: "/privacy" },
   { label: "Terms",        href: "/terms" },
   { label: "Open Source",  href: GITHUB_URL },

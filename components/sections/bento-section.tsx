@@ -38,6 +38,8 @@ export const BentoSection = () => (
               lightSrc="/gifs/demo-light.gif"
               darkSrc="/gifs/demo-dark.gif"
               alt="MarkMind smart bookmark suggestion demo"
+              width={788}
+              height={776}
               className="w-full h-auto"
             />
           </div>
@@ -58,6 +60,8 @@ export const BentoSection = () => (
               lightSrc="/gifs/private-light.gif"
               darkSrc="/gifs/private-dark.gif"
               alt="MarkMind zero backend demo"
+              width={766}
+              height={1116}
               className="w-full h-auto"
             />
           </div>
@@ -83,6 +87,8 @@ export const BentoSection = () => (
               lightSrc="/gifs/bulk-light.gif"
               darkSrc="/gifs/bulk-dark.gif"
               alt="MarkMind bulk organize demo"
+              width={764}
+              height={1130}
               className="w-full h-auto"
             />
           </div>
@@ -103,6 +109,8 @@ export const BentoSection = () => (
               lightSrc="/gifs/control-light.gif"
               darkSrc="/gifs/control-dark.gif"
               alt="MarkMind review and control demo"
+              width={764}
+              height={1130}
               className="w-full h-auto"
             />
           </div>

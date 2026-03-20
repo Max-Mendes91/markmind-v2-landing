@@ -127,7 +127,7 @@ export const FaqSection = () => (
       {/* Accordion */}
       <div className="border-t border-overlay-8">
         {FAQ_ITEMS.map((item, i) => (
-          <FaqAccordionItem key={i} {...item} index={i} />
+          <FaqAccordionItem key={item.question} {...item} index={i} />
         ))}
       </div>
     </div>

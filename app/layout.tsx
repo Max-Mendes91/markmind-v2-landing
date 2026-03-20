@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     'AI bookmark organizer that sorts your Chrome bookmarks into folders. Bulk organize hundreds at once. Open source, no account required. Free to install.',
   keywords: ['bookmark organizer', 'chrome extension', 'AI bookmarks', 'bookmark manager', 'organize bookmarks', 'browser extension'],
+  alternates: {
+    canonical: 'https://markmind.xyz',
+  },
   openGraph: {
     title:       'AI Bookmark Organizer for Chrome | MarkMind',
     description: 'Sort your Chrome bookmarks into folders with AI. Bulk organize hundreds at once. Free & open source.',

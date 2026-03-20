@@ -41,6 +41,12 @@ export interface SectionBadgeProps {
   label: string
 }
 
+// ── FAQ ──────────────────────────────────────────────────────────────────
+export interface FaqItem {
+  question: string
+  answer:   string
+}
+
 // ── Blog ─────────────────────────────────────────────────────────────────
 export interface BlogPostMeta {
   title:           string

@@ -7,6 +7,7 @@ import { RevealCardsSection } from "@/components/sections/reveal-cards-section"
 import { SocialProofSection } from "@/components/sections/social-proof-section"
 import { PhilosophySection } from "@/components/sections/philosophy-section"
 import { V2SignalSection } from "@/components/sections/v2-signal-section"
+import { FaqSection } from "@/components/sections/faq-section"
 import { CtaSection } from "@/components/sections/cta-section"
 import { Footer } from "@/components/footer"
 
@@ -23,6 +24,7 @@ export default function Home() {
         <SocialProofSection />
         <PhilosophySection />
         <V2SignalSection />
+        <FaqSection />
         <CtaSection />
       </main>
       <Footer />

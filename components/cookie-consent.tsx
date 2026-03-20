@@ -1,12 +1,26 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
+import { createContext, useCallback, useContext, useEffect, useState } from "react"
 
 const STORAGE_KEY = "markmind-cookie-consent"
 
 type Consent = "granted" | "denied" | null
 
-export const useCookieConsent = () => {
+interface CookieConsentContextValue {
+  consent: Consent
+  accept: () => void
+  decline: () => void
+}
+
+const CookieConsentContext = createContext<CookieConsentContextValue>({
+  consent: null,
+  accept: () => {},
+  decline: () => {},
+})
+
+export const useCookieConsent = () => useContext(CookieConsentContext)
+
+export const CookieConsentProvider = ({ children }: { children: React.ReactNode }) => {
   const [consent, setConsent] = useState<Consent>(null)
 
   useEffect(() => {
@@ -25,7 +39,11 @@ export const useCookieConsent = () => {
     setConsent("denied")
   }, [])
 
-  return { consent, accept, decline }
+  return (
+    <CookieConsentContext.Provider value={{ consent, accept, decline }}>
+      {children}
+    </CookieConsentContext.Provider>
+  )
 }
 
 export const CookieConsent = () => {

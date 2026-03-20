@@ -3,7 +3,7 @@ import { headers } from 'next/headers'
 import { Archivo, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@/components/google-analytics'
-import { CookieConsent } from '@/components/cookie-consent'
+import { CookieConsent, CookieConsentProvider } from '@/components/cookie-consent'
 import { ThemeProvider } from '@/components/theme-provider'
 import { safeJsonLd } from '@/lib/utils'
 import './globals.css'
@@ -60,8 +60,10 @@ export default async function RootLayout({
           {children}
         </ThemeProvider>
         <Analytics />
-        <GoogleAnalytics nonce={nonce} />
-        <CookieConsent />
+        <CookieConsentProvider>
+          <GoogleAnalytics nonce={nonce} />
+          <CookieConsent />
+        </CookieConsentProvider>
         <script
           nonce={nonce}
           suppressHydrationWarning

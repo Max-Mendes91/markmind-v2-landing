@@ -29,6 +29,10 @@ yarn-error.log*
 # pnpm (project uses npm)
 pnpm-lock.yaml
 
+# AI tooling
+.claude/
+CLAUDE.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
